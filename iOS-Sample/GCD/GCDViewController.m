@@ -17,21 +17,278 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//barrier（访问数据库或者文件的时候 ，读-写锁）
+- (void)barrier
+{
+    dispatch_queue_t t = dispatch_queue_create(NULL, DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(t, ^{
+        
+        NSLog(@"1");
+    });
+    dispatch_async(t, ^{
+        NSLog(@"2");
+    });
+    dispatch_barrier_async(t, ^{
+        NSLog(@"barrier");
+    });
+    dispatch_async(t, ^{
+        sleep(2);
+        NSLog(@"3");
+    });
+    dispatch_async(t, ^{
+        
+        NSLog(@"4");
+    });
+    sleep(2);
+    NSLog(@"end");
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//group
+- (void)group{
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t t = dispatch_get_global_queue(0, 0);
+    dispatch_group_enter(group);
+    dispatch_group_leave(group);
+    
+    dispatch_group_async(group, t, ^{
+        dispatch_async(t, ^{
+            sleep(2);
+            NSLog(@"1");
+        });
+    });
+    
+    
+    dispatch_group_async(group, t, ^{
+        dispatch_async(t, ^{
+            sleep(2);
+            NSLog(@"2");
+            
+        });
+        
+    });
+    dispatch_group_notify(group, t, ^{
+        NSLog(@"合成");
+    });
 }
-*/
+#pragma mark - 嵌套
+//同步主队列
+- (void)syncMain{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    dispatch_sync(queue, ^{
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"任务1");
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步主队列
+- (void)asyncMain{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    dispatch_async(queue, ^{
+        sleep(2);
+        NSLog(@"任务1");
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步串行嵌套（同步）
+- (void)asyncSerials{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{//block1
+        NSLog(@"1");
+        dispatch_async(queue, ^{//block2
+            NSLog(@"2");
+        });
+        
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步串行嵌套（异步）
+- (void)asyncSeriala{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+        NSLog(@"1--%@",[NSThread currentThread]);
+        dispatch_async(queue, ^{
+            NSLog(@"2--%@",[NSThread currentThread]);
+        });
+        
+        NSLog(@"3--%@",[NSThread currentThread]);
+    });
+    
+    NSLog(@"end");
+    
+}
+//同步串行嵌套（异步）
+- (void)syncSeriala{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        NSLog(@"1");
+        dispatch_async(queue, ^{
+            
+            NSLog(@"2");
+        });
+        NSLog(@"3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步并发嵌套（同步）
+- (void)asyncConcurrents{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"1");
+        dispatch_sync(queue, ^{
+            NSLog(@"2");
+        });
+        
+        NSLog(@"3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步并发嵌套（异步）
+- (void)asyncConcurrenta{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"1");
+        dispatch_async(queue, ^{
+            NSLog(@"2");
+        });
+        
+        NSLog(@"3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//同步并发嵌套（同步）
+- (void)syncConcurrents{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(queue, ^{
+        NSLog(@"1");
+        dispatch_sync(queue, ^{
+            NSLog(@"2");
+        });
+        
+        NSLog(@"3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//同步并发嵌套（异步）(2的顺序是不可控的，但是end一定会在13后面)
+
+- (void)syncConcurrenta{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(queue, ^{//block1
+        NSLog(@"1");
+        dispatch_async(queue, ^{//block2
+            sleep(2);
+            NSLog(@"2");
+        });
+        
+        NSLog(@"3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//同步并发
+- (void)syncConcurrent{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(queue, ^{
+        NSLog(@"任务1");
+    });
+    dispatch_sync(queue, ^{
+        
+        NSLog(@"任务2");
+    });
+    dispatch_sync(queue, ^{
+        NSLog(@"任务3");
+    });
+    NSLog(@"end");
+    
+}
+//异步并发
+- (void)asyncConcurrent{
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"任务1");
+    });
+    dispatch_async(queue, ^{
+        
+        NSLog(@"任务2");
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"任务3");
+    });
+    
+    NSLog(@"end");
+    
+}
+//异步串行
+- (void)asyncSerial{
+    NSLog(@"begin");
+    NSLog(@"begin--%@",[NSThread currentThread]);
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+        NSLog(@"任务1");
+        NSLog(@"1--%@",[NSThread currentThread]);
+        
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"2--%@",[NSThread currentThread]);
+        
+        NSLog(@"任务2");
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"任务3");
+        NSLog(@"3--%@",[NSThread currentThread]);
+        
+    });
+    NSLog(@"end");
+    NSLog(@"end--%@",[NSThread currentThread]);
+    
+    
+}
+//同步串行
+- (void)syncSerial{
+    
+    NSLog(@"begin");
+    dispatch_queue_t queue = dispatch_queue_create("com.gcd", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        NSLog(@"任务1");
+    });
+    dispatch_sync(queue, ^{
+        NSLog(@"任务2");
+    });
+    
+    dispatch_sync(queue, ^{
+        NSLog(@"任务3");
+    });
+    NSLog(@"end");
+    
+}
 
 @end

@@ -91,6 +91,7 @@
 		841B9E95208344E400054AE7 /* FLEXResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E46208344E300054AE7 /* FLEXResources.m */; };
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
+		AE6A22352085ECA00028C53B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A22342085ECA00028C53B /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +263,8 @@
 		841B9E48208344E300054AE7 /* FLEXKeyboardShortcutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXKeyboardShortcutManager.h; sourceTree = "<group>"; };
 		841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXMultilineTableViewCell.m; sourceTree = "<group>"; };
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AE6A22332085ECA00028C53B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		AE6A22342085ECA00028C53B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,17 +297,18 @@
 		841B9D842083428A00054AE7 /* iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				841B9D9F208344C400054AE7 /* 3rd */,
 				841B9D852083428A00054AE7 /* AppDelegate.h */,
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
 				841B9D892083428A00054AE7 /* ViewController.m */,
+				AE6A22322085E8000028C53B /* Models */,
 				841B9D9B208343D300054AE7 /* GCD */,
 				841B9D8B2083428A00054AE7 /* Main.storyboard */,
 				841B9D8E2083428D00054AE7 /* Assets.xcassets */,
 				841B9D902083428D00054AE7 /* LaunchScreen.storyboard */,
 				841B9D932083428D00054AE7 /* Info.plist */,
 				841B9D942083428D00054AE7 /* main.m */,
+				841B9D9F208344C400054AE7 /* 3rd */,
 			);
 			path = "iOS-Sample";
 			sourceTree = "<group>";
@@ -601,6 +605,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		AE6A22322085E8000028C53B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE6A22332085ECA00028C53B /* Person.h */,
+				AE6A22342085ECA00028C53B /* Person.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -715,6 +728,7 @@
 				841B9E7B208344E300054AE7 /* FLEXFileBrowserTableViewController.m in Sources */,
 				841B9E63208344E300054AE7 /* FLEXPropertyEditorViewController.m in Sources */,
 				841B9D952083428D00054AE7 /* main.m in Sources */,
+				AE6A22352085ECA00028C53B /* Person.m in Sources */,
 				841B9E64208344E300054AE7 /* FLEXDefaultEditorViewController.m in Sources */,
 				841B9E84208344E300054AE7 /* FLEXMultiColumnTableView.m in Sources */,
 				841B9E7E208344E300054AE7 /* FLEXSystemLogMessage.m in Sources */,
@@ -892,13 +906,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WWWNX838H4;
+				DEVELOPMENT_TEAM = 92TS993A24;
 				INFOPLIST_FILE = "iOS-Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shengshui.iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -909,13 +924,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WWWNX838H4;
+				DEVELOPMENT_TEAM = 92TS993A24;
 				INFOPLIST_FILE = "iOS-Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shengshui.iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
