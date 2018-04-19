@@ -7,6 +7,7 @@
 //
 
 #import "GCDViewController.h"
+#import "Person.h"
 
 @interface GCDViewController ()
 
@@ -14,11 +15,26 @@
 
 @implementation GCDViewController
 
-- (void)viewDidLoad {
+
+- (void)dealloc
+{
+    [super dealloc];
+    NSLog(@"GCDViewController.dealloc");
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+}
+
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
     
-    
+
 }
 
 //barrier（访问数据库或者文件的时候 ，读-写锁）

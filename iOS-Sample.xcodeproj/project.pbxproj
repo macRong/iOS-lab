@@ -13,7 +13,7 @@
 		841B9D8F2083428D00054AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841B9D8E2083428D00054AE7 /* Assets.xcassets */; };
 		841B9D922083428D00054AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841B9D902083428D00054AE7 /* LaunchScreen.storyboard */; };
 		841B9D952083428D00054AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D942083428D00054AE7 /* main.m */; };
-		841B9D9E208343E000054AE7 /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D9D208343E000054AE7 /* GCDViewController.m */; };
+		841B9D9E208343E000054AE7 /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D9D208343E000054AE7 /* GCDViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		841B9E4B208344E300054AE7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 841B9DA1208344E200054AE7 /* LICENSE */; };
 		841B9E4C208344E300054AE7 /* FLEXArrayExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DA6208344E200054AE7 /* FLEXArrayExplorerViewController.m */; };
 		841B9E4D208344E300054AE7 /* FLEXObjectExplorerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DA7208344E200054AE7 /* FLEXObjectExplorerFactory.m */; };
