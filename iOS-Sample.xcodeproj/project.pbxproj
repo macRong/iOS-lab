@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841B9D872083428A00054AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D862083428A00054AE7 /* AppDelegate.m */; };
-		841B9D8A2083428A00054AE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D892083428A00054AE7 /* ViewController.m */; };
+		841B9D8A2083428A00054AE7 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 841B9D892083428A00054AE7 /* ViewController.mm */; };
 		841B9D8D2083428A00054AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841B9D8B2083428A00054AE7 /* Main.storyboard */; };
 		841B9D8F2083428D00054AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841B9D8E2083428D00054AE7 /* Assets.xcassets */; };
 		841B9D922083428D00054AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841B9D902083428D00054AE7 /* LaunchScreen.storyboard */; };
@@ -91,6 +91,7 @@
 		841B9E95208344E400054AE7 /* FLEXResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E46208344E300054AE7 /* FLEXResources.m */; };
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
+		AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFDF020887A2800C818A9 /* StringCPP.cpp */; };
 		AE6A22352085ECA00028C53B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A22342085ECA00028C53B /* Person.m */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +100,7 @@
 		841B9D852083428A00054AE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		841B9D862083428A00054AE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		841B9D882083428A00054AE7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		841B9D892083428A00054AE7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		841B9D892083428A00054AE7 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		841B9D8C2083428A00054AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		841B9D8E2083428D00054AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841B9D912083428D00054AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -263,6 +264,8 @@
 		841B9E48208344E300054AE7 /* FLEXKeyboardShortcutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXKeyboardShortcutManager.h; sourceTree = "<group>"; };
 		841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXMultilineTableViewCell.m; sourceTree = "<group>"; };
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AE2DFDF020887A2800C818A9 /* StringCPP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCPP.cpp; sourceTree = "<group>"; };
+		AE2DFDF120887A2800C818A9 /* StringCPP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringCPP.hpp; sourceTree = "<group>"; };
 		AE6A22332085ECA00028C53B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		AE6A22342085ECA00028C53B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,9 +303,10 @@
 				841B9D852083428A00054AE7 /* AppDelegate.h */,
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
-				841B9D892083428A00054AE7 /* ViewController.m */,
+				841B9D892083428A00054AE7 /* ViewController.mm */,
 				AE6A22322085E8000028C53B /* Models */,
 				841B9D9B208343D300054AE7 /* GCD */,
+				AE2DFDEF2088799000C818A9 /* CPP */,
 				841B9D8B2083428A00054AE7 /* Main.storyboard */,
 				841B9D8E2083428D00054AE7 /* Assets.xcassets */,
 				841B9D902083428D00054AE7 /* LaunchScreen.storyboard */,
@@ -605,6 +609,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		AE2DFDEF2088799000C818A9 /* CPP */ = {
+			isa = PBXGroup;
+			children = (
+				AE2DFDF020887A2800C818A9 /* StringCPP.cpp */,
+				AE2DFDF120887A2800C818A9 /* StringCPP.hpp */,
+			);
+			path = CPP;
+			sourceTree = "<group>";
+		};
 		AE6A22322085E8000028C53B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,7 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841B9E74208344E300054AE7 /* FLEXArgumentInputNotSupportedView.m in Sources */,
-				841B9D8A2083428A00054AE7 /* ViewController.m in Sources */,
+				841B9D8A2083428A00054AE7 /* ViewController.mm in Sources */,
 				841B9E89208344E300054AE7 /* FLEXLibrariesTableViewController.m in Sources */,
 				841B9E5A208344E300054AE7 /* FLEXNetworkRecorder.m in Sources */,
 				841B9E91208344E400054AE7 /* FLEXHeapEnumerator.m in Sources */,
@@ -723,6 +736,7 @@
 				841B9E65208344E300054AE7 /* FLEXMethodCallingViewController.m in Sources */,
 				841B9E8C208344E300054AE7 /* FLEXClassesTableViewController.m in Sources */,
 				841B9E7A208344E300054AE7 /* FLEXInstancesTableViewController.m in Sources */,
+				AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */,
 				841B9E80208344E300054AE7 /* FLEXTableLeftCell.m in Sources */,
 				841B9E8F208344E400054AE7 /* FLEXHierarchyTableViewController.m in Sources */,
 				841B9E7B208344E300054AE7 /* FLEXFileBrowserTableViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#include "StringCPP.hpp"
 
 @interface ViewController ()
 
@@ -18,15 +19,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-  
-}
 
+    char str[] = "h";
+    char strr[] = "beijing";
+    
+    dispose(str, strr);
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    
 }
 
 - (void)didReceiveMemoryWarning {
