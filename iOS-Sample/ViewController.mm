@@ -20,10 +20,7 @@
 {
     [super viewDidLoad];
 
-    char str[] = "h";
-    char strr[] = "beijing";
-    
-    dispose(str, strr);
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

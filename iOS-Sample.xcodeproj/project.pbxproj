@@ -92,6 +92,12 @@
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
 		AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFDF020887A2800C818A9 /* StringCPP.cpp */; };
+		AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */; };
+		AE2DFE12208989AE00C818A9 /* MPCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */; };
+		AE2DFE13208989AE00C818A9 /* MPExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0D208989AD00C818A9 /* MPExceptionHandler.m */; };
+		AE2DFE14208989AE00C818A9 /* MPCrashHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0E208989AD00C818A9 /* MPCrashHandler.m */; };
+		AE2DFE15208989AE00C818A9 /* MPCrashInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0F208989AD00C818A9 /* MPCrashInfo.m */; };
+		AE2DFE182089954F00C818A9 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE162089954F00C818A9 /* fishhook.c */; };
 		AE6A22352085ECA00028C53B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A22342085ECA00028C53B /* Person.m */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +272,19 @@
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AE2DFDF020887A2800C818A9 /* StringCPP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCPP.cpp; sourceTree = "<group>"; };
 		AE2DFDF120887A2800C818A9 /* StringCPP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringCPP.hpp; sourceTree = "<group>"; };
+		AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSignalHandler.m; sourceTree = "<group>"; };
+		AE2DFE07208989AD00C818A9 /* MPCrashHandler-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPCrashHandler-Header.h"; sourceTree = "<group>"; };
+		AE2DFE08208989AD00C818A9 /* MPCrashHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCrashHandler.h; sourceTree = "<group>"; };
+		AE2DFE09208989AD00C818A9 /* MPExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPExceptionHandler.h; sourceTree = "<group>"; };
+		AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCrashReporter.m; sourceTree = "<group>"; };
+		AE2DFE0B208989AD00C818A9 /* MPCrashInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCrashInfo.h; sourceTree = "<group>"; };
+		AE2DFE0C208989AD00C818A9 /* MPSignalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSignalHandler.h; sourceTree = "<group>"; };
+		AE2DFE0D208989AD00C818A9 /* MPExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPExceptionHandler.m; sourceTree = "<group>"; };
+		AE2DFE0E208989AD00C818A9 /* MPCrashHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCrashHandler.m; sourceTree = "<group>"; };
+		AE2DFE0F208989AD00C818A9 /* MPCrashInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCrashInfo.m; sourceTree = "<group>"; };
+		AE2DFE10208989AD00C818A9 /* MPCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCrashReporter.h; sourceTree = "<group>"; };
+		AE2DFE162089954F00C818A9 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		AE2DFE172089954F00C818A9 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE6A22332085ECA00028C53B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		AE6A22342085ECA00028C53B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,6 +319,10 @@
 		841B9D842083428A00054AE7 /* iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				AE2DFE162089954F00C818A9 /* fishhook.c */,
+				AE2DFE172089954F00C818A9 /* fishhook.h */,
+				AE2DFE05208989AD00C818A9 /* MPCrashHandler */,
+				AE2DFE04208983D000C818A9 /* Runtime */,
 				841B9D852083428A00054AE7 /* AppDelegate.h */,
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
@@ -618,6 +641,31 @@
 			path = CPP;
 			sourceTree = "<group>";
 		};
+		AE2DFE04208983D000C818A9 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		AE2DFE05208989AD00C818A9 /* MPCrashHandler */ = {
+			isa = PBXGroup;
+			children = (
+				AE2DFE07208989AD00C818A9 /* MPCrashHandler-Header.h */,
+				AE2DFE08208989AD00C818A9 /* MPCrashHandler.h */,
+				AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */,
+				AE2DFE09208989AD00C818A9 /* MPExceptionHandler.h */,
+				AE2DFE0D208989AD00C818A9 /* MPExceptionHandler.m */,
+				AE2DFE10208989AD00C818A9 /* MPCrashReporter.h */,
+				AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */,
+				AE2DFE0B208989AD00C818A9 /* MPCrashInfo.h */,
+				AE2DFE0F208989AD00C818A9 /* MPCrashInfo.m */,
+				AE2DFE0C208989AD00C818A9 /* MPSignalHandler.h */,
+				AE2DFE0E208989AD00C818A9 /* MPCrashHandler.m */,
+			);
+			path = MPCrashHandler;
+			sourceTree = "<group>";
+		};
 		AE6A22322085E8000028C53B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +749,7 @@
 			files = (
 				841B9E74208344E300054AE7 /* FLEXArgumentInputNotSupportedView.m in Sources */,
 				841B9D8A2083428A00054AE7 /* ViewController.mm in Sources */,
+				AE2DFE15208989AE00C818A9 /* MPCrashInfo.m in Sources */,
 				841B9E89208344E300054AE7 /* FLEXLibrariesTableViewController.m in Sources */,
 				841B9E5A208344E300054AE7 /* FLEXNetworkRecorder.m in Sources */,
 				841B9E91208344E400054AE7 /* FLEXHeapEnumerator.m in Sources */,
@@ -717,6 +766,7 @@
 				841B9E4E208344E300054AE7 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				841B9E70208344E300054AE7 /* FLEXArgumentInputTextView.m in Sources */,
 				841B9E6E208344E300054AE7 /* FLEXArgumentInputDateView.m in Sources */,
+				AE2DFE182089954F00C818A9 /* fishhook.c in Sources */,
 				841B9E61208344E300054AE7 /* FLEXExplorerToolbar.m in Sources */,
 				841B9E73208344E300054AE7 /* FLEXArgumentInputViewFactory.m in Sources */,
 				841B9E77208344E300054AE7 /* FLEXWindow.m in Sources */,
@@ -728,6 +778,7 @@
 				841B9E92208344E400054AE7 /* FLEXRuntimeUtility.m in Sources */,
 				841B9E6D208344E300054AE7 /* FLEXArgumentInputStructView.m in Sources */,
 				841B9E55208344E300054AE7 /* FLEXLayerExplorerViewController.m in Sources */,
+				AE2DFE13208989AE00C818A9 /* MPExceptionHandler.m in Sources */,
 				841B9E7D208344E300054AE7 /* FLEXSystemLogTableViewController.m in Sources */,
 				841B9E79208344E300054AE7 /* FLEXWebViewController.m in Sources */,
 				841B9E52208344E300054AE7 /* FLEXDefaultsExplorerViewController.m in Sources */,
@@ -737,6 +788,7 @@
 				841B9E8C208344E300054AE7 /* FLEXClassesTableViewController.m in Sources */,
 				841B9E7A208344E300054AE7 /* FLEXInstancesTableViewController.m in Sources */,
 				AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */,
+				AE2DFE12208989AE00C818A9 /* MPCrashReporter.m in Sources */,
 				841B9E80208344E300054AE7 /* FLEXTableLeftCell.m in Sources */,
 				841B9E8F208344E400054AE7 /* FLEXHierarchyTableViewController.m in Sources */,
 				841B9E7B208344E300054AE7 /* FLEXFileBrowserTableViewController.m in Sources */,
@@ -750,6 +802,7 @@
 				841B9D872083428A00054AE7 /* AppDelegate.m in Sources */,
 				841B9D9E208343E000054AE7 /* GCDViewController.m in Sources */,
 				841B9E83208344E300054AE7 /* FLEXTableColumnHeader.m in Sources */,
+				AE2DFE14208989AE00C818A9 /* MPCrashHandler.m in Sources */,
 				841B9E60208344E300054AE7 /* FLEXToolbarItem.m in Sources */,
 				841B9E87208344E300054AE7 /* FLEXSQLiteDatabaseManager.m in Sources */,
 				841B9E67208344E300054AE7 /* FLEXFieldEditorViewController.m in Sources */,
@@ -762,6 +815,7 @@
 				841B9E86208344E300054AE7 /* FLEXRealmDatabaseManager.m in Sources */,
 				841B9E7F208344E300054AE7 /* FLEXSystemLogTableViewCell.m in Sources */,
 				841B9E69208344E300054AE7 /* FLEXArgumentInputColorView.m in Sources */,
+				AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */,
 				841B9E58208344E300054AE7 /* FLEXNetworkTransaction.m in Sources */,
 				841B9E94208344E400054AE7 /* FLEXKeyboardHelpViewController.m in Sources */,
 				841B9E51208344E300054AE7 /* FLEXDictionaryExplorerViewController.m in Sources */,

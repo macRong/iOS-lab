@@ -34,7 +34,8 @@
 {
     [super touchesBegan:touches withEvent:event];
     
-
+    NSString *str  = nil;
+    NSArray *arr = @[str];
 }
 
 //barrier（访问数据库或者文件的时候 ，读-写锁）
@@ -67,29 +68,28 @@
 - (void)group{
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t t = dispatch_get_global_queue(0, 0);
+
     dispatch_group_enter(group);
-    dispatch_group_leave(group);
-    
     dispatch_group_async(group, t, ^{
         dispatch_async(t, ^{
             sleep(2);
-            NSLog(@"1");
+            dispatch_group_leave(group);
         });
     });
     
-    
+    dispatch_group_enter(group);
     dispatch_group_async(group, t, ^{
         dispatch_async(t, ^{
-            sleep(2);
             NSLog(@"2");
-            
+            dispatch_group_leave(group);
         });
-        
     });
+    
     dispatch_group_notify(group, t, ^{
-        NSLog(@"合成");
+        NSLog(@"1，2任务都完成");
     });
 }
+
 #pragma mark - 嵌套
 //同步主队列
 - (void)syncMain{

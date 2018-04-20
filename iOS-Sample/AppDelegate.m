@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FLEXManager.h"
+#import "MPCrashHandler-Header.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,10 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    Install_MP_UncaughtExceptionHandler();
+    
     return YES;
 }
 
