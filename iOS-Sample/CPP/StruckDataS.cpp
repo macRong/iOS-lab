@@ -6,6 +6,8 @@
 //  Copyright © 2018年 macRong. All rights reserved.
 //
 
+
+/** 数据结构 */
 #include "StruckDataS.hpp"
 #include <iostream>
 
