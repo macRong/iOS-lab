@@ -10,6 +10,9 @@
 
 @interface MPExceptionHandler : NSObject
 
+// pre runloop
+@property (nonatomic, strong) NSRunLoop *preRunloop;
+
 void Install_MP_UncaughtExceptionHandler(void);
 
 @end

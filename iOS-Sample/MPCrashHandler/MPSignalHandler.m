@@ -25,9 +25,12 @@ void mp_SignalHandler(int signal)
         [mstr appendFormat:@"%s\n", strs[i]];
     }
     
-    NSLog(@"single = %d, mstr=%@",signal,mstr);
+    NSLog(@"✅single✅ = %d, mstr=%@",signal,mstr);
     
-    [mstr writeToFile:@"/Documents/xx.log" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *userNameDictPath = [path stringByAppendingPathComponent:@"crash.log"];
+    BOOL isSuc =  [mstr writeToFile:userNameDictPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"=====isSuc =%d",isSuc);
 }
 
 void Install_MP_SignalHandlerHandler(void)

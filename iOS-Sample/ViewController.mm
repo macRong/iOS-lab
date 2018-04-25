@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #include "StringCPP.hpp"
+#include "StruckDataS.hpp"
 
 @interface ViewController ()
 
@@ -20,12 +21,22 @@
 {
     [super viewDidLoad];
 
-
+    
+    int a = 10 ,b =20;
+//    quoteSomePoint(a,b);
+    
+//    cinTest();
+    
+    didload();
+    
+    
+//    NSLog(@"a =%d=%p, b=%d,%p",a,&a,b,&b);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+
 }
 
 - (void)didReceiveMemoryWarning {

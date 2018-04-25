@@ -13,6 +13,11 @@
 
 void stringDisposes(char *s1, char *s2);
 void dispose(char s1[], char s2[]);
+void quoteSomePoint(int &a, int &b);
+void gettimes();
+// bad 
+void singlebad();
+void cinTest();
 
 
 #endif /* StringCPP_hpp */

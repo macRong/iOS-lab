@@ -28,14 +28,12 @@
 
 }
 
-
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    
-    NSString *str  = nil;
-    NSArray *arr = @[str];
+
+    NSArray *ar = @[];
+    [ar objectAtIndex:99999];
 }
 
 //barrier（访问数据库或者文件的时候 ，读-写锁）

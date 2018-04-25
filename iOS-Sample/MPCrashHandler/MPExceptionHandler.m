@@ -39,10 +39,13 @@ void mpException_analysisException(NSException *exception)
                          mpException_getCurrentDate(), name, reason,
                          [callStack componentsJoinedByString:@"\n"]];
     
-    NSLog(@"%@",content);
+    NSLog(@"✅exception✅ %@",content);
     
-    [content writeToFile:@"/Documents/eee.log" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *userNameDictPath = [path stringByAppendingPathComponent:@"crash.log"];
+    BOOL isSuc =  [content writeToFile:userNameDictPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"=====isSuc =%d",isSuc);
+    
 }
-
 
 @end

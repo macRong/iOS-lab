@@ -91,6 +91,7 @@
 		841B9E95208344E400054AE7 /* FLEXResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E46208344E300054AE7 /* FLEXResources.m */; };
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
+		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
 		AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFDF020887A2800C818A9 /* StringCPP.cpp */; };
 		AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */; };
 		AE2DFE12208989AE00C818A9 /* MPCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */; };
@@ -270,6 +271,8 @@
 		841B9E48208344E300054AE7 /* FLEXKeyboardShortcutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXKeyboardShortcutManager.h; sourceTree = "<group>"; };
 		841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXMultilineTableViewCell.m; sourceTree = "<group>"; };
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StruckDataS.cpp; sourceTree = "<group>"; };
+		AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StruckDataS.hpp; sourceTree = "<group>"; };
 		AE2DFDF020887A2800C818A9 /* StringCPP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCPP.cpp; sourceTree = "<group>"; };
 		AE2DFDF120887A2800C818A9 /* StringCPP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringCPP.hpp; sourceTree = "<group>"; };
 		AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSignalHandler.m; sourceTree = "<group>"; };
@@ -637,6 +640,8 @@
 			children = (
 				AE2DFDF020887A2800C818A9 /* StringCPP.cpp */,
 				AE2DFDF120887A2800C818A9 /* StringCPP.hpp */,
+				AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */,
+				AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -652,7 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				AE2DFE07208989AD00C818A9 /* MPCrashHandler-Header.h */,
-				AE2DFE08208989AD00C818A9 /* MPCrashHandler.h */,
+				AE2DFE0C208989AD00C818A9 /* MPSignalHandler.h */,
 				AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */,
 				AE2DFE09208989AD00C818A9 /* MPExceptionHandler.h */,
 				AE2DFE0D208989AD00C818A9 /* MPExceptionHandler.m */,
@@ -660,7 +665,7 @@
 				AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */,
 				AE2DFE0B208989AD00C818A9 /* MPCrashInfo.h */,
 				AE2DFE0F208989AD00C818A9 /* MPCrashInfo.m */,
-				AE2DFE0C208989AD00C818A9 /* MPSignalHandler.h */,
+				AE2DFE08208989AD00C818A9 /* MPCrashHandler.h */,
 				AE2DFE0E208989AD00C818A9 /* MPCrashHandler.m */,
 			);
 			path = MPCrashHandler;
@@ -804,6 +809,7 @@
 				841B9E83208344E300054AE7 /* FLEXTableColumnHeader.m in Sources */,
 				AE2DFE14208989AE00C818A9 /* MPCrashHandler.m in Sources */,
 				841B9E60208344E300054AE7 /* FLEXToolbarItem.m in Sources */,
+				AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */,
 				841B9E87208344E300054AE7 /* FLEXSQLiteDatabaseManager.m in Sources */,
 				841B9E67208344E300054AE7 /* FLEXFieldEditorViewController.m in Sources */,
 				841B9E6C208344E300054AE7 /* FLEXArgumentInputSwitchView.m in Sources */,
