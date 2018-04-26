@@ -92,6 +92,7 @@
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
 		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
+		AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5EC20905C880042A226 /* ClassDemo.cpp */; };
 		AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFDF020887A2800C818A9 /* StringCPP.cpp */; };
 		AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */; };
 		AE2DFE12208989AE00C818A9 /* MPCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */; };
@@ -273,6 +274,8 @@
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StruckDataS.cpp; sourceTree = "<group>"; };
 		AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StruckDataS.hpp; sourceTree = "<group>"; };
+		AE0AA5EC20905C880042A226 /* ClassDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassDemo.cpp; sourceTree = "<group>"; };
+		AE0AA5ED20905C880042A226 /* ClassDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassDemo.hpp; sourceTree = "<group>"; };
 		AE2DFDF020887A2800C818A9 /* StringCPP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCPP.cpp; sourceTree = "<group>"; };
 		AE2DFDF120887A2800C818A9 /* StringCPP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringCPP.hpp; sourceTree = "<group>"; };
 		AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSignalHandler.m; sourceTree = "<group>"; };
@@ -638,10 +641,12 @@
 		AE2DFDEF2088799000C818A9 /* CPP */ = {
 			isa = PBXGroup;
 			children = (
-				AE2DFDF020887A2800C818A9 /* StringCPP.cpp */,
 				AE2DFDF120887A2800C818A9 /* StringCPP.hpp */,
-				AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */,
+				AE2DFDF020887A2800C818A9 /* StringCPP.cpp */,
 				AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */,
+				AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */,
+				AE0AA5ED20905C880042A226 /* ClassDemo.hpp */,
+				AE0AA5EC20905C880042A226 /* ClassDemo.cpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -771,6 +776,7 @@
 				841B9E4E208344E300054AE7 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				841B9E70208344E300054AE7 /* FLEXArgumentInputTextView.m in Sources */,
 				841B9E6E208344E300054AE7 /* FLEXArgumentInputDateView.m in Sources */,
+				AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */,
 				AE2DFE182089954F00C818A9 /* fishhook.c in Sources */,
 				841B9E61208344E300054AE7 /* FLEXExplorerToolbar.m in Sources */,
 				841B9E73208344E300054AE7 /* FLEXArgumentInputViewFactory.m in Sources */,
@@ -981,6 +987,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TS993A24;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "iOS-Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -999,6 +1006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TS993A24;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "iOS-Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (

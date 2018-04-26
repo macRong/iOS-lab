@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #include "StringCPP.hpp"
 #include "StruckDataS.hpp"
+#include "ClassDemo.hpp"
 
 @interface ViewController ()
 
@@ -27,7 +28,14 @@
     
 //    cinTest();
     
-    didload();
+    Person per;
+    per.didload();
+    
+    Cat(12);
+    
+    
+    
+    
     
     
 //    NSLog(@"a =%d=%p, b=%d,%p",a,&a,b,&b);
@@ -36,12 +44,12 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
