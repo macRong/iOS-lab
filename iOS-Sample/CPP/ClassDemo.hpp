@@ -31,10 +31,16 @@ class Cat {
 public:
     int m_x;
     Cat(int a);
-    Cat(const Person &person);
+    Cat(Person &person);
+    int foMax(int x, int y);
+    friend void fsleep(const Cat& cat);
+    friend void runcat();
+    friend Person;
+    
     
 private:
     int *ptr;
+    char name[22];
 };
 
 

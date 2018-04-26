@@ -42,13 +42,36 @@ void Person::didload()
 
 Cat::Cat(int a):m_x(a)
 {
-    printf("cat a=%d,mx=%d",a,m_x);
+    ptr = new int;
+//    *ptr = a;
+    ptr = &a;
+    
+    printf("\n cat a=%d,mx=%d, &ptr=%p",a,m_x,ptr);
 }
 
-Cat::Cat(const Person &person)
+Cat::Cat(Person &person)
 {
     *ptr = person.age;
     
-    printf("======pter=%d",*ptr);
+    printf("\n ======pter=%d",*ptr);
 }
+
+void fsleep(const Cat& cat)
+{
+    printf("____sleep");
+}
+
+inline int Cat::foMax(int x, int y)
+{
+    return (x > y)? x : y;
+}
+
+void runcat(void)
+{
+    printf("_______runcat");
+    
+    
+}
+
+
 

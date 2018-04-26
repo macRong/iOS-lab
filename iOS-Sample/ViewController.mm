@@ -28,12 +28,13 @@
     
 //    cinTest();
     
-    Person per;
-    per.didload();
+//    Person per;
+//    per.didload();
     
-    Cat(12);
+//    Person pp(10);
     
-    
+    Cat cat(12);
+    int aa =cat.foMax(1, 2);
     
     
     
