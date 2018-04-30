@@ -93,6 +93,10 @@
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
 		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
 		AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5EC20905C880042A226 /* ClassDemo.cpp */; };
+		AE0AA5F820940FD20042A226 /* YLDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F220940FD10042A226 /* YLDownloadCache.m */; };
+		AE0AA5F920940FD20042A226 /* YLDownloadKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F420940FD10042A226 /* YLDownloadKit.m */; };
+		AE0AA5FA20940FD20042A226 /* YLDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F520940FD20042A226 /* YLDownloader.m */; };
+		AE0AA5FB20940FD20042A226 /* YLDownloadMP4Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F620940FD20042A226 /* YLDownloadMP4Operation.m */; };
 		AE2DFDF220887A2800C818A9 /* StringCPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFDF020887A2800C818A9 /* StringCPP.cpp */; };
 		AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */; };
 		AE2DFE12208989AE00C818A9 /* MPCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0A208989AD00C818A9 /* MPCrashReporter.m */; };
@@ -276,6 +280,14 @@
 		AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StruckDataS.hpp; sourceTree = "<group>"; };
 		AE0AA5EC20905C880042A226 /* ClassDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassDemo.cpp; sourceTree = "<group>"; };
 		AE0AA5ED20905C880042A226 /* ClassDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassDemo.hpp; sourceTree = "<group>"; };
+		AE0AA5F020940FD10042A226 /* YLDownloadMP4Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDownloadMP4Operation.h; sourceTree = "<group>"; };
+		AE0AA5F120940FD10042A226 /* YLDownloadKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDownloadKit.h; sourceTree = "<group>"; };
+		AE0AA5F220940FD10042A226 /* YLDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDownloadCache.m; sourceTree = "<group>"; };
+		AE0AA5F320940FD10042A226 /* YLDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDownloadCache.h; sourceTree = "<group>"; };
+		AE0AA5F420940FD10042A226 /* YLDownloadKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDownloadKit.m; sourceTree = "<group>"; };
+		AE0AA5F520940FD20042A226 /* YLDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDownloader.m; sourceTree = "<group>"; };
+		AE0AA5F620940FD20042A226 /* YLDownloadMP4Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDownloadMP4Operation.m; sourceTree = "<group>"; };
+		AE0AA5F720940FD20042A226 /* YLDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDownloader.h; sourceTree = "<group>"; };
 		AE2DFDF020887A2800C818A9 /* StringCPP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCPP.cpp; sourceTree = "<group>"; };
 		AE2DFDF120887A2800C818A9 /* StringCPP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringCPP.hpp; sourceTree = "<group>"; };
 		AE2DFE06208989AD00C818A9 /* MPSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSignalHandler.m; sourceTree = "<group>"; };
@@ -333,6 +345,7 @@
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
 				841B9D892083428A00054AE7 /* ViewController.mm */,
+				AE0AA5EF20940FBF0042A226 /* Downloader */,
 				AE6A22322085E8000028C53B /* Models */,
 				841B9D9B208343D300054AE7 /* GCD */,
 				AE2DFDEF2088799000C818A9 /* CPP */,
@@ -638,6 +651,21 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		AE0AA5EF20940FBF0042A226 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				AE0AA5F320940FD10042A226 /* YLDownloadCache.h */,
+				AE0AA5F220940FD10042A226 /* YLDownloadCache.m */,
+				AE0AA5F720940FD20042A226 /* YLDownloader.h */,
+				AE0AA5F520940FD20042A226 /* YLDownloader.m */,
+				AE0AA5F120940FD10042A226 /* YLDownloadKit.h */,
+				AE0AA5F420940FD10042A226 /* YLDownloadKit.m */,
+				AE0AA5F020940FD10042A226 /* YLDownloadMP4Operation.h */,
+				AE0AA5F620940FD20042A226 /* YLDownloadMP4Operation.m */,
+			);
+			path = Downloader;
+			sourceTree = "<group>";
+		};
 		AE2DFDEF2088799000C818A9 /* CPP */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +804,7 @@
 				841B9E4E208344E300054AE7 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				841B9E70208344E300054AE7 /* FLEXArgumentInputTextView.m in Sources */,
 				841B9E6E208344E300054AE7 /* FLEXArgumentInputDateView.m in Sources */,
+				AE0AA5F820940FD20042A226 /* YLDownloadCache.m in Sources */,
 				AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */,
 				AE2DFE182089954F00C818A9 /* fishhook.c in Sources */,
 				841B9E61208344E300054AE7 /* FLEXExplorerToolbar.m in Sources */,
@@ -828,9 +857,11 @@
 				841B9E7F208344E300054AE7 /* FLEXSystemLogTableViewCell.m in Sources */,
 				841B9E69208344E300054AE7 /* FLEXArgumentInputColorView.m in Sources */,
 				AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */,
+				AE0AA5F920940FD20042A226 /* YLDownloadKit.m in Sources */,
 				841B9E58208344E300054AE7 /* FLEXNetworkTransaction.m in Sources */,
 				841B9E94208344E400054AE7 /* FLEXKeyboardHelpViewController.m in Sources */,
 				841B9E51208344E300054AE7 /* FLEXDictionaryExplorerViewController.m in Sources */,
+				AE0AA5FB20940FD20042A226 /* YLDownloadMP4Operation.m in Sources */,
 				841B9E6A208344E300054AE7 /* FLEXArgumentInputView.m in Sources */,
 				841B9E50208344E300054AE7 /* FLEXClassExplorerViewController.m in Sources */,
 				841B9E5F208344E300054AE7 /* FLEXNetworkObserver.m in Sources */,
@@ -840,6 +871,7 @@
 				841B9E68208344E300054AE7 /* FLEXArgumentInputStringView.m in Sources */,
 				841B9E5E208344E300054AE7 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				841B9E59208344E300054AE7 /* FLEXNetworkSettingsTableViewController.m in Sources */,
+				AE0AA5FA20940FD20042A226 /* YLDownloader.m in Sources */,
 				841B9E66208344E300054AE7 /* FLEXIvarEditorViewController.m in Sources */,
 				841B9E93208344E400054AE7 /* FLEXKeyboardShortcutManager.m in Sources */,
 				841B9E57208344E300054AE7 /* FLEXObjectExplorerViewController.m in Sources */,
