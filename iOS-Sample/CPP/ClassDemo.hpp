@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 
+int foMaxx(int x, int y);
+
+
 class Person
 {
 public:
@@ -32,7 +35,7 @@ public:
     int m_x;
     Cat(int a);
     Cat(Person &person);
-    int foMax(int x, int y);
+//
     friend void fsleep(const Cat& cat);
     friend void runcat();
     friend Person;

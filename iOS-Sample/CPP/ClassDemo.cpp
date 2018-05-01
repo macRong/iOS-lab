@@ -40,13 +40,16 @@ void Person::didload()
 
 // -------------------- cat -------------
 
+
 Cat::Cat(int a):m_x(a)
 {
     ptr = new int;
 //    *ptr = a;
     ptr = &a;
     
-    printf("\n cat a=%d,mx=%d, &ptr=%p",a,m_x,ptr);
+   int aa = foMaxx(1, 2);
+    
+    printf("\n cat a=%d,mx=%d, &ptr=%p, aa=%d",a,m_x,ptr,aa);
 }
 
 Cat::Cat(Person &person)
@@ -61,9 +64,9 @@ void fsleep(const Cat& cat)
     printf("____sleep");
 }
 
-inline int Cat::foMax(int x, int y)
+inline int foMaxx(int x, int y)
 {
-    return (x > y)? x : y;
+    return ((x > y)? x : y);
 }
 
 void runcat(void)

@@ -16,6 +16,8 @@
 
 @end
 
+
+
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -34,7 +36,10 @@
 //    Person pp(10);
     
     Cat cat(12);
-    int aa =cat.foMax(1, 2);
+//    int aa =cat.foMax(1, 2);
+    
+//    cat.foMax(2, 3);
+    
     
     
     
