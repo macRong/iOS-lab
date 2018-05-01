@@ -10,7 +10,10 @@
 #import "Person.h"
 
 @interface GCDViewController ()
-
+{
+    CAShapeLayer *shapeLayer;
+    NSTimer *timer;
+}
 @end
 
 @implementation GCDViewController
@@ -25,8 +28,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
+    //第一步，通过UIBezierPath设置圆形的矢量路径
+    UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 200)];
+    
+    //第二步，用CAShapeLayer沿着第一步的路径画一个完整的环（颜色灰色，起始点0，终结点1）
+    CAShapeLayer *bgLayer = [CAShapeLayer layer];
+    bgLayer.frame = CGRectMake(0, 0, 52.0f, 52.0f);//设置Frame
+    bgLayer.position = self.view.center;//居中显示
+    bgLayer.fillColor = [UIColor redColor].CGColor;//填充颜色=透明色
+    bgLayer.path = circle.CGPath;//设置bgLayer的绘制路径为circle的路径
+    [self.view.layer addSublayer:bgLayer];//添加到屏幕上
+    
+    //第三步，用CAShapeLayer沿着第一步的路径画一个红色的环形进度条，但是起始点=终结点=0，所以开始不可见
+    shapeLayer = [CAShapeLayer layer];
+    shapeLayer.frame = CGRectMake(2, 2, 48.0f, 48.0f);
+    shapeLayer.position = self.view.center;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.lineWidth = 2.f;
+    shapeLayer.strokeColor = [UIColor blueColor].CGColor;
+    shapeLayer.strokeStart = 0;
+    shapeLayer.strokeEnd = 0;
+    shapeLayer.path = circle.CGPath;
+    [self.view.layer addSublayer:shapeLayer];
+    
+    //第四步，用一个定时器进行测试，每一秒，进度加10%
+    timer = [NSTimer scheduledTimerWithTimeInterval:1/3.0f target:self selector:@selector(animate) userInfo:nil repeats:YES];
 }
+
+- (void)animate
+{
+    [UIView animateWithDuration:.01 animations:^{
+        shapeLayer.strokeEnd += 1/3.0f;
+    }];
+}
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

@@ -25,27 +25,8 @@
     [super viewDidLoad];
 
     
-    int a = 10 ,b =20;
-//    quoteSomePoint(a,b);
-    
-//    cinTest();
-    
-//    Person per;
-//    per.didload();
-    
-//    Person pp(10);
-    
-    Cat cat(12);
-//    int aa =cat.foMax(1, 2);
-    
-//    cat.foMax(2, 3);
-    
-    
-    
-    
-    
-//    NSLog(@"a =%d=%p, b=%d,%p",a,&a,b,&b);
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
