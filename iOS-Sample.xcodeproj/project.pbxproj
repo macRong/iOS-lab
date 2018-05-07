@@ -110,6 +110,8 @@
 		AE2DFE15208989AE00C818A9 /* MPCrashInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE0F208989AD00C818A9 /* MPCrashInfo.m */; };
 		AE2DFE182089954F00C818A9 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE2DFE162089954F00C818A9 /* fishhook.c */; };
 		AE6A22352085ECA00028C53B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A22342085ECA00028C53B /* Person.m */; };
+		AED981C220A036B0004BFF52 /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = AED981C120A036B0004BFF52 /* Cat.m */; };
+		AED981C520A0374A004BFF52 /* CatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED981C420A0374A004BFF52 /* CatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -320,6 +322,10 @@
 		AE2DFE172089954F00C818A9 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE6A22332085ECA00028C53B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		AE6A22342085ECA00028C53B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		AED981C020A036B0004BFF52 /* Cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
+		AED981C120A036B0004BFF52 /* Cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
+		AED981C320A0374A004BFF52 /* CatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatViewController.h; sourceTree = "<group>"; };
+		AED981C420A0374A004BFF52 /* CatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,25 +358,21 @@
 		841B9D842083428A00054AE7 /* iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				8440C7202098C13100E5A3F3 /* Downloader */,
-				842B378D20976AAA005AA6E4 /* Assembly */,
-				AE2DFE162089954F00C818A9 /* fishhook.c */,
-				AE2DFE172089954F00C818A9 /* fishhook.h */,
-				AE2DFE05208989AD00C818A9 /* MPCrashHandler */,
-				AE2DFE04208983D000C818A9 /* Runtime */,
+				AED981C620A03867004BFF52 /* profiles */,
 				841B9D852083428A00054AE7 /* AppDelegate.h */,
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
 				841B9D892083428A00054AE7 /* ViewController.mm */,
+				841B9D8B2083428A00054AE7 /* Main.storyboard */,
+				AED981BF20A0364B004BFF52 /* Method */,
+				8440C7202098C13100E5A3F3 /* Downloader */,
+				842B378D20976AAA005AA6E4 /* Assembly */,
+				AE2DFE05208989AD00C818A9 /* MPCrashHandler */,
+				AE2DFE04208983D000C818A9 /* Runtime */,
 				AE0AA5EF20940FBF0042A226 /* Downloader */,
 				AE6A22322085E8000028C53B /* Models */,
 				841B9D9B208343D300054AE7 /* GCD */,
 				AE2DFDEF2088799000C818A9 /* CPP */,
-				841B9D8B2083428A00054AE7 /* Main.storyboard */,
-				841B9D8E2083428D00054AE7 /* Assets.xcassets */,
-				841B9D902083428D00054AE7 /* LaunchScreen.storyboard */,
-				841B9D932083428D00054AE7 /* Info.plist */,
-				841B9D942083428D00054AE7 /* main.m */,
 				841B9D9F208344C400054AE7 /* 3rd */,
 			);
 			path = "iOS-Sample";
@@ -388,6 +390,8 @@
 		841B9D9F208344C400054AE7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				AE2DFE162089954F00C818A9 /* fishhook.c */,
+				AE2DFE172089954F00C818A9 /* fishhook.h */,
 				841B9DA0208344E200054AE7 /* FLEX */,
 			);
 			path = 3rd;
@@ -755,6 +759,28 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AED981BF20A0364B004BFF52 /* Method */ = {
+			isa = PBXGroup;
+			children = (
+				AED981C020A036B0004BFF52 /* Cat.h */,
+				AED981C120A036B0004BFF52 /* Cat.m */,
+				AED981C320A0374A004BFF52 /* CatViewController.h */,
+				AED981C420A0374A004BFF52 /* CatViewController.m */,
+			);
+			path = Method;
+			sourceTree = "<group>";
+		};
+		AED981C620A03867004BFF52 /* profiles */ = {
+			isa = PBXGroup;
+			children = (
+				841B9D8E2083428D00054AE7 /* Assets.xcassets */,
+				841B9D902083428D00054AE7 /* LaunchScreen.storyboard */,
+				841B9D932083428D00054AE7 /* Info.plist */,
+				841B9D942083428D00054AE7 /* main.m */,
+			);
+			path = profiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -893,6 +919,7 @@
 				AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */,
 				841B9E87208344E300054AE7 /* FLEXSQLiteDatabaseManager.m in Sources */,
 				841B9E67208344E300054AE7 /* FLEXFieldEditorViewController.m in Sources */,
+				AED981C220A036B0004BFF52 /* Cat.m in Sources */,
 				841B9E6C208344E300054AE7 /* FLEXArgumentInputSwitchView.m in Sources */,
 				841B9E7C208344E300054AE7 /* FLEXFileBrowserFileOperationController.m in Sources */,
 				841B9E4D208344E300054AE7 /* FLEXObjectExplorerFactory.m in Sources */,
@@ -919,6 +946,7 @@
 				841B9E5E208344E300054AE7 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				841B9E59208344E300054AE7 /* FLEXNetworkSettingsTableViewController.m in Sources */,
 				AE0AA5FA20940FD20042A226 /* YLDownloader.m in Sources */,
+				AED981C520A0374A004BFF52 /* CatViewController.m in Sources */,
 				841B9E66208344E300054AE7 /* FLEXIvarEditorViewController.m in Sources */,
 				841B9E93208344E400054AE7 /* FLEXKeyboardShortcutManager.m in Sources */,
 				841B9E57208344E300054AE7 /* FLEXObjectExplorerViewController.m in Sources */,
