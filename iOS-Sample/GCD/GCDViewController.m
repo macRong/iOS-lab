@@ -8,6 +8,8 @@
 
 #import "GCDViewController.h"
 #import "Person.h"
+#import "MPFDowloadManager.h"
+#import "MPFDownloadTaskModel.h"
 
 @interface GCDViewController ()
 {
@@ -22,6 +24,8 @@
 - (void)dealloc
 {
     [super dealloc];
+    
+    
     NSLog(@"GCDViewController.dealloc");
 }
 
@@ -71,6 +75,37 @@
 
     NSArray *ar = @[];
     [ar objectAtIndex:99999];
+    
+//    MPFDownloadTaskModel *model=[MPFDownloadTaskModel model];
+//    model.name=@"111.png";
+//    model.url=@"http://qncdn.miaopai.com/static2018/wap/insapk/comm/iphone 750x1334.png";
+//    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"MPFSDownloadCache"];
+//    [self createDirectory:path];
+//
+//    model.destinationPath=  [NSString pathWithComponents:@[path, model.name]];
+//
+//    //添加下载任务
+//    [[MPFDowloadManager shredManager] downloadUrl:model.url toPath:model.destinationPath process:^(float progress, NSString *sizeString, NSString *speedString) {
+//      NSString *pr = [NSString stringWithFormat:@"%.2f%%",progress*100];
+//        NSLog(@"pro = %@",pr);
+//
+//    } completion:^{
+//        NSLog(@"-----完成");
+//
+//    } failure:^(NSError *error) {
+//        [[MPFDowloadManager shredManager] cancelDownloadTask:model.url];
+//        NSLog(@"-----error");
+//    }];
+}
+
+- (void)createDirectory:(NSString *)directory
+{
+    NSFileManager *fileManager = [[NSFileManager alloc]init];
+
+    if (![fileManager fileExistsAtPath:directory])
+    {
+        [fileManager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:NULL];
+    }
 }
 
 //barrier（访问数据库或者文件的时候 ，读-写锁）

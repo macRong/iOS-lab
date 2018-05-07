@@ -92,6 +92,10 @@
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
 		842B378F20976AF2005AA6E4 /* StackSub.s in Sources */ = {isa = PBXBuildFile; fileRef = 842B378E20976AF2005AA6E4 /* StackSub.s */; };
+		8440C7232098C90E00E5A3F3 /* MPFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C7222098C90D00E5A3F3 /* MPFDownloader.m */; };
+		8440C7292098CADC00E5A3F3 /* MPFloaderCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C7282098CADC00E5A3F3 /* MPFloaderCommon.m */; };
+		8440C72C2098CBAC00E5A3F3 /* MPFDowloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */; };
+		8440C72F2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */; };
 		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
 		AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5EC20905C880042A226 /* ClassDemo.cpp */; };
 		AE0AA5F820940FD20042A226 /* YLDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F220940FD10042A226 /* YLDownloadCache.m */; };
@@ -278,6 +282,15 @@
 		841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXMultilineTableViewCell.m; sourceTree = "<group>"; };
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		842B378E20976AF2005AA6E4 /* StackSub.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = StackSub.s; sourceTree = "<group>"; };
+		8440C7212098C90D00E5A3F3 /* MPFDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDownloader.h; sourceTree = "<group>"; };
+		8440C7222098C90D00E5A3F3 /* MPFDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDownloader.m; sourceTree = "<group>"; };
+		8440C7242098C9AE00E5A3F3 /* MPFloaderHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFloaderHead.h; sourceTree = "<group>"; };
+		8440C7272098CADC00E5A3F3 /* MPFloaderCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFloaderCommon.h; sourceTree = "<group>"; };
+		8440C7282098CADC00E5A3F3 /* MPFloaderCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFloaderCommon.m; sourceTree = "<group>"; };
+		8440C72A2098CBAC00E5A3F3 /* MPFDowloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDowloadManager.h; sourceTree = "<group>"; };
+		8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDowloadManager.m; sourceTree = "<group>"; };
+		8440C72D2098CD8F00E5A3F3 /* MPFDownloadTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDownloadTaskModel.h; sourceTree = "<group>"; };
+		8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDownloadTaskModel.m; sourceTree = "<group>"; };
 		AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StruckDataS.cpp; sourceTree = "<group>"; };
 		AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StruckDataS.hpp; sourceTree = "<group>"; };
 		AE0AA5EC20905C880042A226 /* ClassDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassDemo.cpp; sourceTree = "<group>"; };
@@ -339,6 +352,7 @@
 		841B9D842083428A00054AE7 /* iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				8440C7202098C13100E5A3F3 /* Downloader */,
 				842B378D20976AAA005AA6E4 /* Assembly */,
 				AE2DFE162089954F00C818A9 /* fishhook.c */,
 				AE2DFE172089954F00C818A9 /* fishhook.h */,
@@ -662,6 +676,23 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		8440C7202098C13100E5A3F3 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				8440C7242098C9AE00E5A3F3 /* MPFloaderHead.h */,
+				8440C7272098CADC00E5A3F3 /* MPFloaderCommon.h */,
+				8440C7282098CADC00E5A3F3 /* MPFloaderCommon.m */,
+				8440C72D2098CD8F00E5A3F3 /* MPFDownloadTaskModel.h */,
+				8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */,
+				8440C7212098C90D00E5A3F3 /* MPFDownloader.h */,
+				8440C7222098C90D00E5A3F3 /* MPFDownloader.m */,
+				8440C72A2098CBAC00E5A3F3 /* MPFDowloadManager.h */,
+				8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */,
+			);
+			name = Downloader;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		AE0AA5EF20940FBF0042A226 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,11 +837,13 @@
 				841B9E75208344E300054AE7 /* FLEXFieldEditorView.m in Sources */,
 				841B9E8D208344E300054AE7 /* FLEXHierarchyTableViewCell.m in Sources */,
 				841B9E6F208344E300054AE7 /* FLEXArgumentInputFontView.m in Sources */,
+				8440C72C2098CBAC00E5A3F3 /* MPFDowloadManager.m in Sources */,
 				841B9E72208344E300054AE7 /* FLEXArgumentInputNumberView.m in Sources */,
 				841B9E5B208344E300054AE7 /* FLEXNetworkTransactionTableViewCell.m in Sources */,
 				841B9E54208344E300054AE7 /* FLEXSetExplorerViewController.m in Sources */,
 				841B9E81208344E300054AE7 /* FLEXTableContentViewController.m in Sources */,
 				841B9E8B208344E300054AE7 /* FLEXLiveObjectsTableViewController.m in Sources */,
+				8440C7292098CADC00E5A3F3 /* MPFloaderCommon.m in Sources */,
 				841B9E76208344E300054AE7 /* FLEXExplorerViewController.m in Sources */,
 				841B9E4E208344E300054AE7 /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				841B9E70208344E300054AE7 /* FLEXArgumentInputTextView.m in Sources */,
@@ -825,6 +858,7 @@
 				841B9E56208344E300054AE7 /* FLEXViewExplorerViewController.m in Sources */,
 				841B9E8A208344E300054AE7 /* FLEXGlobalsTableViewController.m in Sources */,
 				841B9E90208344E400054AE7 /* FLEXUtility.m in Sources */,
+				8440C7232098C90E00E5A3F3 /* MPFDownloader.m in Sources */,
 				841B9E71208344E300054AE7 /* FLEXArgumentInputFontsPickerView.m in Sources */,
 				841B9E4F208344E300054AE7 /* FLEXImageExplorerViewController.m in Sources */,
 				841B9E92208344E400054AE7 /* FLEXRuntimeUtility.m in Sources */,
@@ -867,6 +901,7 @@
 				841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */,
 				841B9E86208344E300054AE7 /* FLEXRealmDatabaseManager.m in Sources */,
 				841B9E7F208344E300054AE7 /* FLEXSystemLogTableViewCell.m in Sources */,
+				8440C72F2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m in Sources */,
 				841B9E69208344E300054AE7 /* FLEXArgumentInputColorView.m in Sources */,
 				AE2DFE11208989AE00C818A9 /* MPSignalHandler.m in Sources */,
 				AE0AA5F920940FD20042A226 /* YLDownloadKit.m in Sources */,
