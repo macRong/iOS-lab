@@ -11,6 +11,19 @@
 
 @implementation Cat
 
+// 发送机制
+// 编译器的一个
+//[person run:@"10"];
+//    objc_msgSend(person, 1, @"10");
+//
+//    Person *person = ((Person * (*)(id, SEL))objc_msgSend)((id)[Person class], @selector(alloc));
+//
+//    person = ((Person *(*)(id, SEL))objc_msgSend)((id)person, @selector(init));
+//
+//    ((Person * (*)(id, SEL, NSString *))objc_msgSend)((id)person, @selector(run:), @"1");
+
+
+// 转发机制
 // 1.动态方法解析
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
