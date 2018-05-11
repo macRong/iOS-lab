@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    Install_MP_UncaughtExceptionHandler();
+    Install_MP_UncaughtExceptionHandler();
     
     return YES;
 }
