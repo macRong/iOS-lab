@@ -112,6 +112,7 @@
 		AE6A22352085ECA00028C53B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A22342085ECA00028C53B /* Person.m */; };
 		AED981C220A036B0004BFF52 /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = AED981C120A036B0004BFF52 /* Cat.m */; };
 		AED981C520A0374A004BFF52 /* CatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED981C420A0374A004BFF52 /* CatViewController.m */; };
+		AEECC9C920A56FE9009E5BC3 /* CopyClassCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEECC9C720A56FE9009E5BC3 /* CopyClassCpp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -326,6 +327,8 @@
 		AED981C120A036B0004BFF52 /* Cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
 		AED981C320A0374A004BFF52 /* CatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatViewController.h; sourceTree = "<group>"; };
 		AED981C420A0374A004BFF52 /* CatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatViewController.m; sourceTree = "<group>"; };
+		AEECC9C720A56FE9009E5BC3 /* CopyClassCpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CopyClassCpp.cpp; sourceTree = "<group>"; };
+		AEECC9C820A56FE9009E5BC3 /* CopyClassCpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CopyClassCpp.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,12 +361,12 @@
 		841B9D842083428A00054AE7 /* iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				AED981C620A03867004BFF52 /* profiles */,
 				841B9D852083428A00054AE7 /* AppDelegate.h */,
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
 				841B9D892083428A00054AE7 /* ViewController.mm */,
 				841B9D8B2083428A00054AE7 /* Main.storyboard */,
+				AED981C620A03867004BFF52 /* profiles */,
 				AED981BF20A0364B004BFF52 /* Method */,
 				8440C7202098C13100E5A3F3 /* Downloader */,
 				842B378D20976AAA005AA6E4 /* Assembly */,
@@ -721,6 +724,8 @@
 				AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */,
 				AE0AA5ED20905C880042A226 /* ClassDemo.hpp */,
 				AE0AA5EC20905C880042A226 /* ClassDemo.cpp */,
+				AEECC9C820A56FE9009E5BC3 /* CopyClassCpp.hpp */,
+				AEECC9C720A56FE9009E5BC3 /* CopyClassCpp.cpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 				841B9E85208344E300054AE7 /* FLEXTableContentCell.m in Sources */,
 				841B9E6B208344E300054AE7 /* FLEXArgumentInputJSONObjectView.m in Sources */,
 				841B9E5D208344E300054AE7 /* FLEXNetworkTransactionDetailTableViewController.m in Sources */,
+				AEECC9C920A56FE9009E5BC3 /* CopyClassCpp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
