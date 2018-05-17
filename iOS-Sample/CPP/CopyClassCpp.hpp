@@ -13,4 +13,17 @@
 
 #include <stdio.h>
 
+class Line
+{
+public:
+    Line (int len);
+    Line (const Line &obj);
+    int add;
+    ~Line();
+
+private:
+    int *ptr;
+};
+
+
 #endif /* CopyClassCpp_hpp */

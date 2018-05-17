@@ -18,23 +18,26 @@
 //ret
 
 
-.text
-.global _A,_B,_SumC
-
-_A:
-  mov x0,0xaaaa
-  str x30,[sp, #-0x10]!
-  mov x30, sp
-  bl _B
-  mov x0,0xcccc
-  ldr x30,[sp],#0x10
-  ret
-
-_B:
-  mov x0,0xbbbb
-  ret
 
 
-_SumC:
-   add x0, x0,x1
-   ret
+#真机
+//.text
+//.global _A,_B,_SumC
+//
+//_A:
+//  mov x0,0xaaaa
+//  str x30,[sp, #-0x10]!
+//  mov x30, sp
+//  bl _B
+//  mov x0,0xcccc
+//  ldr x30,[sp],#0x10
+//  ret
+//
+//_B:
+//  mov x0,0xbbbb
+//  ret
+//
+//
+//_SumC:
+//   add x0, x0,x1
+//   ret

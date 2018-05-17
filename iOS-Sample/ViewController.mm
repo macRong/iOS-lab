@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #include "StringCPP.hpp"
 #include "StruckDataS.hpp"
-#include "ClassDemo.hpp"
+#include "CopyClassCpp.hpp"
 
 @interface ViewController ()
 
@@ -24,9 +24,12 @@
 {
     [super viewDidLoad];
 
+    Line line(9);
+    line.add = 11;
     
+    Line linea = line;
+    linea.add = 12;
 }
-
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -36,7 +39,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
 }
 
 
