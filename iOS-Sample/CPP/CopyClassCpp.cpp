@@ -49,4 +49,33 @@ int stDor::age = 11;
 
 
 
+// -------------------------------------
+
+double Box::getVolume(void)
+{
+    return width * height;
+}
+
+void Box::setWidth(double w)
+{
+    width = w;
+}
+
+void Box::setHeight(double h)
+{
+    height = h;
+}
+
+// 重载 + 运算符，用于把两个 Box 对象相加
+Box Box::operator*(const Box& b)
+{
+    Box box;
+    box.width = this->width + b.width;
+    box.height = this->height + b.height;
+    return box;
+}
+
+
+
+
 

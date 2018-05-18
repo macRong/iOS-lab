@@ -26,4 +26,18 @@ private:
 };
 
 
+// -------------------------
+
+class Box
+{
+public:
+    double getVolume(void);
+    void setWidth(double w);
+    void setHeight(double h);
+    Box operator*(const Box& b);
+    
+    double width;
+    double height;
+};
+
 #endif /* CopyClassCpp_hpp */

@@ -23,12 +23,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    Line line(9);
-    line.add = 11;
     
-    Line linea = line;
-    linea.add = 12;
+    Box box1;
+    Box box2;
+    
+    box1.width = 3;
+    box1.height = 4;
+    
+    box2.width = 5;
+    box2.height = 6;
+    
+    double sum1 = box1.getVolume();
+    double sum2 = box2.getVolume();
+    
+    Box b = box1 * box2;
+    
+    printf("sum1=%f, sum2=%f, b.width=%f,b.height=%f",sum1,sum2,b.width,b.height);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
