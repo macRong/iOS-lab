@@ -30,6 +30,7 @@ public:
 };
 
 
+// ---------- Cat
 class Cat {
 public:
     int m_x;
@@ -44,6 +45,17 @@ public:
 private:
     int *ptr;
     char name[22];
+};
+
+
+// ------------ Num
+class Num {
+public:
+    ~Num();
+    Num(int a);
+    
+private:
+    int total;
 };
 
 

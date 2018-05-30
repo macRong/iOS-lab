@@ -8,7 +8,6 @@
 
 #include "CopyClassCpp.hpp"
 
-
 Line::Line (int len)
 {
     printf("构造\n");
