@@ -96,6 +96,8 @@
 		8440C7292098CADC00E5A3F3 /* MPFloaderCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C7282098CADC00E5A3F3 /* MPFloaderCommon.m */; };
 		8440C72C2098CBAC00E5A3F3 /* MPFDowloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */; };
 		8440C72F2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */; };
+		AE03F9B320BE99FF00C1E3AB /* DefinTestCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE03F9B120BE99FF00C1E3AB /* DefinTestCpp.cpp */; };
+		AE03F9B620BEA62A00C1E3AB /* SignRaise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE03F9B420BEA62A00C1E3AB /* SignRaise.cpp */; };
 		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
 		AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5EC20905C880042A226 /* ClassDemo.cpp */; };
 		AE0AA5F820940FD20042A226 /* YLDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5F220940FD10042A226 /* YLDownloadCache.m */; };
@@ -295,6 +297,10 @@
 		8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDowloadManager.m; sourceTree = "<group>"; };
 		8440C72D2098CD8F00E5A3F3 /* MPFDownloadTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDownloadTaskModel.h; sourceTree = "<group>"; };
 		8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDownloadTaskModel.m; sourceTree = "<group>"; };
+		AE03F9B120BE99FF00C1E3AB /* DefinTestCpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DefinTestCpp.cpp; sourceTree = "<group>"; };
+		AE03F9B220BE99FF00C1E3AB /* DefinTestCpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DefinTestCpp.hpp; sourceTree = "<group>"; };
+		AE03F9B420BEA62A00C1E3AB /* SignRaise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SignRaise.cpp; sourceTree = "<group>"; };
+		AE03F9B520BEA62A00C1E3AB /* SignRaise.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SignRaise.hpp; sourceTree = "<group>"; };
 		AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StruckDataS.cpp; sourceTree = "<group>"; };
 		AE0AA5E9208F6FB50042A226 /* StruckDataS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StruckDataS.hpp; sourceTree = "<group>"; };
 		AE0AA5EC20905C880042A226 /* ClassDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassDemo.cpp; sourceTree = "<group>"; };
@@ -731,6 +737,10 @@
 				AEECC9C720A56FE9009E5BC3 /* CopyClassCpp.cpp */,
 				AEF4BDAC20B6A346004F1CD3 /* SignTest.h */,
 				AEF4BDAD20B6A346004F1CD3 /* SignTest.c */,
+				AE03F9B120BE99FF00C1E3AB /* DefinTestCpp.cpp */,
+				AE03F9B220BE99FF00C1E3AB /* DefinTestCpp.hpp */,
+				AE03F9B520BEA62A00C1E3AB /* SignRaise.hpp */,
+				AE03F9B420BEA62A00C1E3AB /* SignRaise.cpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -866,6 +876,7 @@
 				841B9E74208344E300054AE7 /* FLEXArgumentInputNotSupportedView.m in Sources */,
 				841B9D8A2083428A00054AE7 /* ViewController.mm in Sources */,
 				AE2DFE15208989AE00C818A9 /* MPCrashInfo.m in Sources */,
+				AE03F9B620BEA62A00C1E3AB /* SignRaise.cpp in Sources */,
 				841B9E89208344E300054AE7 /* FLEXLibrariesTableViewController.m in Sources */,
 				841B9E5A208344E300054AE7 /* FLEXNetworkRecorder.m in Sources */,
 				841B9E91208344E400054AE7 /* FLEXHeapEnumerator.m in Sources */,
@@ -927,6 +938,7 @@
 				AE2DFE14208989AE00C818A9 /* MPCrashHandler.m in Sources */,
 				841B9E60208344E300054AE7 /* FLEXToolbarItem.m in Sources */,
 				AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */,
+				AE03F9B320BE99FF00C1E3AB /* DefinTestCpp.cpp in Sources */,
 				841B9E87208344E300054AE7 /* FLEXSQLiteDatabaseManager.m in Sources */,
 				841B9E67208344E300054AE7 /* FLEXFieldEditorViewController.m in Sources */,
 				AEF4BDAE20B6A346004F1CD3 /* SignTest.c in Sources */,

@@ -12,6 +12,7 @@
 #include "CopyClassCpp.hpp"
 #include "SignTest.h"
 #include "ClassDemo.hpp"
+#include "SignRaise.hpp"
 
 @interface ViewController ()
 
@@ -51,7 +52,9 @@
 {
     [super viewDidLoad];
     
-    Num *num = new Num(   11  );
+//    SignRaise sign = SignRaise();
+//    sign.registerSign();
+    
 
 //    SignDemo *dem = new SignDemo();
     

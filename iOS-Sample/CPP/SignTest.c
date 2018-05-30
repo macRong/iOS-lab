@@ -9,9 +9,9 @@
 #include "SignTest.h"
 #include <stdlib.h>
 
+
+
 void signTest()
 {
-    char *p = malloc(100);
-    free(p);
-    free(p);  
+ 
 }

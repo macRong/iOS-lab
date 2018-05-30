@@ -23,5 +23,4 @@ void didload();
 int node_length(node_t *node);
 
 
-
 #endif /* StruckDataS_hpp */
