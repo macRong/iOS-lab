@@ -8,10 +8,11 @@
 
 #include "SignTest.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 
 
 void signTest()
 {
- 
+    printf("hello c");
 }

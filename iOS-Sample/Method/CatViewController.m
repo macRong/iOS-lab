@@ -8,6 +8,7 @@
 
 #import "CatViewController.h"
 #import "Cat.h"
+#import <objc/runtime.h>
 
 @interface CatViewController ()
 
@@ -15,7 +16,8 @@
 
 @implementation CatViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
