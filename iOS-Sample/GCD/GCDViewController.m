@@ -10,7 +10,7 @@
 #import "Person.h"
 #import "MPFDowloadManager.h"
 #import "MPFDownloadTaskModel.h"
-
+#import "fishhook.h"
 
 @interface GCDViewController ()
 {
@@ -97,7 +97,21 @@
 //        [[MPFDowloadManager shredManager] cancelDownloadTask:model.url];
 //        NSLog(@"-----error");
 //    }];
+    
+//    rebind_symbols((struct rebinding[1]){{"NSLog",myNSLog, (void *)&origin_NSLog}}, 1);
 }
+
+
+#pragma ------------------------------ finshHook ------------------------------
+
+//
+//static void (*origin_NSLog)(NSString *format, ...);
+//
+//void myNSLog(NSString *format, ...)
+//{
+//
+//}
+
 
 - (void)createDirectory:(NSString *)directory
 {

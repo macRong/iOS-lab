@@ -74,7 +74,14 @@
 //
 //    printf("sum1=%f, sum2=%f, b.width=%f,b.height=%f",sum1,sum2,b.width,b.height);
 }
+    
+    
+- (IBAction)finshHookBtn:(id)sender
+{
+ 
+}
 
+    
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];

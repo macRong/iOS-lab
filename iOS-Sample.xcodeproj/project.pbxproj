@@ -92,10 +92,12 @@
 		841B9E96208344E400054AE7 /* FLEXMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */; };
 		841B9E97208344E400054AE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 841B9E4A208344E300054AE7 /* README.md */; };
 		842B378F20976AF2005AA6E4 /* StackSub.s in Sources */ = {isa = PBXBuildFile; fileRef = 842B378E20976AF2005AA6E4 /* StackSub.s */; };
+		8433695920C588D100014FCD /* JPFPSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433695820C588D100014FCD /* JPFPSStatus.m */; };
 		8440C7232098C90E00E5A3F3 /* MPFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C7222098C90D00E5A3F3 /* MPFDownloader.m */; };
 		8440C7292098CADC00E5A3F3 /* MPFloaderCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C7282098CADC00E5A3F3 /* MPFloaderCommon.m */; };
 		8440C72C2098CBAC00E5A3F3 /* MPFDowloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */; };
 		8440C72F2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */; };
+		846ADE5A20C2E6500047391F /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 846ADE5920C2E6500047391F /* fishhook.c */; };
 		AE03F9B320BE99FF00C1E3AB /* DefinTestCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE03F9B120BE99FF00C1E3AB /* DefinTestCpp.cpp */; };
 		AE03F9B620BEA62A00C1E3AB /* SignRaise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE03F9B420BEA62A00C1E3AB /* SignRaise.cpp */; };
 		AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE0AA5E8208F6FB50042A226 /* StruckDataS.cpp */; };
@@ -288,6 +290,8 @@
 		841B9E49208344E300054AE7 /* FLEXMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXMultilineTableViewCell.m; sourceTree = "<group>"; };
 		841B9E4A208344E300054AE7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		842B378E20976AF2005AA6E4 /* StackSub.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = StackSub.s; sourceTree = "<group>"; };
+		8433695720C588D100014FCD /* JPFPSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFPSStatus.h; sourceTree = "<group>"; };
+		8433695820C588D100014FCD /* JPFPSStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFPSStatus.m; sourceTree = "<group>"; };
 		8440C7212098C90D00E5A3F3 /* MPFDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDownloader.h; sourceTree = "<group>"; };
 		8440C7222098C90D00E5A3F3 /* MPFDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDownloader.m; sourceTree = "<group>"; };
 		8440C7242098C9AE00E5A3F3 /* MPFloaderHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFloaderHead.h; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 		8440C72B2098CBAC00E5A3F3 /* MPFDowloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDowloadManager.m; sourceTree = "<group>"; };
 		8440C72D2098CD8F00E5A3F3 /* MPFDownloadTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFDownloadTaskModel.h; sourceTree = "<group>"; };
 		8440C72E2098CD8F00E5A3F3 /* MPFDownloadTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFDownloadTaskModel.m; sourceTree = "<group>"; };
+		846ADE5820C2E6500047391F /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		846ADE5920C2E6500047391F /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		AE03F9B120BE99FF00C1E3AB /* DefinTestCpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DefinTestCpp.cpp; sourceTree = "<group>"; };
 		AE03F9B220BE99FF00C1E3AB /* DefinTestCpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DefinTestCpp.hpp; sourceTree = "<group>"; };
 		AE03F9B420BEA62A00C1E3AB /* SignRaise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SignRaise.cpp; sourceTree = "<group>"; };
@@ -402,6 +408,7 @@
 		841B9D9F208344C400054AE7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				8433695620C588D100014FCD /* JPFPSStatus */,
 				AE2DFE162089954F00C818A9 /* fishhook.c */,
 				AE2DFE172089954F00C818A9 /* fishhook.h */,
 				841B9DA0208344E200054AE7 /* FLEX */,
@@ -692,6 +699,15 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		8433695620C588D100014FCD /* JPFPSStatus */ = {
+			isa = PBXGroup;
+			children = (
+				8433695720C588D100014FCD /* JPFPSStatus.h */,
+				8433695820C588D100014FCD /* JPFPSStatus.m */,
+			);
+			path = JPFPSStatus;
+			sourceTree = "<group>";
+		};
 		8440C7202098C13100E5A3F3 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,6 +723,15 @@
 			);
 			name = Downloader;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		846ADE5720C2E5C10047391F /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				846ADE5820C2E6500047391F /* fishhook.h */,
+				846ADE5920C2E6500047391F /* fishhook.c */,
+			);
+			path = fishhook;
 			sourceTree = "<group>";
 		};
 		AE0AA5EF20940FBF0042A226 /* Downloader */ = {
@@ -748,6 +773,7 @@
 		AE2DFE04208983D000C818A9 /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
+				846ADE5720C2E5C10047391F /* fishhook */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -874,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841B9E74208344E300054AE7 /* FLEXArgumentInputNotSupportedView.m in Sources */,
+				846ADE5A20C2E6500047391F /* fishhook.c in Sources */,
 				841B9D8A2083428A00054AE7 /* ViewController.mm in Sources */,
 				AE2DFE15208989AE00C818A9 /* MPCrashInfo.m in Sources */,
 				AE03F9B620BEA62A00C1E3AB /* SignRaise.cpp in Sources */,
@@ -897,6 +924,7 @@
 				841B9E6E208344E300054AE7 /* FLEXArgumentInputDateView.m in Sources */,
 				AE0AA5F820940FD20042A226 /* YLDownloadCache.m in Sources */,
 				AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */,
+				8433695920C588D100014FCD /* JPFPSStatus.m in Sources */,
 				AE2DFE182089954F00C818A9 /* fishhook.c in Sources */,
 				841B9E61208344E300054AE7 /* FLEXExplorerToolbar.m in Sources */,
 				842B378F20976AF2005AA6E4 /* StackSub.s in Sources */,
@@ -1115,9 +1143,13 @@
 		841B9D992083428D00054AE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RUKMWMX899;
+				DEVELOPMENT_TEAM = 92TS993A24;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS-Sample/profiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -1134,9 +1166,13 @@
 		841B9D9A2083428D00054AE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RUKMWMX899;
+				DEVELOPMENT_TEAM = 92TS993A24;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS-Sample/profiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
