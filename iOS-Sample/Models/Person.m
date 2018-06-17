@@ -15,4 +15,9 @@
     NSLog(@"====== dealloc");
 }
 
+- (void)eat
+{
+    NSLog(@"person.eat()");
+}
+
 @end

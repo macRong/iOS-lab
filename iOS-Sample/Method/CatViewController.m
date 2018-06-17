@@ -32,7 +32,12 @@
     [super touchesBegan:touches withEvent:event];
     
     Cat *cat = [Cat new];
+    cat.name = @"sd";
     [cat eat];
+    NSLog(@"====== 走了吗");
+    
+    cat.name = @"lastname";
+    NSLog(@"======cat.name=%@",cat.name);
 }
 
 @end

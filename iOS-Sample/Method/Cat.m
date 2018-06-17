@@ -27,12 +27,12 @@
 // 1.动态方法解析
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-    NSLog(@"sel = %@", NSStringFromSelector(sel));
+    NSLog(@"resolveInstanceMethod >>>sel = %@", NSStringFromSelector(sel));
     
     // 判断实现方法
     //    if (sel == @selector(run)) {
     //        // 动态方法添加
-    //        class_addMethod(self, sel, (IMP)runNew, "v@:");
+//            class_addMethod(self, sel, (IMP)runNew, "v@:");
     //
     //        return YES;
     //    }
@@ -46,18 +46,22 @@ void runNew(id self, SEL sel)
 }
 
 // 2.快速消息转发
-- (id)forwardingTargetForSelector:(SEL)aSelector
-{
-    //    NSLog(@"sel = %@", NSStringFromSelector(aSelector));
-    //    return [Animation new];
-    
-    return [super forwardingTargetForSelector:aSelector];
-}
+//- (id)forwardingTargetForSelector:(SEL)aSelector
+//{
+//    //    NSLog(@"sel = %@", NSStringFromSelector(aSelector));
+//    //    return [Animation new];
+//    
+//    NSLog(@"forwardingTargetForSelector >>>> %@",NSStringFromSelector(aSelector));
+////    return [Person new];
+//    
+//    return [super forwardingTargetForSelector:aSelector];
+//}
 
 // 3.标准消息转发
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    //    NSLog(@"---%@",anInvocation );
+    NSLog(@"forwardInvocation >>> %@",anInvocation);
+    
     // 拿sel(方法)
     SEL sel = [anInvocation selector];
     // 转发
@@ -76,13 +80,15 @@ void runNew(id self, SEL sel)
 // 生成方法签名
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
+    NSLog(@"methodSignatureForSelector >>> %@",NSStringFromSelector(aSelector));
+
     NSString *sel = NSStringFromSelector(aSelector);
-    
-    if ([sel isEqualToString:@"eat"])
-    {
+
+//    if ([sel isEqualToString:@"eat"])
+//    {
         return [NSMethodSignature signatureWithObjCTypes:"v@:"];
-    }
-    
+//    }
+
     return [super methodSignatureForSelector:aSelector];
 }
 
@@ -90,7 +96,7 @@ void runNew(id self, SEL sel)
 - (void)doesNotRecognizeSelector:(SEL)aSelector
 {
     NSString *sel = NSStringFromSelector(aSelector);
-    NSLog(@"-----%@ 不存在", sel);
+    NSLog(@"doesNotRecognizeSelector >>> %@ 不存在", sel);
 }
 
 @end

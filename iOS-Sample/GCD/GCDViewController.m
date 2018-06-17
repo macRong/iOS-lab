@@ -11,6 +11,7 @@
 #import "MPFDowloadManager.h"
 #import "MPFDownloadTaskModel.h"
 #import "fishhook.h"
+#import "Cat.h"
 
 @interface GCDViewController ()
 {
@@ -73,9 +74,12 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+    
+    NSArray *cat = [[Cat alloc]init];
+    [cat lastObject];
 
-    NSArray *ar = @[];
-    [ar objectAtIndex:99999];
+//    NSArray *ar = @[];
+//    [ar objectAtIndex:99999];
     
 //    MPFDownloadTaskModel *model=[MPFDownloadTaskModel model];
 //    model.name=@"111.png";

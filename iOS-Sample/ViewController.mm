@@ -32,10 +32,8 @@
     // 补成相同位数数组
     if (ver1Array.count < a) { for(NSInteger j = ver1Array.count; j < a; j++)
     {
-        [ver1Array addObject:@"0"];
-        
+        [ver1Array addObject:@"0"];        
     }
-        
     }
     else
     {

@@ -15,5 +15,7 @@
 
 @property (nonatomic, strong) UIView *sView;
 
+- (void)eat;
+
 
 @end
