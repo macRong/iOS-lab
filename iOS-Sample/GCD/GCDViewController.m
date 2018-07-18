@@ -12,12 +12,17 @@
 #import "MPFDownloadTaskModel.h"
 #import "fishhook.h"
 #import "Cat.h"
+#import "NodeCustomeView.h"
 
+typedef void(^Gl)(BOOL);
 @interface GCDViewController ()
 {
     CAShapeLayer *shapeLayer;
     NSTimer *timer;
 }
+
+@property (nonatomic, strong) Gl gl;
+
 @end
 
 @implementation GCDViewController
@@ -29,6 +34,30 @@
     
     
     NSLog(@"GCDViewController.dealloc");
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
 }
 
 - (void)viewDidLoad
@@ -74,9 +103,26 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+    int age = 28;
+    void (^Bl)(BOOL) = ^(BOOL ism){
+        NSLog(@"-------bl=%@",timer);
+    };
+
+    Bl(YES);
+
+//    if (self.gl)
+//    {
+//        self.gl(YES);
+//    }
+//
+//    self.gl = ^(BOOL ss) {
+//        NSLog(@"sddssd =%d",age);
+//    };
     
-    NSArray *cat = [[Cat alloc]init];
-    [cat lastObject];
+    
+    NodeCustomeView *view = [[NodeCustomeView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
 
 //    NSArray *ar = @[];
 //    [ar objectAtIndex:99999];
@@ -393,7 +439,7 @@
         NSLog(@"任务3");
     });
     NSLog(@"end");
-    
 }
+
 
 @end

@@ -118,6 +118,12 @@
 		AED981C520A0374A004BFF52 /* CatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED981C420A0374A004BFF52 /* CatViewController.m */; };
 		AEECC9C920A56FE9009E5BC3 /* CopyClassCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEECC9C720A56FE9009E5BC3 /* CopyClassCpp.cpp */; };
 		AEF4BDAE20B6A346004F1CD3 /* SignTest.c in Sources */ = {isa = PBXBuildFile; fileRef = AEF4BDAD20B6A346004F1CD3 /* SignTest.c */; };
+		AEF9C8B320F373EC00F918CF /* NodeCustomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8B220F373EC00F918CF /* NodeCustomeView.m */; };
+		AEF9C8B720F8A4BC00F918CF /* NSObject+DLIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8B620F8A4BB00F918CF /* NSObject+DLIntrospection.m */; };
+		AEF9C8BA20FD8F0600F918CF /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8B920FD8F0600F918CF /* Father.m */; };
+		AEF9C8BD20FD8F1700F918CF /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8BC20FD8F1700F918CF /* Son.m */; };
+		AEF9C8C120FD975E00F918CF /* ReverseNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8BF20FD975E00F918CF /* ReverseNode.cpp */; };
+		AEF9C8C520FD97D900F918CF /* DataStruct_README in Resources */ = {isa = PBXBuildFile; fileRef = AEF9C8C420FD97D900F918CF /* DataStruct_README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -344,6 +350,17 @@
 		AEECC9C820A56FE9009E5BC3 /* CopyClassCpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CopyClassCpp.hpp; sourceTree = "<group>"; };
 		AEF4BDAC20B6A346004F1CD3 /* SignTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignTest.h; sourceTree = "<group>"; };
 		AEF4BDAD20B6A346004F1CD3 /* SignTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SignTest.c; sourceTree = "<group>"; };
+		AEF9C8B120F373EC00F918CF /* NodeCustomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeCustomeView.h; sourceTree = "<group>"; };
+		AEF9C8B220F373EC00F918CF /* NodeCustomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeCustomeView.m; sourceTree = "<group>"; };
+		AEF9C8B520F8A4BB00F918CF /* NSObject+DLIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DLIntrospection.h"; sourceTree = "<group>"; };
+		AEF9C8B620F8A4BB00F918CF /* NSObject+DLIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DLIntrospection.m"; sourceTree = "<group>"; };
+		AEF9C8B820FD8F0600F918CF /* Father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		AEF9C8B920FD8F0600F918CF /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
+		AEF9C8BB20FD8F1700F918CF /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
+		AEF9C8BC20FD8F1700F918CF /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
+		AEF9C8BF20FD975E00F918CF /* ReverseNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReverseNode.cpp; sourceTree = "<group>"; };
+		AEF9C8C020FD975E00F918CF /* ReverseNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReverseNode.hpp; sourceTree = "<group>"; };
+		AEF9C8C420FD97D900F918CF /* DataStruct_README */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataStruct_README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,8 +397,12 @@
 				841B9D862083428A00054AE7 /* AppDelegate.m */,
 				841B9D882083428A00054AE7 /* ViewController.h */,
 				841B9D892083428A00054AE7 /* ViewController.mm */,
+				AEF9C8B820FD8F0600F918CF /* Father.h */,
+				AEF9C8B920FD8F0600F918CF /* Father.m */,
+				AEF9C8BB20FD8F1700F918CF /* Son.h */,
+				AEF9C8BC20FD8F1700F918CF /* Son.m */,
 				841B9D8B2083428A00054AE7 /* Main.storyboard */,
-				AED981C620A03867004BFF52 /* profiles */,
+				AEF9C8BE20FD95C800F918CF /* DataStruct */,
 				AED981BF20A0364B004BFF52 /* Method */,
 				8440C7202098C13100E5A3F3 /* Downloader */,
 				842B378D20976AAA005AA6E4 /* Assembly */,
@@ -392,6 +413,7 @@
 				841B9D9B208343D300054AE7 /* GCD */,
 				AE2DFDEF2088799000C818A9 /* CPP */,
 				841B9D9F208344C400054AE7 /* 3rd */,
+				AED981C620A03867004BFF52 /* profiles */,
 			);
 			path = "iOS-Sample";
 			sourceTree = "<group>";
@@ -401,6 +423,8 @@
 			children = (
 				841B9D9C208343E000054AE7 /* GCDViewController.h */,
 				841B9D9D208343E000054AE7 /* GCDViewController.m */,
+				AEF9C8B120F373EC00F918CF /* NodeCustomeView.h */,
+				AEF9C8B220F373EC00F918CF /* NodeCustomeView.m */,
 			);
 			path = GCD;
 			sourceTree = "<group>";
@@ -408,6 +432,7 @@
 		841B9D9F208344C400054AE7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				AEF9C8B420F8A4AC00F918CF /* DLIntrospection */,
 				8433695620C588D100014FCD /* JPFPSStatus */,
 				AE2DFE162089954F00C818A9 /* fishhook.c */,
 				AE2DFE172089954F00C818A9 /* fishhook.h */,
@@ -827,6 +852,25 @@
 			path = profiles;
 			sourceTree = "<group>";
 		};
+		AEF9C8B420F8A4AC00F918CF /* DLIntrospection */ = {
+			isa = PBXGroup;
+			children = (
+				AEF9C8B520F8A4BB00F918CF /* NSObject+DLIntrospection.h */,
+				AEF9C8B620F8A4BB00F918CF /* NSObject+DLIntrospection.m */,
+			);
+			path = DLIntrospection;
+			sourceTree = "<group>";
+		};
+		AEF9C8BE20FD95C800F918CF /* DataStruct */ = {
+			isa = PBXGroup;
+			children = (
+				AEF9C8C420FD97D900F918CF /* DataStruct_README */,
+				AEF9C8C020FD975E00F918CF /* ReverseNode.hpp */,
+				AEF9C8BF20FD975E00F918CF /* ReverseNode.cpp */,
+			);
+			path = DataStruct;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -889,6 +933,7 @@
 				841B9E97208344E400054AE7 /* README.md in Resources */,
 				841B9E4B208344E300054AE7 /* LICENSE in Resources */,
 				841B9D8D2083428A00054AE7 /* Main.storyboard in Resources */,
+				AEF9C8C520FD97D900F918CF /* DataStruct_README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,6 +971,7 @@
 				AE0AA5EE20905C880042A226 /* ClassDemo.cpp in Sources */,
 				8433695920C588D100014FCD /* JPFPSStatus.m in Sources */,
 				AE2DFE182089954F00C818A9 /* fishhook.c in Sources */,
+				AEF9C8B320F373EC00F918CF /* NodeCustomeView.m in Sources */,
 				841B9E61208344E300054AE7 /* FLEXExplorerToolbar.m in Sources */,
 				842B378F20976AF2005AA6E4 /* StackSub.s in Sources */,
 				841B9E73208344E300054AE7 /* FLEXArgumentInputViewFactory.m in Sources */,
@@ -964,6 +1010,7 @@
 				841B9D9E208343E000054AE7 /* GCDViewController.m in Sources */,
 				841B9E83208344E300054AE7 /* FLEXTableColumnHeader.m in Sources */,
 				AE2DFE14208989AE00C818A9 /* MPCrashHandler.m in Sources */,
+				AEF9C8BD20FD8F1700F918CF /* Son.m in Sources */,
 				841B9E60208344E300054AE7 /* FLEXToolbarItem.m in Sources */,
 				AE0AA5EA208F6FB50042A226 /* StruckDataS.cpp in Sources */,
 				AE03F9B320BE99FF00C1E3AB /* DefinTestCpp.cpp in Sources */,
@@ -988,14 +1035,17 @@
 				841B9E51208344E300054AE7 /* FLEXDictionaryExplorerViewController.m in Sources */,
 				AE0AA5FB20940FD20042A226 /* YLDownloadMP4Operation.m in Sources */,
 				841B9E6A208344E300054AE7 /* FLEXArgumentInputView.m in Sources */,
+				AEF9C8BA20FD8F0600F918CF /* Father.m in Sources */,
 				841B9E50208344E300054AE7 /* FLEXClassExplorerViewController.m in Sources */,
 				841B9E5F208344E300054AE7 /* FLEXNetworkObserver.m in Sources */,
 				841B9E5C208344E300054AE7 /* FLEXNetworkCurlLogger.m in Sources */,
+				AEF9C8B720F8A4BC00F918CF /* NSObject+DLIntrospection.m in Sources */,
 				841B9E53208344E300054AE7 /* FLEXViewControllerExplorerViewController.m in Sources */,
 				841B9E8E208344E400054AE7 /* FLEXImagePreviewViewController.m in Sources */,
 				841B9E68208344E300054AE7 /* FLEXArgumentInputStringView.m in Sources */,
 				841B9E5E208344E300054AE7 /* FLEXNetworkHistoryTableViewController.m in Sources */,
 				841B9E59208344E300054AE7 /* FLEXNetworkSettingsTableViewController.m in Sources */,
+				AEF9C8C120FD975E00F918CF /* ReverseNode.cpp in Sources */,
 				AE0AA5FA20940FD20042A226 /* YLDownloader.m in Sources */,
 				AED981C520A0374A004BFF52 /* CatViewController.m in Sources */,
 				841B9E66208344E300054AE7 /* FLEXIvarEditorViewController.m in Sources */,
@@ -1149,7 +1199,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92TS993A24;
+				DEVELOPMENT_TEAM = 22DW794HFD;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS-Sample/profiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -1157,7 +1207,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1172,7 +1222,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92TS993A24;
+				DEVELOPMENT_TEAM = 22DW794HFD;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS-Sample/profiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -1180,7 +1230,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yixia.demoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

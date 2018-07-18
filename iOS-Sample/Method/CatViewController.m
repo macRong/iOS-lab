@@ -12,6 +12,8 @@
 
 @interface CatViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation CatViewController
@@ -39,5 +41,6 @@
     cat.name = @"lastname";
     NSLog(@"======cat.name=%@",cat.name);
 }
+
 
 @end

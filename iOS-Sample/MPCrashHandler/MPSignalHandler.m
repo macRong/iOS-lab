@@ -39,12 +39,11 @@ void mp_SignalHandler(int signal)
         [mstr appendFormat:@"%s\n", strs[i]];
     }
     
+    sigset_t mask;
+    sigfillset(&mask); /* 将所有信号加入mask信号集 */
+    pthread_sigmask(SIG_BLOCK, &mask, NULL);
     
-     sigset_t              mask;
-     sigfillset(&mask); /* 将所有信号加入mask信号集 */
-      pthread_sigmask(SIG_BLOCK, &mask, NULL);
-    
-   pthread_t  tid = pthread_self();
+    pthread_t  tid = pthread_self();
     pthread_create(&tid,NULL,threadfunc,NULL);
     
     NSLog(@"✅single✅ = %d, mstr=%@",signal,mstr);

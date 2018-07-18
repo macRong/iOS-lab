@@ -7,20 +7,49 @@
 //
 
 #import "ViewController.h"
-#include "StringCPP.hpp"
+//#include "StringCPP.hpp"
 #include "StruckDataS.hpp"
 #include "CopyClassCpp.hpp"
 #include "SignTest.h"
 #include "ClassDemo.hpp"
 #include "SignRaise.hpp"
+#import "NSObject+DLIntrospection.h"
+#import <objc/runtime.h>
+#import "Son.h"
+#include "ReverseNode.hpp"
+#include <vector>
 
 @interface ViewController ()
-
 
 @end
 
 
 @implementation ViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
+}
 
 - (void)versionCompareFirst:(NSString *)first andVersionSecond: (NSString *)second {
     NSArray *versions1 = [first componentsSeparatedByString:@"."];
@@ -40,7 +69,6 @@
         for(NSInteger j = ver2Array.count; j < a; j++)
         {
             [ver2Array addObject:@"0"];
-            
         }
         
     }
@@ -50,6 +78,8 @@
 {
     [super viewDidLoad];
     
+    Son *son = [[Son alloc]init];
+
 //    SignRaise sign = SignRaise();
 //    sign.registerSign();
     
@@ -71,18 +101,30 @@
 //    Box b = box1 * box2;
 //
 //    printf("sum1=%f, sum2=%f, b.width=%f,b.height=%f",sum1,sum2,b.width,b.height);
+
+    
 }
-    
-    
+
 - (IBAction)finshHookBtn:(id)sender
 {
- 
+    ReverseNode *node =new ReverseNode;
+    ListNode *listNode = node-> creatNode(10);
+    vector<int> t = node->printListFromTailToHead(listNode);
+
+    delete  node;
+   // free(node);
+//    while (!t.empty())
+//    {
+////        t.push
+//    }
+    
 }
 
     
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+    
 }
 
 - (void)didReceiveMemoryWarning
