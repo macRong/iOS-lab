@@ -42,3 +42,15 @@ public:
 
 
 #endif /* ReverseNode_hpp */
+
+
+/** use
+ 
+ ReverseNode *node =new ReverseNode;
+ ListNode *listNode = node-> creatNode(10);
+ vector<int> t = node->printListFromTailToHead(listNode);
+ 
+ delete  node;
+ 
+ */
+ 

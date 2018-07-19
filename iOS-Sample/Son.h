@@ -10,4 +10,6 @@
 
 @interface Son : Father
 
+- (void)run;
+
 @end

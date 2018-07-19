@@ -15,11 +15,16 @@
     self = [super init];
     if (self)
     {
-        NSLog(@"==1====== %@",NSStringFromClass([self class]));
-        NSLog(@"==2====== %@",NSStringFromClass([super  class]));
+
     }
     
     return self;
+}
+
+- (void)run
+{
+    NSLog(@"==1====== %@",NSStringFromClass([self class]));
+    NSLog(@"==2====== %@",NSStringFromClass([super  class]));
 }
 
 @end

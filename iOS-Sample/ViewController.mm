@@ -77,8 +77,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    Son *son = [[Son alloc]init];
 
 //    SignRaise sign = SignRaise();
 //    sign.registerSign();
@@ -107,17 +105,13 @@
 
 - (IBAction)finshHookBtn:(id)sender
 {
-    ReverseNode *node =new ReverseNode;
-    ListNode *listNode = node-> creatNode(10);
-    vector<int> t = node->printListFromTailToHead(listNode);
-
-    delete  node;
-   // free(node);
-//    while (!t.empty())
-//    {
-////        t.push
-//    }
+//    ReverseNode *node =new ReverseNode;
+//    ListNode *listNode = node-> creatNode(10);
+//    vector<int> t = node->printListFromTailToHead(listNode);
+//
+//    delete  node;
     
+
 }
 
     
