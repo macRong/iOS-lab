@@ -11,3 +11,11 @@
 @interface CusButton : UIButton
 
 @end
+
+
+
+/**
+ 
+ 事件响应链
+ 
+ */

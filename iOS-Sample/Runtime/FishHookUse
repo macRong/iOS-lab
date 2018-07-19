@@ -1,0 +1,13 @@
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+NSLog(@"hello NSLOg");
+rebind_symbols((struct rebinding[1]){{"NSLog",myNSLog, (void *)&origin_NSLog}}, 1);
+}
+
+static void (*origin_NSLog)(NSString *format, ...);
+
+void myNSLog(NSString *format, ...)
+{
+origin_NSLog(@"hook 成功");
+}
