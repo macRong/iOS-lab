@@ -126,6 +126,8 @@
 		AEF9C8C520FD97D900F918CF /* DataStruct_README in Resources */ = {isa = PBXBuildFile; fileRef = AEF9C8C420FD97D900F918CF /* DataStruct_README */; };
 		AEF9C8C92100807400F918CF /* CusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8C82100807400F918CF /* CusButton.m */; };
 		AEF9C8CB210081D000F918CF /* FishHookUse in Resources */ = {isa = PBXBuildFile; fileRef = AEF9C8CA210081D000F918CF /* FishHookUse */; };
+		AEF9C8D02101C57800F918CF /* AsyncDrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8CF2101C57800F918CF /* AsyncDrawLayer.m */; };
+		AEF9C8D32101C5AC00F918CF /* AsyncDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF9C8D22101C5AC00F918CF /* AsyncDrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -366,6 +368,10 @@
 		AEF9C8C72100807400F918CF /* CusButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CusButton.h; sourceTree = "<group>"; };
 		AEF9C8C82100807400F918CF /* CusButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CusButton.m; sourceTree = "<group>"; };
 		AEF9C8CA210081D000F918CF /* FishHookUse */ = {isa = PBXFileReference; lastKnownFileType = text; path = FishHookUse; sourceTree = "<group>"; };
+		AEF9C8CE2101C57800F918CF /* AsyncDrawLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncDrawLayer.h; sourceTree = "<group>"; };
+		AEF9C8CF2101C57800F918CF /* AsyncDrawLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncDrawLayer.m; sourceTree = "<group>"; };
+		AEF9C8D12101C5AC00F918CF /* AsyncDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncDrawView.h; sourceTree = "<group>"; };
+		AEF9C8D22101C5AC00F918CF /* AsyncDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncDrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +413,7 @@
 				AEF9C8BB20FD8F1700F918CF /* Son.h */,
 				AEF9C8BC20FD8F1700F918CF /* Son.m */,
 				841B9D8B2083428A00054AE7 /* Main.storyboard */,
+				AEF9C8CD2101C53600F918CF /* AsyncView */,
 				AEF9C8C62100804700F918CF /* ResponderLinks */,
 				AEF9C8BE20FD95C800F918CF /* DataStruct */,
 				AED981BF20A0364B004BFF52 /* Method */,
@@ -887,6 +894,17 @@
 			path = ResponderLinks;
 			sourceTree = "<group>";
 		};
+		AEF9C8CD2101C53600F918CF /* AsyncView */ = {
+			isa = PBXGroup;
+			children = (
+				AEF9C8CE2101C57800F918CF /* AsyncDrawLayer.h */,
+				AEF9C8CF2101C57800F918CF /* AsyncDrawLayer.m */,
+				AEF9C8D12101C5AC00F918CF /* AsyncDrawView.h */,
+				AEF9C8D22101C5AC00F918CF /* AsyncDrawView.m */,
+			);
+			path = AsyncView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1037,6 +1055,7 @@
 				AED981C220A036B0004BFF52 /* Cat.m in Sources */,
 				841B9E6C208344E300054AE7 /* FLEXArgumentInputSwitchView.m in Sources */,
 				841B9E7C208344E300054AE7 /* FLEXFileBrowserFileOperationController.m in Sources */,
+				AEF9C8D02101C57800F918CF /* AsyncDrawLayer.m in Sources */,
 				841B9E4D208344E300054AE7 /* FLEXObjectExplorerFactory.m in Sources */,
 				841B9E82208344E300054AE7 /* FLEXTableListViewController.m in Sources */,
 				841B9E78208344E300054AE7 /* FLEXFileBrowserSearchOperation.m in Sources */,
@@ -1055,6 +1074,7 @@
 				AEF9C8BA20FD8F0600F918CF /* Father.m in Sources */,
 				841B9E50208344E300054AE7 /* FLEXClassExplorerViewController.m in Sources */,
 				AEF9C8C92100807400F918CF /* CusButton.m in Sources */,
+				AEF9C8D32101C5AC00F918CF /* AsyncDrawView.m in Sources */,
 				841B9E5F208344E300054AE7 /* FLEXNetworkObserver.m in Sources */,
 				841B9E5C208344E300054AE7 /* FLEXNetworkCurlLogger.m in Sources */,
 				AEF9C8B720F8A4BC00F918CF /* NSObject+DLIntrospection.m in Sources */,
