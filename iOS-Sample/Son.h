@@ -10,6 +10,7 @@
 
 @interface Son : Father
 
+@property (nonatomic, assign) NSInteger age;
 - (void)run;
 
 @end

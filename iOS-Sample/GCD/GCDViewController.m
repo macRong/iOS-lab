@@ -31,8 +31,6 @@ typedef void(^Gl)(BOOL);
 - (void)dealloc
 {
     [super dealloc];
-    
-    
     NSLog(@"GCDViewController.dealloc");
 }
 
@@ -64,7 +62,6 @@ typedef void(^Gl)(BOOL);
 {
     [super viewDidLoad];
     
-    
     //第一步，通过UIBezierPath设置圆形的矢量路径
     UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 200)];
     
@@ -89,7 +86,7 @@ typedef void(^Gl)(BOOL);
     [self.view.layer addSublayer:shapeLayer];
     
     //第四步，用一个定时器进行测试，每一秒，进度加10%
-    timer = [NSTimer scheduledTimerWithTimeInterval:1/3.0f target:self selector:@selector(animate) userInfo:nil repeats:YES];
+//    timer = [NSTimer scheduledTimerWithTimeInterval:1/3.0f target:self selector:@selector(animate) userInfo:nil repeats:YES];
 }
 
 - (void)animate
@@ -99,17 +96,68 @@ typedef void(^Gl)(BOOL);
     }];
 }
 
+void (^testBl)(void);
+
+- (void)testFunc
+{
+     int age = 20;
+    testBl = ^{
+        NSLog(@"===== age = %d",age);
+    };
+    
+    age = 30;
+}
+
+- (void)clangCfun
+{
+
+}
+
+- (void)testA
+{
+    NSLog(@"2");
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    int age = 28;
-    void (^Bl)(BOOL) = ^(BOOL ism){
-        NSLog(@"-------bl=%@",timer);
-    };
 
-    Bl(YES);
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"1");
+//        [self performSelector:@selector(testA) withObject:nil afterDelay:0];
+        [self performSelectorOnMainThread:@selector(testA) withObject:nil waitUntilDone:YES];
+//        [[NSRunLoop currentRunLoop]run];
+        NSLog(@"3");
+    });
 
+    
+//    GCDViewController __block *clan = [GCDViewController new];
+//    clan.age = 22;
+//
+//    clan.blk = ^int(int num) {
+//        clan.age = 33;
+//        return num *clan.age;
+//    };
+//
+//    clan.blk(2);
+
+//    int age = 8;
+//    void(^bl)(int) = ^void(int num){
+//        int ag = num*age;
+//        NSLog(@"---- ag=%d",age);
+//    };
+//
+//    bl(2);
+    
+//    int age = 28;
+//    void (^Bl)(BOOL) = ^(BOOL ism){
+//        NSLog(@"-------bl=%@",timer);
+//    };
+//
+//    Bl(YES);
+
+    
 //    if (self.gl)
 //    {
 //        self.gl(YES);
@@ -120,9 +168,9 @@ typedef void(^Gl)(BOOL);
 //    };
     
     
-    NodeCustomeView *view = [[NodeCustomeView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-    view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:view];
+//    NodeCustomeView *view = [[NodeCustomeView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    view.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:view];
 
 //    NSArray *ar = @[];
 //    [ar objectAtIndex:99999];

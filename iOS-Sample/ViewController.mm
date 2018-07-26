@@ -51,7 +51,8 @@
     NSLog(@" %@, %s",NSStringFromClass([self class]), __PRETTY_FUNCTION__);
 }
 
-- (void)versionCompareFirst:(NSString *)first andVersionSecond: (NSString *)second {
+- (void)versionCompareFirst:(NSString *)first andVersionSecond: (NSString *)second
+{
     NSArray *versions1 = [first componentsSeparatedByString:@"."];
     NSArray *versions2 = [second componentsSeparatedByString:@"."];
     NSMutableArray *ver1Array = [NSMutableArray arrayWithArray:versions1];

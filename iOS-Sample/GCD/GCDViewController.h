@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef int(^Blk)(int);
+
 @interface GCDViewController : UIViewController
+
+@property (nonatomic, copy) Blk blk;
+@property (nonatomic,assign) int age;
 
 @end
