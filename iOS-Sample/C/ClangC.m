@@ -32,11 +32,11 @@
  
  __block修饰后编程了block struct的对象：
      struct __Block_byref_shashaAge_0 {
-     void *__isa;
-     __Block_byref_shashaAge_0 *__forwarding;
-     int __flags;
-     int __size;
-     int shashaAge;
+         void *__isa;
+         __Block_byref_shashaAge_0 *__forwarding;
+         int __flags;
+         int __size;
+         int shashaAge;
      };
  
  */

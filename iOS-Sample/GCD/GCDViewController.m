@@ -62,6 +62,7 @@ typedef void(^Gl)(BOOL);
 {
     [super viewDidLoad];
     
+    [NSRunLoop currentRunLoop] currentMode
     //第一步，通过UIBezierPath设置圆形的矢量路径
     UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 200)];
     
@@ -122,14 +123,6 @@ void (^testBl)(void);
 {
     [super touchesBegan:touches withEvent:event];
 
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"1");
-//        [self performSelector:@selector(testA) withObject:nil afterDelay:0];
-        [self performSelectorOnMainThread:@selector(testA) withObject:nil waitUntilDone:YES];
-//        [[NSRunLoop currentRunLoop]run];
-        NSLog(@"3");
-    });
 
     
 //    GCDViewController __block *clan = [GCDViewController new];
