@@ -62,7 +62,7 @@ typedef void(^Gl)(BOOL);
 {
     [super viewDidLoad];
     
-    [NSRunLoop currentRunLoop] currentMode
+    
     //第一步，通过UIBezierPath设置圆形的矢量路径
     UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 200)];
     
@@ -123,8 +123,8 @@ void (^testBl)(void);
 {
     [super touchesBegan:touches withEvent:event];
 
+    NSLog(@"%s",__PRETTY_FUNCTION__);
 
-    
 //    GCDViewController __block *clan = [GCDViewController new];
 //    clan.age = 22;
 //
@@ -480,6 +480,57 @@ void (^testBl)(void);
         NSLog(@"任务3");
     });
     NSLog(@"end");
+}
+
+- (void)someRequest
+{
+    // 代码如下
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (int i = 0; i < 3; i ++)
+        {
+            dispatch_group_enter(group);
+            switch (i)
+            {
+                case 0:
+                {
+                    // 网络请求
+                    [self getProductDetailsSuccess:^(BOOL success)
+                    {
+                        //回调执行
+                        dispatch_group_leave(group);
+                        
+                    }];
+                    
+                }
+                    break;
+                case 1:
+                {
+                    //网络请求
+                    [self getProductEvaluateSuccess:^(BOOL success)
+                    {
+                        //回调执行
+                        dispatch_group_leave(group);
+                        
+                    }];
+                    
+                }
+                break;
+                default:
+                break;
+                    
+            }
+            
+        }
+        
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //请求完毕，处理业务逻辑
+            
+        });
+        
+    });
+
 }
 
 
