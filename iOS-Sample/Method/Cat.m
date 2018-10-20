@@ -46,16 +46,16 @@ void runNew(id self, SEL sel)
 }
 
 // 2.快速消息转发
-//- (id)forwardingTargetForSelector:(SEL)aSelector
-//{
-//    //    NSLog(@"sel = %@", NSStringFromSelector(aSelector));
-//    //    return [Animation new];
-//    
-//    NSLog(@"forwardingTargetForSelector >>>> %@",NSStringFromSelector(aSelector));
-////    return [Person new];
-//    
-//    return [super forwardingTargetForSelector:aSelector];
-//}
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    //    NSLog(@"sel = %@", NSStringFromSelector(aSelector));
+    //    return [Animation new];
+    
+    NSLog(@"forwardingTargetForSelector >>>> %@",NSStringFromSelector(aSelector));
+//    return [Person new];
+    
+    return [super forwardingTargetForSelector:aSelector];
+}
 
 // 3.标准消息转发
 - (void)forwardInvocation:(NSInvocation *)anInvocation

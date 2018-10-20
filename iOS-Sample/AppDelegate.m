@@ -20,9 +20,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    Install_MP_UncaughtExceptionHandler();
+    Install_MP_UncaughtExceptionHandler();
+    
+//    [self fun];
 
     return YES;
+}
+
+int i = 0;
+- (void)fun
+{
+//    if (i++ %2 == 0)
+//    {
+    if (i ++ < 999999)
+    {
+        [self fun];
+    }
+//    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

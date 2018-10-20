@@ -205,7 +205,7 @@ static int currentIndex = 0; // 当前访问的index
     [self reuqestWeb:arr];
     
     // 全部走完时间   在重新请求
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6000 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (currentIndex >= urls.count)
         {
             currentIndex = 0;
