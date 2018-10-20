@@ -22,7 +22,7 @@
 {
     Install_MP_UncaughtExceptionHandler();
     
-//    [self fun];
+//    master 1
 
     return YES;
 }
