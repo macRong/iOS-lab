@@ -10,7 +10,6 @@
 		39D2B7545290BA5C5AC52835 /* Pods_iOS_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */; };
 		F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */; };
 		F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1827857BEC00A6CCA8 /* SceneDelegate.m */; };
-		F76C5A1C27857BEC00A6CCA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1B27857BEC00A6CCA8 /* ViewController.m */; };
 		F76C5A1F27857BEC00A6CCA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A1D27857BEC00A6CCA8 /* Main.storyboard */; };
 		F76C5A2127857BEF00A6CCA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A2027857BEF00A6CCA8 /* Assets.xcassets */; };
 		F76C5A2427857BEF00A6CCA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A2227857BEF00A6CCA8 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,10 @@
 		F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A32278580EE00A6CCA8 /* CTViewController.m */; };
 		F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A3A2785833600A6CCA8 /* CTDebugNavigationViewController.m */; };
 		F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A3F2785844100A6CCA8 /* CTDebugViewController.m */; };
+		F76C5A4D2785A01400A6CCA8 /* ConsoleEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A4C2785A01400A6CCA8 /* ConsoleEmpty.md */; };
+		F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A502785A03B00A6CCA8 /* MineEmpty.md */; };
+		F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */; };
+		F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +32,6 @@
 		F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F76C5A1727857BEC00A6CCA8 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		F76C5A1827857BEC00A6CCA8 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		F76C5A1A27857BEC00A6CCA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F76C5A1B27857BEC00A6CCA8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F76C5A1E27857BEC00A6CCA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F76C5A2027857BEF00A6CCA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F76C5A2327857BEF00A6CCA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +43,11 @@
 		F76C5A3A2785833600A6CCA8 /* CTDebugNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugNavigationViewController.m; sourceTree = "<group>"; };
 		F76C5A3E2785844100A6CCA8 /* CTDebugViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugViewController.h; sourceTree = "<group>"; };
 		F76C5A3F2785844100A6CCA8 /* CTDebugViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugViewController.m; sourceTree = "<group>"; };
+		F76C5A4C2785A01400A6CCA8 /* ConsoleEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ConsoleEmpty.md; sourceTree = "<group>"; };
+		F76C5A502785A03B00A6CCA8 /* MineEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MineEmpty.md; sourceTree = "<group>"; };
+		F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = platfromEmpty.md; sourceTree = "<group>"; };
+		F76C5A5A2785A52700A6CCA8 /* CTDebugCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCollectionViewCell.h; sourceTree = "<group>"; };
+		F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +98,8 @@
 				F76C5A31278580EE00A6CCA8 /* CTViewController.h */,
 				F76C5A32278580EE00A6CCA8 /* CTViewController.m */,
 				F76C5A34278581BA00A6CCA8 /* Functions */,
-				F76C5A1A27857BEC00A6CCA8 /* ViewController.h */,
-				F76C5A1B27857BEC00A6CCA8 /* ViewController.m */,
+				F76C5A562785A1C900A6CCA8 /* Common */,
+				F76C5A572785A1D700A6CCA8 /* ThirdLib */,
 				F76C5A2D27857F0F00A6CCA8 /* Resource */,
 			);
 			path = "iOS-Sample";
@@ -115,29 +121,17 @@
 			isa = PBXGroup;
 			children = (
 				F76C5A382785829500A6CCA8 /* Debug */,
-				F76C5A372785825700A6CCA8 /* CrossPlatform */,
-				F76C5A35278581D600A6CCA8 /* Mine */,
+				F76C5A522785A04100A6CCA8 /* Platform */,
+				F76C5A4B27859FF700A6CCA8 /* Console */,
+				F76C5A4F2785A02800A6CCA8 /* Mine */,
 			);
 			path = Functions;
-			sourceTree = "<group>";
-		};
-		F76C5A35278581D600A6CCA8 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		F76C5A372785825700A6CCA8 /* CrossPlatform */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CrossPlatform;
 			sourceTree = "<group>";
 		};
 		F76C5A382785829500A6CCA8 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A582785A4D000A6CCA8 /* DebugViews */,
 				F76C5A3C2785833C00A6CCA8 /* DebugMain */,
 				F76C5A3D2785841700A6CCA8 /* DebugViewControllers */,
 			);
@@ -160,6 +154,69 @@
 				F76C5A3F2785844100A6CCA8 /* CTDebugViewController.m */,
 			);
 			path = DebugViewControllers;
+			sourceTree = "<group>";
+		};
+		F76C5A4B27859FF700A6CCA8 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A4C2785A01400A6CCA8 /* ConsoleEmpty.md */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
+		F76C5A4F2785A02800A6CCA8 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A552785A15200A6CCA8 /* Lock */,
+				F76C5A502785A03B00A6CCA8 /* MineEmpty.md */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		F76C5A522785A04100A6CCA8 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		F76C5A552785A15200A6CCA8 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
+		F76C5A562785A1C900A6CCA8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F76C5A572785A1D700A6CCA8 /* ThirdLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdLib;
+			sourceTree = "<group>";
+		};
+		F76C5A582785A4D000A6CCA8 /* DebugViews */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A592785A4D700A6CCA8 /* Cells */,
+			);
+			path = DebugViews;
+			sourceTree = "<group>";
+		};
+		F76C5A592785A4D700A6CCA8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A5A2785A52700A6CCA8 /* CTDebugCollectionViewCell.h */,
+				F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FD0A36F0CF22D3F7A79F14EF /* Pods */ = {
@@ -230,6 +287,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76C5A4D2785A01400A6CCA8 /* ConsoleEmpty.md in Resources */,
+				F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */,
+				F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */,
 				F76C5A2427857BEF00A6CCA8 /* LaunchScreen.storyboard in Resources */,
 				F76C5A2127857BEF00A6CCA8 /* Assets.xcassets in Resources */,
 				F76C5A1F27857BEC00A6CCA8 /* Main.storyboard in Resources */,
@@ -286,10 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */,
-				F76C5A1C27857BEC00A6CCA8 /* ViewController.m in Sources */,
 				F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */,
 				F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */,
 				F76C5A2727857BEF00A6CCA8 /* main.m in Sources */,
+				F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */,
 				F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */,
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
 			);
@@ -441,6 +501,7 @@
 				DEVELOPMENT_TEAM = CB48K3MWM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = CoreT;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -473,6 +534,7 @@
 				DEVELOPMENT_TEAM = CB48K3MWM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = CoreT;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -6,6 +6,8 @@ target 'iOS-Sample' do
   use_frameworks!
 
 	pod 'AFNetworking'
-    pod 'FLEX'
+  pod 'FLEX'
+  pod 'Masonry','~> 1.1.0'
+
 
 end

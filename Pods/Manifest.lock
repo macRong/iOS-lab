@@ -15,20 +15,24 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - FLEX (4.6.1)
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - FLEX
+  - Masonry (~> 1.1.0)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - FLEX
+    - Masonry
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FLEX: bbc55d197f87d7cde2454c3981aa47069b694144
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: ffaea9029fbab5b1cf813979db37cb510d0ff1f1
+PODFILE CHECKSUM: 9ff454c0d57a3a1181d0665f8ebe20b3fa855f11
 
 COCOAPODS: 1.11.2

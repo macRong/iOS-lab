@@ -53,7 +53,7 @@
 /** 初始化Nav导航栏 */
 - (void)initNavView
 {
-    self.title = @"Debug";
+    
 }
 
 /** 创建相关子view */
