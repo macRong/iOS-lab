@@ -21,6 +21,9 @@
 		F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A502785A03B00A6CCA8 /* MineEmpty.md */; };
 		F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */; };
 		F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */; };
+		F76C5A602785A85100A6CCA8 /* commonEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */; };
+		F76C5A622785A86600A6CCA8 /* thEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A612785A86600A6CCA8 /* thEmpty.md */; };
+		F76C5A662785A8A500A6CCA8 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,11 @@
 		F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = platfromEmpty.md; sourceTree = "<group>"; };
 		F76C5A5A2785A52700A6CCA8 /* CTDebugCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCollectionViewCell.h; sourceTree = "<group>"; };
 		F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugCollectionViewCell.m; sourceTree = "<group>"; };
+		F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = commonEmpty.md; sourceTree = "<group>"; };
+		F76C5A612785A86600A6CCA8 /* thEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = thEmpty.md; sourceTree = "<group>"; };
+		F76C5A642785A8A500A6CCA8 /* UIColor+RandomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
+		F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
+		F76C5A672785A8EE00A6CCA8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 				F76C5A32278580EE00A6CCA8 /* CTViewController.m */,
 				F76C5A34278581BA00A6CCA8 /* Functions */,
 				F76C5A562785A1C900A6CCA8 /* Common */,
+				F76C5A5D2785A82A00A6CCA8 /* Tools */,
 				F76C5A572785A1D700A6CCA8 /* ThirdLib */,
 				F76C5A2D27857F0F00A6CCA8 /* Resource */,
 			);
@@ -113,6 +122,7 @@
 				F76C5A2227857BEF00A6CCA8 /* LaunchScreen.storyboard */,
 				F76C5A2527857BEF00A6CCA8 /* Info.plist */,
 				F76C5A2627857BEF00A6CCA8 /* main.m */,
+				F76C5A672785A8EE00A6CCA8 /* PrefixHeader.pch */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -191,6 +201,7 @@
 		F76C5A562785A1C900A6CCA8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -198,6 +209,7 @@
 		F76C5A572785A1D700A6CCA8 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A612785A86600A6CCA8 /* thEmpty.md */,
 			);
 			path = ThirdLib;
 			sourceTree = "<group>";
@@ -217,6 +229,31 @@
 				F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F76C5A5D2785A82A00A6CCA8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A632785A87800A6CCA8 /* UIColor */,
+				F76C5A5E2785A83600A6CCA8 /* NSString */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F76C5A5E2785A83600A6CCA8 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		F76C5A632785A87800A6CCA8 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A642785A8A500A6CCA8 /* UIColor+RandomColor.h */,
+				F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		FD0A36F0CF22D3F7A79F14EF /* Pods */ = {
@@ -288,8 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76C5A4D2785A01400A6CCA8 /* ConsoleEmpty.md in Resources */,
+				F76C5A602785A85100A6CCA8 /* commonEmpty.md in Resources */,
 				F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */,
 				F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */,
+				F76C5A622785A86600A6CCA8 /* thEmpty.md in Resources */,
 				F76C5A2427857BEF00A6CCA8 /* LaunchScreen.storyboard in Resources */,
 				F76C5A2127857BEF00A6CCA8 /* Assets.xcassets in Resources */,
 				F76C5A1F27857BEC00A6CCA8 /* Main.storyboard in Resources */,
@@ -345,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76C5A662785A8A500A6CCA8 /* UIColor+RandomColor.m in Sources */,
 				F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */,
 				F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */,
 				F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */,
@@ -499,6 +539,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CB48K3MWM2;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOS-Sample/Resource/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CoreT;
@@ -532,6 +573,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CB48K3MWM2;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOS-Sample/Resource/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CoreT;

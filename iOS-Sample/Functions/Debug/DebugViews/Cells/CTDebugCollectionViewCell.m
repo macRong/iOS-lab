@@ -6,7 +6,6 @@
 //
 
 #import "CTDebugCollectionViewCell.h"
-#import <Masonry.h>
 
 @interface CTDebugCollectionViewCell()
 

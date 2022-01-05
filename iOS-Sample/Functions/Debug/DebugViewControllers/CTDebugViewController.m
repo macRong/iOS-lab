@@ -76,6 +76,19 @@ UICollectionViewDelegateFlowLayout>
     [self.mainCollectionView reloadData]; //??
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 #pragma mark - ———————————————————— Override —————————————————
 
 #pragma mark - ————————————— Net Connection Event ————————————
@@ -105,6 +118,7 @@ UICollectionViewDelegateFlowLayout>
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CTDebugCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CTDebugCollectionViewCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor randomColor];
 //    [cell loadUIWithModel:gczx_arr_getValidObject(self.dataList, indexPath.row)];
 
     return cell;

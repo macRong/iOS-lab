@@ -6,6 +6,10 @@
 //
 
 #import "CTViewController.h"
+#ifdef DEBUG
+#import "FLEXManager.h"
+//#import <DoraemonKit/DoraemonManager.h>
+#endif
 
 @interface CTViewController ()
 
@@ -79,6 +83,14 @@
 
 #pragma mark - —————————————————— Touch Event —————————————————
 
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    [super motionBegan:motion withEvent:event];
+
+#ifdef DEBUG
+    [[FLEXManager sharedManager] showExplorer];
+#endif
+}
 
 #pragma mark - ————————————————— Delegate Event ———————————————
 
