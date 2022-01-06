@@ -43,13 +43,20 @@
 /** 创建相关子view */
 - (void)initViews
 {
+    self.contentView.backgroundColor = [UIColor randomColor];
+    
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.contentView);
+        make.left.right.top.bottom.mas_equalTo(self.contentView).inset(8);
     }];
 }
 
 #pragma mark - ——————————————— Public Funcation ——————————————
+
+- (void)cellModel:(CTDebugCellModel *)model
+{
+    self.titleLabel.text = model.title;
+}
 
 #pragma mark - ——————————————— Private Funcation —————————————
 
@@ -61,9 +68,8 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]init];
-        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:13];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.text = @"text12";
+        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
+        _titleLabel.numberOfLines = 0;
     }
     
     return _titleLabel;

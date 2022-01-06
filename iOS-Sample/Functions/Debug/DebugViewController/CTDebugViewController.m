@@ -7,7 +7,9 @@
 
 #import "CTDebugViewController.h"
 #import "CTDebugCollectionViewCell.h"
-#import <Masonry.h>
+#import "CTDebugHeaderView.h"
+#import "CTDebugListViewModel.h"
+#import "CTDebugCellProtocol.h"
 
 @interface CTDebugViewController ()
 <UICollectionViewDelegate,
@@ -15,6 +17,7 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
+@property (nonatomic, strong) CTDebugListViewModel *viewModel;
 
 @end
 
@@ -72,14 +75,11 @@ UICollectionViewDelegateFlowLayout>
         make.top.bottom.mas_equalTo(self.view);
         make.left.right.mas_equalTo(self.view);
     }];
-    
-    [self.mainCollectionView reloadData]; //??
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -96,32 +96,69 @@ UICollectionViewDelegateFlowLayout>
 /** 数据加载 */
 - (void)loadData
 {
-    
+    self.viewModel = [CTDebugListViewModel new];
+    [self.mainCollectionView reloadData];
 }
 
 #pragma mark - ——————————————— Public Funcation ———————————————
 
-
 #pragma mark - ————————— ————— Private Funcation ——————————————
-
 
 #pragma mark - —————————————————— Touch Event —————————————————
 
-
 #pragma mark - ————————————————— Delegate Event ———————————————
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return self.viewModel.dataArray.count;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 120;
+    CTDebugCellModel *sectionCellModel = self.viewModel.dataArray[section];
+    NSArray *dataArr = sectionCellModel.dataSource;
+    NSInteger count = [dataArr isKindOfClass:[NSArray class]] ? dataArr.count : 0;
+                       
+    return count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CTDebugCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CTDebugCollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor randomColor];
-//    [cell loadUIWithModel:gczx_arr_getValidObject(self.dataList, indexPath.row)];
+    CTDebugCellModel *sectionCellmodel = self.viewModel.dataArray[indexPath.section];
+    CTDebugCellModel *cellModel = sectionCellmodel.dataSource[indexPath.row];
+    
+    Class <CTDebugCellProtocol>cls = NSClassFromString(cellModel.cellID);
+    id <CTDebugCellProtocol>cell = [collectionView dequeueReusableCellWithReuseIdentifier:(cellModel.cellID) forIndexPath:indexPath];
+    if (!cell) {
+        [collectionView registerClass:cls forCellWithReuseIdentifier:cellModel.cellID]; ///注意这里没有动态
+    }
+    [cell cellModel:cellModel];
+    
+    return (UICollectionViewCell *)cell;
+}
 
-    return cell;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CTDebugCellModel *sectionCellmodel = self.viewModel.dataArray[indexPath.section];
+    CTDebugCellModel *cellModel = sectionCellmodel.dataSource[indexPath.row];
+    [cellModel callBackAction];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *resultView = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        resultView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CTDebugHeaderViewID" forIndexPath:indexPath];
+        CTDebugCellModel *sectionCellModel = self.viewModel.dataArray[indexPath.row];
+        [(CTDebugHeaderView *)resultView loadUIForTitle:sectionCellModel.title];
+    }
+    
+    return resultView;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(200, 20);
 }
 
 #pragma mark - ————————————————— Setter/Getter ————————————————
@@ -134,12 +171,15 @@ UICollectionViewDelegateFlowLayout>
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = 0;
         layout.itemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width/4, 99);
+        layout.sectionHeadersPinToVisibleBounds = YES;
         
-        self.mainCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-        self.mainCollectionView.delegate = self;
-        self.mainCollectionView.dataSource = self;
-        self.mainCollectionView.backgroundColor = [UIColor whiteColor];
-        [self.mainCollectionView registerClass:[CTDebugCollectionViewCell class] forCellWithReuseIdentifier:@"CTDebugCollectionViewCell"];
+        _mainCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+        _mainCollectionView.delegate = self;
+        _mainCollectionView.dataSource = self;
+        _mainCollectionView.backgroundColor = [UIColor whiteColor];
+        [_mainCollectionView registerClass:[CTDebugHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CTDebugHeaderViewID"];
+        
+        [self.mainCollectionView registerClass:[CTDebugCollectionViewCell class] forCellWithReuseIdentifier:@"CTDebugCollectionViewCell"]; ///注意这里没有动态
     }
     
     return _mainCollectionView;

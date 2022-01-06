@@ -21,9 +21,14 @@
 		F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A502785A03B00A6CCA8 /* MineEmpty.md */; };
 		F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */; };
 		F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */; };
-		F76C5A602785A85100A6CCA8 /* commonEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */; };
+		F76C5A602785A85100A6CCA8 /* BaseREADME.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A5F2785A85100A6CCA8 /* BaseREADME.md */; };
 		F76C5A622785A86600A6CCA8 /* thEmpty.md in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A612785A86600A6CCA8 /* thEmpty.md */; };
 		F76C5A662785A8A500A6CCA8 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */; };
+		F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A692786B01200A6CCA8 /* CTDebugHeaderView.m */; };
+		F76C5A6E2786D10F00A6CCA8 /* CTBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A6D2786D10F00A6CCA8 /* CTBaseCellModel.m */; };
+		F76C5A722786D32200A6CCA8 /* CTDebugListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A712786D32200A6CCA8 /* CTDebugListViewModel.m */; };
+		F76C5A752786D3B100A6CCA8 /* CTDebugCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A742786D3B100A6CCA8 /* CTDebugCellModel.m */; };
+		F76C5A792786DA2E00A6CCA8 /* CTDebugBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,11 +56,23 @@
 		F76C5A532785A05A00A6CCA8 /* platfromEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = platfromEmpty.md; sourceTree = "<group>"; };
 		F76C5A5A2785A52700A6CCA8 /* CTDebugCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCollectionViewCell.h; sourceTree = "<group>"; };
 		F76C5A5B2785A52700A6CCA8 /* CTDebugCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugCollectionViewCell.m; sourceTree = "<group>"; };
-		F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = commonEmpty.md; sourceTree = "<group>"; };
+		F76C5A5F2785A85100A6CCA8 /* BaseREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BaseREADME.md; sourceTree = "<group>"; };
 		F76C5A612785A86600A6CCA8 /* thEmpty.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = thEmpty.md; sourceTree = "<group>"; };
 		F76C5A642785A8A500A6CCA8 /* UIColor+RandomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
 		F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
 		F76C5A672785A8EE00A6CCA8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F76C5A682786B01200A6CCA8 /* CTDebugHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugHeaderView.h; sourceTree = "<group>"; };
+		F76C5A692786B01200A6CCA8 /* CTDebugHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugHeaderView.m; sourceTree = "<group>"; };
+		F76C5A6C2786D10F00A6CCA8 /* CTBaseCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTBaseCellModel.h; sourceTree = "<group>"; };
+		F76C5A6D2786D10F00A6CCA8 /* CTBaseCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTBaseCellModel.m; sourceTree = "<group>"; };
+		F76C5A702786D32200A6CCA8 /* CTDebugListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugListViewModel.h; sourceTree = "<group>"; };
+		F76C5A712786D32200A6CCA8 /* CTDebugListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugListViewModel.m; sourceTree = "<group>"; };
+		F76C5A732786D3B100A6CCA8 /* CTDebugCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCellModel.h; sourceTree = "<group>"; };
+		F76C5A742786D3B100A6CCA8 /* CTDebugCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugCellModel.m; sourceTree = "<group>"; };
+		F76C5A772786DA2E00A6CCA8 /* CTDebugBlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugBlockTest.h; sourceTree = "<group>"; };
+		F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugBlockTest.m; sourceTree = "<group>"; };
+		F76C5A7A2786DD5800A6CCA8 /* CTDebugCellModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCellModelProtocol.h; sourceTree = "<group>"; };
+		F76C5A7B2786E9BA00A6CCA8 /* CTDebugCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCellProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +158,11 @@
 		F76C5A382785829500A6CCA8 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				F76C5A582785A4D000A6CCA8 /* DebugViews */,
+				F76C5A762786DA0700A6CCA8 /* Test */,
+				F76C5A6F2786D2DE00A6CCA8 /* DebugViewModel */,
+				F76C5A582785A4D000A6CCA8 /* DebugView */,
 				F76C5A3C2785833C00A6CCA8 /* DebugMain */,
-				F76C5A3D2785841700A6CCA8 /* DebugViewControllers */,
+				F76C5A3D2785841700A6CCA8 /* DebugViewController */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -157,13 +176,13 @@
 			path = DebugMain;
 			sourceTree = "<group>";
 		};
-		F76C5A3D2785841700A6CCA8 /* DebugViewControllers */ = {
+		F76C5A3D2785841700A6CCA8 /* DebugViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F76C5A3E2785844100A6CCA8 /* CTDebugViewController.h */,
 				F76C5A3F2785844100A6CCA8 /* CTDebugViewController.m */,
 			);
-			path = DebugViewControllers;
+			path = DebugViewController;
 			sourceTree = "<group>";
 		};
 		F76C5A4B27859FF700A6CCA8 /* Console */ = {
@@ -201,7 +220,7 @@
 		F76C5A562785A1C900A6CCA8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F76C5A5F2785A85100A6CCA8 /* commonEmpty.md */,
+				F76C5A6B2786D0D100A6CCA8 /* Base */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -214,12 +233,14 @@
 			path = ThirdLib;
 			sourceTree = "<group>";
 		};
-		F76C5A582785A4D000A6CCA8 /* DebugViews */ = {
+		F76C5A582785A4D000A6CCA8 /* DebugView */ = {
 			isa = PBXGroup;
 			children = (
 				F76C5A592785A4D700A6CCA8 /* Cells */,
+				F76C5A682786B01200A6CCA8 /* CTDebugHeaderView.h */,
+				F76C5A692786B01200A6CCA8 /* CTDebugHeaderView.m */,
 			);
-			path = DebugViews;
+			path = DebugView;
 			sourceTree = "<group>";
 		};
 		F76C5A592785A4D700A6CCA8 /* Cells */ = {
@@ -254,6 +275,38 @@
 				F76C5A652785A8A500A6CCA8 /* UIColor+RandomColor.m */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		F76C5A6B2786D0D100A6CCA8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A5F2785A85100A6CCA8 /* BaseREADME.md */,
+				F76C5A6C2786D10F00A6CCA8 /* CTBaseCellModel.h */,
+				F76C5A6D2786D10F00A6CCA8 /* CTBaseCellModel.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F76C5A6F2786D2DE00A6CCA8 /* DebugViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A7A2786DD5800A6CCA8 /* CTDebugCellModelProtocol.h */,
+				F76C5A7B2786E9BA00A6CCA8 /* CTDebugCellProtocol.h */,
+				F76C5A732786D3B100A6CCA8 /* CTDebugCellModel.h */,
+				F76C5A742786D3B100A6CCA8 /* CTDebugCellModel.m */,
+				F76C5A702786D32200A6CCA8 /* CTDebugListViewModel.h */,
+				F76C5A712786D32200A6CCA8 /* CTDebugListViewModel.m */,
+			);
+			path = DebugViewModel;
+			sourceTree = "<group>";
+		};
+		F76C5A762786DA0700A6CCA8 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A772786DA2E00A6CCA8 /* CTDebugBlockTest.h */,
+				F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		FD0A36F0CF22D3F7A79F14EF /* Pods */ = {
@@ -325,7 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76C5A4D2785A01400A6CCA8 /* ConsoleEmpty.md in Resources */,
-				F76C5A602785A85100A6CCA8 /* commonEmpty.md in Resources */,
+				F76C5A602785A85100A6CCA8 /* BaseREADME.md in Resources */,
 				F76C5A542785A05A00A6CCA8 /* platfromEmpty.md in Resources */,
 				F76C5A512785A03B00A6CCA8 /* MineEmpty.md in Resources */,
 				F76C5A622785A86600A6CCA8 /* thEmpty.md in Resources */,
@@ -385,13 +438,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76C5A662785A8A500A6CCA8 /* UIColor+RandomColor.m in Sources */,
+				F76C5A792786DA2E00A6CCA8 /* CTDebugBlockTest.m in Sources */,
+				F76C5A6E2786D10F00A6CCA8 /* CTBaseCellModel.m in Sources */,
 				F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */,
 				F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */,
 				F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */,
 				F76C5A2727857BEF00A6CCA8 /* main.m in Sources */,
 				F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */,
+				F76C5A722786D32200A6CCA8 /* CTDebugListViewModel.m in Sources */,
+				F76C5A752786D3B100A6CCA8 /* CTDebugCellModel.m in Sources */,
 				F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */,
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
+				F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
