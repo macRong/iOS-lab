@@ -15,17 +15,25 @@
     sectionCellModel.title = @"blockTest";
     
     ///Block-内存
-    CTDebugCellModel *memoryCellModel = [CTDebugCellModel new];
-    memoryCellModel.title = @"block内存dffdffdfdfdf";
-    memoryCellModel.cellID = @"CTDebugCollectionViewCell";
-    memoryCellModel.actionBlock = ^(id  _Nonnull value) {
+    CTDebugCellModel *memoryCellModel = [self createCellModelTitle:@"block内存" block:^(id value) {
         NSLog(@"value=%@",value);
-    };
-    
-    
+
+    }];
+
     sectionCellModel.dataSource = @[memoryCellModel];
     
     return sectionCellModel;
+}
+
+///Tool
+- (CTDebugCellModel *)createCellModelTitle:(NSString *)title block:(void(^)(id value))block
+{
+    CTDebugCellModel *cellModel = [CTDebugCellModel new];
+    cellModel.title = title;
+    cellModel.cellID = @"CTDebugCollectionViewCell";
+    cellModel.actionBlock = block;
+    
+    return cellModel;
 }
 
 @end
