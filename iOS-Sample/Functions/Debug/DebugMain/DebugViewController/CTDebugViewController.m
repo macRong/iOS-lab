@@ -148,9 +148,11 @@ UICollectionViewDelegateFlowLayout>
 {
     UICollectionReusableView *resultView = nil;
     if (kind == UICollectionElementKindSectionHeader) {
-        resultView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CTDebugHeaderViewID" forIndexPath:indexPath];
-        CTDebugCellModel *sectionCellModel = self.viewModel.dataArray[indexPath.row];
-        [(CTDebugHeaderView *)resultView loadUIForTitle:sectionCellModel.title];
+        resultView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                        withReuseIdentifier:@"CTDebugHeaderViewID"
+                                                               forIndexPath:indexPath];
+        CTDebugCellModel *sectionCellmodel = self.viewModel.dataArray[indexPath.section];
+        [(CTDebugHeaderView *)resultView loadUIForTitle:sectionCellmodel.title];
     }
     
     return resultView;

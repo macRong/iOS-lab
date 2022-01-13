@@ -29,6 +29,15 @@
 		F76C5A722786D32200A6CCA8 /* CTDebugListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A712786D32200A6CCA8 /* CTDebugListViewModel.m */; };
 		F76C5A752786D3B100A6CCA8 /* CTDebugCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A742786D3B100A6CCA8 /* CTDebugCellModel.m */; };
 		F76C5A792786DA2E00A6CCA8 /* CTDebugBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */; };
+		F76C5A8A27880D9E00A6CCA8 /* CTTeacher+T1.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8427880D9E00A6CCA8 /* CTTeacher+T1.m */; };
+		F76C5A8B27880D9E00A6CCA8 /* CTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8527880D9E00A6CCA8 /* CTPerson.m */; };
+		F76C5A8C27880D9E00A6CCA8 /* CTPerson+P2.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8627880D9E00A6CCA8 /* CTPerson+P2.m */; };
+		F76C5A8D27880D9E00A6CCA8 /* CTTeacher.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8727880D9E00A6CCA8 /* CTTeacher.m */; };
+		F76C5A8E27880D9E00A6CCA8 /* CTTeacher+T2.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8827880D9E00A6CCA8 /* CTTeacher+T2.m */; };
+		F76C5A8F27880D9E00A6CCA8 /* CTPerson+P1.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A8927880D9E00A6CCA8 /* CTPerson+P1.m */; };
+		F76C5A9B2790034100A6CCA8 /* CTDebugTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A9A2790034100A6CCA8 /* CTDebugTestBase.m */; };
+		F76C5A9E2790085900A6CCA8 /* CTDebugTheadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */; };
+		F76C5AA2279013F900A6CCA8 /* NSBundle+GetAllClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +82,24 @@
 		F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugBlockTest.m; sourceTree = "<group>"; };
 		F76C5A7A2786DD5800A6CCA8 /* CTDebugCellModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCellModelProtocol.h; sourceTree = "<group>"; };
 		F76C5A7B2786E9BA00A6CCA8 /* CTDebugCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugCellProtocol.h; sourceTree = "<group>"; };
+		F76C5A7E27880D9E00A6CCA8 /* CTPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPerson.h; sourceTree = "<group>"; };
+		F76C5A7F27880D9E00A6CCA8 /* CTTeacher+T1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTTeacher+T1.h"; sourceTree = "<group>"; };
+		F76C5A8027880D9E00A6CCA8 /* CTPerson+P2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPerson+P2.h"; sourceTree = "<group>"; };
+		F76C5A8127880D9E00A6CCA8 /* CTTeacher+T2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTTeacher+T2.h"; sourceTree = "<group>"; };
+		F76C5A8227880D9E00A6CCA8 /* CTTeacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTeacher.h; sourceTree = "<group>"; };
+		F76C5A8327880D9E00A6CCA8 /* CTPerson+P1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPerson+P1.h"; sourceTree = "<group>"; };
+		F76C5A8427880D9E00A6CCA8 /* CTTeacher+T1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTTeacher+T1.m"; sourceTree = "<group>"; };
+		F76C5A8527880D9E00A6CCA8 /* CTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPerson.m; sourceTree = "<group>"; };
+		F76C5A8627880D9E00A6CCA8 /* CTPerson+P2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPerson+P2.m"; sourceTree = "<group>"; };
+		F76C5A8727880D9E00A6CCA8 /* CTTeacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTeacher.m; sourceTree = "<group>"; };
+		F76C5A8827880D9E00A6CCA8 /* CTTeacher+T2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTTeacher+T2.m"; sourceTree = "<group>"; };
+		F76C5A8927880D9E00A6CCA8 /* CTPerson+P1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPerson+P1.m"; sourceTree = "<group>"; };
+		F76C5A992790034100A6CCA8 /* CTDebugTestBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugTestBase.h; sourceTree = "<group>"; };
+		F76C5A9A2790034100A6CCA8 /* CTDebugTestBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugTestBase.m; sourceTree = "<group>"; };
+		F76C5A9C2790085900A6CCA8 /* CTDebugTheadTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugTheadTest.h; sourceTree = "<group>"; };
+		F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugTheadTest.m; sourceTree = "<group>"; };
+		F76C5AA0279013F900A6CCA8 /* NSBundle+GetAllClassName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GetAllClassName.h"; sourceTree = "<group>"; };
+		F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GetAllClassName.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +185,8 @@
 		F76C5A382785829500A6CCA8 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				F76C5A762786DA0700A6CCA8 /* Test */,
-				F76C5A6F2786D2DE00A6CCA8 /* DebugViewModel */,
-				F76C5A582785A4D000A6CCA8 /* DebugView */,
 				F76C5A3C2785833C00A6CCA8 /* DebugMain */,
-				F76C5A3D2785841700A6CCA8 /* DebugViewController */,
+				F76C5A762786DA0700A6CCA8 /* Test */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -170,8 +194,9 @@
 		F76C5A3C2785833C00A6CCA8 /* DebugMain */ = {
 			isa = PBXGroup;
 			children = (
-				F76C5A392785833600A6CCA8 /* CTDebugNavigationViewController.h */,
-				F76C5A3A2785833600A6CCA8 /* CTDebugNavigationViewController.m */,
+				F76C5A6F2786D2DE00A6CCA8 /* DebugViewModel */,
+				F76C5A3D2785841700A6CCA8 /* DebugViewController */,
+				F76C5A582785A4D000A6CCA8 /* DebugView */,
 			);
 			path = DebugMain;
 			sourceTree = "<group>";
@@ -179,6 +204,8 @@
 		F76C5A3D2785841700A6CCA8 /* DebugViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A392785833600A6CCA8 /* CTDebugNavigationViewController.h */,
+				F76C5A3A2785833600A6CCA8 /* CTDebugNavigationViewController.m */,
 				F76C5A3E2785844100A6CCA8 /* CTDebugViewController.h */,
 				F76C5A3F2785844100A6CCA8 /* CTDebugViewController.m */,
 			);
@@ -255,6 +282,7 @@
 		F76C5A5D2785A82A00A6CCA8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A9F279013D300A6CCA8 /* NSBundle */,
 				F76C5A632785A87800A6CCA8 /* UIColor */,
 				F76C5A5E2785A83600A6CCA8 /* NSString */,
 			);
@@ -303,10 +331,67 @@
 		F76C5A762786DA0700A6CCA8 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				F76C5A98279002F200A6CCA8 /* BaseTest */,
+				F76C5A95278FFF6800A6CCA8 /* Thread(Test) */,
+				F76C5A7D27880D9E00A6CCA8 /* Load_Initialize(Test) */,
+				F76C5A7C27880D0900A6CCA8 /* Block(Test) */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		F76C5A7C27880D0900A6CCA8 /* Block(Test) */ = {
+			isa = PBXGroup;
+			children = (
 				F76C5A772786DA2E00A6CCA8 /* CTDebugBlockTest.h */,
 				F76C5A782786DA2E00A6CCA8 /* CTDebugBlockTest.m */,
 			);
-			path = Test;
+			path = "Block(Test)";
+			sourceTree = "<group>";
+		};
+		F76C5A7D27880D9E00A6CCA8 /* Load_Initialize(Test) */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A7E27880D9E00A6CCA8 /* CTPerson.h */,
+				F76C5A8527880D9E00A6CCA8 /* CTPerson.m */,
+				F76C5A8327880D9E00A6CCA8 /* CTPerson+P1.h */,
+				F76C5A8927880D9E00A6CCA8 /* CTPerson+P1.m */,
+				F76C5A8027880D9E00A6CCA8 /* CTPerson+P2.h */,
+				F76C5A8627880D9E00A6CCA8 /* CTPerson+P2.m */,
+				F76C5A8227880D9E00A6CCA8 /* CTTeacher.h */,
+				F76C5A8727880D9E00A6CCA8 /* CTTeacher.m */,
+				F76C5A7F27880D9E00A6CCA8 /* CTTeacher+T1.h */,
+				F76C5A8427880D9E00A6CCA8 /* CTTeacher+T1.m */,
+				F76C5A8127880D9E00A6CCA8 /* CTTeacher+T2.h */,
+				F76C5A8827880D9E00A6CCA8 /* CTTeacher+T2.m */,
+			);
+			path = "Load_Initialize(Test)";
+			sourceTree = "<group>";
+		};
+		F76C5A95278FFF6800A6CCA8 /* Thread(Test) */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A9C2790085900A6CCA8 /* CTDebugTheadTest.h */,
+				F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */,
+			);
+			path = "Thread(Test)";
+			sourceTree = "<group>";
+		};
+		F76C5A98279002F200A6CCA8 /* BaseTest */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5A992790034100A6CCA8 /* CTDebugTestBase.h */,
+				F76C5A9A2790034100A6CCA8 /* CTDebugTestBase.m */,
+			);
+			path = BaseTest;
+			sourceTree = "<group>";
+		};
+		F76C5A9F279013D300A6CCA8 /* NSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5AA0279013F900A6CCA8 /* NSBundle+GetAllClassName.h */,
+				F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */,
+			);
+			path = NSBundle;
 			sourceTree = "<group>";
 		};
 		FD0A36F0CF22D3F7A79F14EF /* Pods */ = {
@@ -438,16 +523,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76C5A662785A8A500A6CCA8 /* UIColor+RandomColor.m in Sources */,
+				F76C5A8A27880D9E00A6CCA8 /* CTTeacher+T1.m in Sources */,
 				F76C5A792786DA2E00A6CCA8 /* CTDebugBlockTest.m in Sources */,
+				F76C5A9E2790085900A6CCA8 /* CTDebugTheadTest.m in Sources */,
 				F76C5A6E2786D10F00A6CCA8 /* CTBaseCellModel.m in Sources */,
 				F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */,
 				F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */,
+				F76C5AA2279013F900A6CCA8 /* NSBundle+GetAllClassName.m in Sources */,
 				F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */,
 				F76C5A2727857BEF00A6CCA8 /* main.m in Sources */,
 				F76C5A5C2785A52700A6CCA8 /* CTDebugCollectionViewCell.m in Sources */,
 				F76C5A722786D32200A6CCA8 /* CTDebugListViewModel.m in Sources */,
+				F76C5A8E27880D9E00A6CCA8 /* CTTeacher+T2.m in Sources */,
+				F76C5A8C27880D9E00A6CCA8 /* CTPerson+P2.m in Sources */,
+				F76C5A8D27880D9E00A6CCA8 /* CTTeacher.m in Sources */,
+				F76C5A9B2790034100A6CCA8 /* CTDebugTestBase.m in Sources */,
 				F76C5A752786D3B100A6CCA8 /* CTDebugCellModel.m in Sources */,
 				F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */,
+				F76C5A8B27880D9E00A6CCA8 /* CTPerson.m in Sources */,
+				F76C5A8F27880D9E00A6CCA8 /* CTPerson+P1.m in Sources */,
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
 				F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */,
 			);

@@ -6,12 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CTDebugCellModel.h"
-#import "CTDebugCellModelProtocol.h"
+#import "CTDebugTestBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CTDebugBlockTest : NSObject<CTDebugCellModelProtocol>
+@interface CTDebugBlockTest : CTDebugTestBase
 
 
 @end
