@@ -160,7 +160,7 @@ UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(200, 20);
+    return CGSizeMake(0, 20);
 }
 
 #pragma mark - ————————————————— Setter/Getter ————————————————
