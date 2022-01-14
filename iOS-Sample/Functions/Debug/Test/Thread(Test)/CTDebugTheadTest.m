@@ -25,11 +25,16 @@
         [self circulationThread];
     }];
     
+    ///串行同步
+    CTDebugCellModel *serialCellModel = [self createCellModelTitle:@"串行同步" block:^(id value) {
+        [self sysSerialQueue];
+    }];
     
-    return @[cellModel];
+    
+    return @[cellModel, serialCellModel];
 }
 
-#pragma mark - Private
+#pragma mark - Test
 
 ///gcd死锁
 - (void)circulationThread
@@ -47,11 +52,25 @@
         });
         
         dispatch_async(testQueue2, ^{
+//            NSLog(@"===1== %@",[NSThread currentThread]);
             dispatch_sync(testQueue1, ^{
                 NSLog(@"===2== %@",[NSThread currentThread]);
             });
         });
     }
+}
+
+///串行同步
+- (void)sysSerialQueue
+{
+    dispatch_queue_t testQueue1 = dispatch_queue_create("test1", DISPATCH_QUEUE_SERIAL);
+    NSLog(@"===0== %@",[NSThread currentThread]);
+    /**
+     注意：串行同步，是不开线程的（等于没有这个代码块）
+     */
+    dispatch_sync(testQueue1, ^{
+        NSLog(@"===1== %@",[NSThread currentThread]);
+    });
 }
 
 @end

@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Debug-->
+        <!--Lab-->
         <scene sceneID="7a2-fa-xrL">
             <objects>
                 <navigationController id="GBM-ha-wok" customClass="CTDebugNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Debug" image="rectangle.split.3x3.fill" catalog="system" id="g87-Pb-R0c"/>
+                    <tabBarItem key="tabBarItem" title="Lab" image="rectangle.split.3x3.fill" catalog="system" id="g87-Pb-R0c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ig8-oK-Jqd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

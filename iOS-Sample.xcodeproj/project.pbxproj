@@ -38,6 +38,7 @@
 		F76C5A9B2790034100A6CCA8 /* CTDebugTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A9A2790034100A6CCA8 /* CTDebugTestBase.m */; };
 		F76C5A9E2790085900A6CCA8 /* CTDebugTheadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */; };
 		F76C5AA2279013F900A6CCA8 /* NSBundle+GetAllClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */; };
+		F76C5AA62791777C00A6CCA8 /* CTDebugNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5AA52791777C00A6CCA8 /* CTDebugNumberTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugTheadTest.m; sourceTree = "<group>"; };
 		F76C5AA0279013F900A6CCA8 /* NSBundle+GetAllClassName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GetAllClassName.h"; sourceTree = "<group>"; };
 		F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GetAllClassName.m"; sourceTree = "<group>"; };
+		F76C5AA42791777C00A6CCA8 /* CTDebugNumberTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugNumberTest.h; sourceTree = "<group>"; };
+		F76C5AA52791777C00A6CCA8 /* CTDebugNumberTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugNumberTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				F76C5A98279002F200A6CCA8 /* BaseTest */,
+				F76C5AA327916C1200A6CCA8 /* Number(Test) */,
 				F76C5A95278FFF6800A6CCA8 /* Thread(Test) */,
 				F76C5A7D27880D9E00A6CCA8 /* Load_Initialize(Test) */,
 				F76C5A7C27880D0900A6CCA8 /* Block(Test) */,
@@ -392,6 +396,15 @@
 				F76C5AA1279013F900A6CCA8 /* NSBundle+GetAllClassName.m */,
 			);
 			path = NSBundle;
+			sourceTree = "<group>";
+		};
+		F76C5AA327916C1200A6CCA8 /* Number(Test) */ = {
+			isa = PBXGroup;
+			children = (
+				F76C5AA42791777C00A6CCA8 /* CTDebugNumberTest.h */,
+				F76C5AA52791777C00A6CCA8 /* CTDebugNumberTest.m */,
+			);
+			path = "Number(Test)";
 			sourceTree = "<group>";
 		};
 		FD0A36F0CF22D3F7A79F14EF /* Pods */ = {
@@ -542,6 +555,7 @@
 				F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */,
 				F76C5A8B27880D9E00A6CCA8 /* CTPerson.m in Sources */,
 				F76C5A8F27880D9E00A6CCA8 /* CTPerson+P1.m in Sources */,
+				F76C5AA62791777C00A6CCA8 /* CTDebugNumberTest.m in Sources */,
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
 				F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */,
 			);
@@ -694,7 +708,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOS-Sample/Resource/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = CoreT;
+				INFOPLIST_KEY_CFBundleDisplayName = "实验室";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -728,7 +742,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOS-Sample/Resource/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Sample/Resource/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = CoreT;
+				INFOPLIST_KEY_CFBundleDisplayName = "实验室";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
