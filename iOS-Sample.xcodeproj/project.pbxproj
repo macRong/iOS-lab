@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		39D2B7545290BA5C5AC52835 /* Pods_iOS_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */; };
 		F75D805727D8B3F4001051C6 /* CTDebugHookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */; };
+		F75D805B27D8B981001051C6 /* CTConsoleNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805A27D8B981001051C6 /* CTConsoleNavgationViewController.m */; };
+		F75D805E27D8BA0F001051C6 /* CTConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805D27D8BA0F001051C6 /* CTConsoleViewController.m */; };
 		F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */; };
 		F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1827857BEC00A6CCA8 /* SceneDelegate.m */; };
 		F76C5A1F27857BEC00A6CCA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A1D27857BEC00A6CCA8 /* Main.storyboard */; };
@@ -48,6 +50,10 @@
 		CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F75D805527D8B3F4001051C6 /* CTDebugHookTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugHookTest.h; sourceTree = "<group>"; };
 		F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugHookTest.m; sourceTree = "<group>"; };
+		F75D805927D8B981001051C6 /* CTConsoleNavgationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTConsoleNavgationViewController.h; sourceTree = "<group>"; };
+		F75D805A27D8B981001051C6 /* CTConsoleNavgationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTConsoleNavgationViewController.m; sourceTree = "<group>"; };
+		F75D805C27D8BA0F001051C6 /* CTConsoleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTConsoleViewController.h; sourceTree = "<group>"; };
+		F75D805D27D8BA0F001051C6 /* CTConsoleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTConsoleViewController.m; sourceTree = "<group>"; };
 		F76C5A1127857BEC00A6CCA8 /* iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76C5A1427857BEC00A6CCA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,6 +141,17 @@
 				F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */,
 			);
 			path = "Hook(Test)";
+			sourceTree = "<group>";
+		};
+		F75D805827D8B95A001051C6 /* ConsoleMain */ = {
+			isa = PBXGroup;
+			children = (
+				F75D805927D8B981001051C6 /* CTConsoleNavgationViewController.h */,
+				F75D805A27D8B981001051C6 /* CTConsoleNavgationViewController.m */,
+				F75D805C27D8BA0F001051C6 /* CTConsoleViewController.h */,
+				F75D805D27D8BA0F001051C6 /* CTConsoleViewController.m */,
+			);
+			path = ConsoleMain;
 			sourceTree = "<group>";
 		};
 		F76C5A0827857BEC00A6CCA8 = {
@@ -230,6 +247,7 @@
 		F76C5A4B27859FF700A6CCA8 /* Console */ = {
 			isa = PBXGroup;
 			children = (
+				F75D805827D8B95A001051C6 /* ConsoleMain */,
 				F76C5A4C2785A01400A6CCA8 /* ConsoleEmpty.md */,
 			);
 			path = Console;
@@ -554,6 +572,7 @@
 				F76C5A9E2790085900A6CCA8 /* CTDebugTheadTest.m in Sources */,
 				F76C5A6E2786D10F00A6CCA8 /* CTBaseCellModel.m in Sources */,
 				F76C5A33278580EE00A6CCA8 /* CTViewController.m in Sources */,
+				F75D805B27D8B981001051C6 /* CTConsoleNavgationViewController.m in Sources */,
 				F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */,
 				F76C5AA2279013F900A6CCA8 /* NSBundle+GetAllClassName.m in Sources */,
 				F76C5A402785844100A6CCA8 /* CTDebugViewController.m in Sources */,
@@ -566,6 +585,7 @@
 				F76C5A9B2790034100A6CCA8 /* CTDebugTestBase.m in Sources */,
 				F76C5A752786D3B100A6CCA8 /* CTDebugCellModel.m in Sources */,
 				F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */,
+				F75D805E27D8BA0F001051C6 /* CTConsoleViewController.m in Sources */,
 				F76C5A8B27880D9E00A6CCA8 /* CTPerson.m in Sources */,
 				F76C5A8F27880D9E00A6CCA8 /* CTPerson+P1.m in Sources */,
 				F76C5AA62791777C00A6CCA8 /* CTDebugNumberTest.m in Sources */,
