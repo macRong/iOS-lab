@@ -38,8 +38,25 @@
     NSLog(@"处理之前：%@", [json[@"price"] stringValue]);
     NSNumber *fl = json[@"price"];
     NSLog(@"===%f", [fl floatValue]);
+    
+    print_bin(8);
+    
+    [self printBin];
 
     // 当我们用浮点类型去接收的时： price = 71.48999999999999
+}
+
+void print_bin(int n)
+{
+    int a;
+    printf("a=%d, %d \n",a, INT_MIN);
+}
+
+- (void)printBin
+{
+    int a;
+//    printf("=== a=%d",a);
+    NSLog(@"====a=%d",a);
 }
 
 @end
