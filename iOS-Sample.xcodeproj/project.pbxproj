@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39D2B7545290BA5C5AC52835 /* Pods_iOS_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */; };
+		F75D805727D8B3F4001051C6 /* CTDebugHookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */; };
 		F76C5A1627857BEC00A6CCA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */; };
 		F76C5A1927857BEC00A6CCA8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76C5A1827857BEC00A6CCA8 /* SceneDelegate.m */; };
 		F76C5A1F27857BEC00A6CCA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76C5A1D27857BEC00A6CCA8 /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 		99066206F63453BD10557BDF /* Pods-iOS-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Sample.debug.xcconfig"; path = "Target Support Files/Pods-iOS-Sample/Pods-iOS-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		C41A529E8474ABCAD09FE0E3 /* Pods-iOS-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Sample.release.xcconfig"; path = "Target Support Files/Pods-iOS-Sample/Pods-iOS-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F75D805527D8B3F4001051C6 /* CTDebugHookTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugHookTest.h; sourceTree = "<group>"; };
+		F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugHookTest.m; sourceTree = "<group>"; };
 		F76C5A1127857BEC00A6CCA8 /* iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76C5A1427857BEC00A6CCA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F76C5A1527857BEC00A6CCA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +126,15 @@
 				CA55D3F81AA59BBA318024B8 /* Pods_iOS_Sample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F75D805427D8B3C6001051C6 /* Hook(Test) */ = {
+			isa = PBXGroup;
+			children = (
+				F75D805527D8B3F4001051C6 /* CTDebugHookTest.h */,
+				F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */,
+			);
+			path = "Hook(Test)";
 			sourceTree = "<group>";
 		};
 		F76C5A0827857BEC00A6CCA8 = {
@@ -339,6 +351,7 @@
 				F76C5A95278FFF6800A6CCA8 /* Thread(Test) */,
 				F76C5A7D27880D9E00A6CCA8 /* Load_Initialize(Test) */,
 				F76C5A7C27880D0900A6CCA8 /* Block(Test) */,
+				F75D805427D8B3C6001051C6 /* Hook(Test) */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -558,6 +571,7 @@
 				F76C5AA62791777C00A6CCA8 /* CTDebugNumberTest.m in Sources */,
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
 				F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */,
+				F75D805727D8B3F4001051C6 /* CTDebugHookTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
