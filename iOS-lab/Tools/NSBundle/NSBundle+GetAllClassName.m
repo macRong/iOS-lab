@@ -37,6 +37,7 @@
         dispatch_semaphore_signal(semaphore);///信号释放锁
     });
     
+    
     ///释放内存
     free(classes);
     
