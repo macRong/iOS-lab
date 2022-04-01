@@ -22,8 +22,7 @@
 {
     ///Block-内存
     CTDebugCellModel *memoryCellModel = [self createCellModelTitle:@"block内存" block:^(id value) {
-        NSLog(@"value=%@",value);
-
+        [self testBlockMemeory];
     }];
     
     ///Block-内存
@@ -32,13 +31,20 @@
 
     }];
     
-    ///Block-内存
-    CTDebugCellModel *memoryCellModel3 = [self createCellModelTitle:@"block内存" block:^(id value) {
-        NSLog(@"value=%@",value);
+    return @[memoryCellModel, memoryCellModel2];
+}
 
-    }];
+- (void)testBlockMemeory
+{
+   __block NSInteger *num2 = (NSInteger *)malloc(sizeof(NSInteger));
     
-    return @[memoryCellModel, memoryCellModel2, memoryCellModel3];
+    void(^memBlock)(void) = ^{
+        *num2 = 3;
+    };
+        
+    memBlock();
+    
+    NSLog(@"===num= %ld",(long)*num2);
 }
 
 @end
