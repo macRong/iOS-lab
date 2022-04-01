@@ -6,6 +6,7 @@
 //
 
 #import "CTDebugTheadTest.h"
+#import "CTDebugTheadLockModule.h"
 
 @implementation CTDebugTheadTest
 
@@ -30,8 +31,13 @@
         [self sysSerialQueue];
     }];
     
+    ///各种锁
+    CTDebugCellModel *lockCellModel = [self createCellModelTitle:@"锁" block:^(id value) {
+        [CTDebugTheadLockModule lock_Semaphore];
+    }];
     
-    return @[cellModel, serialCellModel];
+    
+    return @[cellModel, serialCellModel, lockCellModel];
 }
 
 #pragma mark - Test

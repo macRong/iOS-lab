@@ -28,7 +28,6 @@
     ///Block-内存
     CTDebugCellModel *memoryCellModel2 = [self createCellModelTitle:@"block内存" block:^(id value) {
         NSLog(@"value=%@",value);
-
     }];
     
     return @[memoryCellModel, memoryCellModel2];

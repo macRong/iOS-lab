@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E11020CF75EE02A1539D36D /* Pods_iOS_lab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D4CC62455F11567B1ECE8 /* Pods_iOS_lab.framework */; };
 		F7347E3127EC6E5100FDBBAB /* CTDebugDispatchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7347E3027EC6E5100FDBBAB /* CTDebugDispatchTest.m */; };
+		F7347E3527F70B3500FDBBAB /* CTDebugTheadLockModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F7347E3427F70B3500FDBBAB /* CTDebugTheadLockModule.m */; };
 		F75D805727D8B3F4001051C6 /* CTDebugHookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */; };
 		F75D805B27D8B981001051C6 /* CTConsoleNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805A27D8B981001051C6 /* CTConsoleNavgationViewController.m */; };
 		F75D805E27D8BA0F001051C6 /* CTConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75D805D27D8BA0F001051C6 /* CTConsoleViewController.m */; };
@@ -53,6 +54,8 @@
 		E0AE2713505D32CF8D45B556 /* Pods-iOS-lab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-lab.release.xcconfig"; path = "Target Support Files/Pods-iOS-lab/Pods-iOS-lab.release.xcconfig"; sourceTree = "<group>"; };
 		F7347E2F27EC6E5100FDBBAB /* CTDebugDispatchTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugDispatchTest.h; sourceTree = "<group>"; };
 		F7347E3027EC6E5100FDBBAB /* CTDebugDispatchTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugDispatchTest.m; sourceTree = "<group>"; };
+		F7347E3327F70B3500FDBBAB /* CTDebugTheadLockModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugTheadLockModule.h; sourceTree = "<group>"; };
+		F7347E3427F70B3500FDBBAB /* CTDebugTheadLockModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugTheadLockModule.m; sourceTree = "<group>"; };
 		F75D805527D8B3F4001051C6 /* CTDebugHookTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTDebugHookTest.h; sourceTree = "<group>"; };
 		F75D805627D8B3F4001051C6 /* CTDebugHookTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTDebugHookTest.m; sourceTree = "<group>"; };
 		F75D805927D8B981001051C6 /* CTConsoleNavgationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTConsoleNavgationViewController.h; sourceTree = "<group>"; };
@@ -146,6 +149,15 @@
 				F7347E3027EC6E5100FDBBAB /* CTDebugDispatchTest.m */,
 			);
 			path = "Dispatch(Test)";
+			sourceTree = "<group>";
+		};
+		F7347E3227F7096900FDBBAB /* Thread(Code) */ = {
+			isa = PBXGroup;
+			children = (
+				F7347E3327F70B3500FDBBAB /* CTDebugTheadLockModule.h */,
+				F7347E3427F70B3500FDBBAB /* CTDebugTheadLockModule.m */,
+			);
+			path = "Thread(Code)";
 			sourceTree = "<group>";
 		};
 		F75D805427D8B3C6001051C6 /* Hook(Test) */ = {
@@ -422,6 +434,7 @@
 			children = (
 				F76C5A9C2790085900A6CCA8 /* CTDebugTheadTest.h */,
 				F76C5A9D2790085900A6CCA8 /* CTDebugTheadTest.m */,
+				F7347E3227F7096900FDBBAB /* Thread(Code) */,
 			);
 			path = "Thread(Test)";
 			sourceTree = "<group>";
@@ -609,6 +622,7 @@
 				F76C5A3B2785833600A6CCA8 /* CTDebugNavigationViewController.m in Sources */,
 				F76C5A6A2786B01200A6CCA8 /* CTDebugHeaderView.m in Sources */,
 				F75D805727D8B3F4001051C6 /* CTDebugHookTest.m in Sources */,
+				F7347E3527F70B3500FDBBAB /* CTDebugTheadLockModule.m in Sources */,
 				F7347E3127EC6E5100FDBBAB /* CTDebugDispatchTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
