@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CTViewController.h"
 
 @interface AppDelegate ()
 
@@ -13,11 +14,21 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    CTViewController *naviRootVc = [[CTViewController alloc] init];
+    self.window.rootViewController = naviRootVc;
+        
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
-
 @end
+
+/**
+ 1、增加log
+ 
+ */

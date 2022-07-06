@@ -36,11 +36,28 @@
         [CTDebugTheadLockModule lock_Semaphore];
     }];
     
+    ///for循序中开启dispatch_async，执行i++
+    CTDebugCellModel *runloCellModel = [self createCellModelTitle:@"for循序中开启dispatch_async，执行i++" block:^(id value) {
+        [self loopAsync];
+    }];
     
-    return @[cellModel, serialCellModel, lockCellModel];
+    
+    return @[cellModel, serialCellModel, lockCellModel, runloCellModel];
 }
 
 #pragma mark - Test
+
+///问题：给出 i值得取值范围？
+- (void)loopAsync
+{
+    __block int i = 0;
+    while (i<10000) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            i++;
+        });
+    }
+    NSLog(@"i=%d",i); ///结果  >= 10000
+}
 
 ///gcd死锁
 - (void)circulationThread

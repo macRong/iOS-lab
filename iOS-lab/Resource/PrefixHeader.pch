@@ -10,5 +10,6 @@
 
 #import "UIColor+RandomColor.h"
 #import <Masonry.h>
+#import "NSObject+CTDebugCurrentVC.h"
 
 #endif /* PrefixHeader_pch */
