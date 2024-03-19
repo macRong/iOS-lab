@@ -30,14 +30,19 @@
 
 #pragma mark - Initialization
 
-+ (instancetype)target:(id)target property:(nonnull FLEXProperty *)property commitHandler:(void(^_Nullable)(void))onCommit {
++ (instancetype)target:(id)target property:(nonnull FLEXProperty *)property commitHandler:(void(^_Nullable)())onCommit {
+    id value = [property getValue:target];
+    if (![self canEditProperty:property onObject:target currentValue:value]) {
+        return nil;
+    }
+
     FLEXFieldEditorViewController *editor = [self target:target data:property commitHandler:onCommit];
     editor.title = [@"Property: " stringByAppendingString:property.name];
     editor.property = property;
     return editor;
 }
 
-+ (instancetype)target:(id)target ivar:(nonnull FLEXIvar *)ivar commitHandler:(void(^_Nullable)(void))onCommit {
++ (instancetype)target:(id)target ivar:(nonnull FLEXIvar *)ivar commitHandler:(void(^_Nullable)())onCommit {
     FLEXFieldEditorViewController *editor = [self target:target data:ivar commitHandler:onCommit];
     editor.title = [@"Ivar: " stringByAppendingString:ivar.name];
     editor.ivar = ivar;
@@ -144,6 +149,16 @@
     } else {
         return self.ivar.description;
     }
+}
+
++ (BOOL)canEditProperty:(FLEXProperty *)property onObject:(id)object currentValue:(id)value {
+    const FLEXTypeEncoding *typeEncoding = property.attributes.typeEncoding.UTF8String;
+    BOOL canEditType = [FLEXArgumentInputViewFactory canEditFieldWithTypeEncoding:typeEncoding currentValue:value];
+    return canEditType && [object respondsToSelector:property.likelySetter];
+}
+
++ (BOOL)canEditIvar:(Ivar)ivar currentValue:(id)value {
+    return [FLEXArgumentInputViewFactory canEditFieldWithTypeEncoding:ivar_getTypeEncoding(ivar) currentValue:value];
 }
 
 @end

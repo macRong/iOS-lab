@@ -10,8 +10,6 @@
 #import "FLEXObjectInfoSection.h"
 @class FLEXProperty, FLEXIvar, FLEXMethod;
 
-NS_ASSUME_NONNULL_BEGIN
-
 /// An abstract base class for custom object "shortcuts" where every
 /// row can possibly have some action. The section title is "Shortcuts".
 ///
@@ -27,11 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FLEXShortcutsSection : FLEXTableViewSection <FLEXObjectInfoSection>
 
 /// Uses \c kFLEXDefaultCell
-+ (instancetype)forObject:(id)objectOrClass rowTitles:(nullable NSArray<NSString *> *)titles;
++ (instancetype)forObject:(id)objectOrClass rowTitles:(NSArray<NSString *> *)titles;
 /// Uses \c kFLEXDetailCell for non-empty subtitles, otherwise uses \c kFLEXDefaultCell
 + (instancetype)forObject:(id)objectOrClass
-                rowTitles:(nullable NSArray<NSString *> *)titles
-             rowSubtitles:(nullable NSArray<NSString *> *)subtitles;
+                rowTitles:(NSArray<NSString *> *)titles
+             rowSubtitles:(NSArray<NSString *> *)subtitles;
 
 /// Uses \c kFLEXDefaultCell for rows that are given a title, otherwise
 /// this uses \c kFLEXDetailCell for any other allowed object.
@@ -46,15 +44,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// - a \c FLEXIvar
 /// - a \c FLEXMethodBase (includes \c FLEXMethod of course)
 /// Passing one of the latter 3 will provide a shortcut to that property/ivar/method.
-+ (instancetype)forObject:(id)objectOrClass rows:(nullable NSArray *)rows;
+/// @return \c nil if no rows are provided
++ (instancetype)forObject:(id)objectOrClass rows:(NSArray *)rows;
 
 /// Same as \c forObject:rows: but the given rows are prepended
 /// to the shortcuts already registered for the object's class.
 /// \c forObject:rows: does not use the registered shortcuts at all.
-+ (instancetype)forObject:(id)objectOrClass additionalRows:(nullable NSArray *)rows;
++ (instancetype)forObject:(id)objectOrClass additionalRows:(NSArray *)rows;
 
 /// Calls into \c forObject:rows: using the registered shortcuts for the object's class.
-/// @return An empty section if the object has no shortcuts registered at all.
+/// @return \c nil if the object has no shortcuts registered at all
 + (instancetype)forObject:(id)objectOrClass;
 
 /// Subclasses \e may override this to hide the disclosure indicator
@@ -73,16 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Defaults to NO. Has no effect on static subtitles that are passed explicitly.
 @property (nonatomic) BOOL cacheSubtitles;
 
-/// Whether this shortcut section overrides the default section or not.
-/// Subclasses should not override this method. To provide a second
-/// section alongside the default shortcuts section, use \c forObject:rows:
-/// @return \c NO if initialized with \c forObject: or \c forObject:additionalRows:
-@property (nonatomic, readonly) BOOL isNewSection;
-
 @end
 
 @class FLEXShortcutsFactory;
-typedef FLEXShortcutsFactory *_Nonnull(^FLEXShortcutsFactoryNames)(NSArray *names);
+typedef FLEXShortcutsFactory *(^FLEXShortcutsFactoryNames)(NSArray *names);
 typedef void (^FLEXShortcutsFactoryTarget)(Class targetClass);
 
 /// The block properties below are to be used like SnapKit or Masonry.
@@ -130,5 +123,3 @@ typedef void (^FLEXShortcutsFactoryTarget)(Class targetClass);
 @property (nonatomic, readonly) FLEXShortcutsFactoryTarget forClass;
 
 @end
-
-NS_ASSUME_NONNULL_END

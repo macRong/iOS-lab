@@ -9,7 +9,7 @@
 
 @implementation UITextField (Range)
 
-- (NSRange)flex_selectedRange {
+- (NSRange)selectedRange {
     UITextRange *r = self.selectedTextRange;
     if (r) {
         NSInteger loc = [self offsetFromPosition:self.beginningOfDocument toPosition:r.start];

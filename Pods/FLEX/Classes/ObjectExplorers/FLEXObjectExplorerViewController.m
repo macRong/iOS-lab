@@ -30,7 +30,7 @@
 #pragma mark - Private properties
 @interface FLEXObjectExplorerViewController () <UIGestureRecognizerDelegate>
 @property (nonatomic, readonly) FLEXSingleRowSection *descriptionSection;
-@property (nonatomic, readonly) NSArray<FLEXTableViewSection *> *customSections;
+@property (nonatomic, readonly) FLEXTableViewSection *customSection;
 @property (nonatomic) NSIndexSet *customSectionVisibleIndexes;
 
 @property (nonatomic, readonly) NSArray<NSString *> *observedNotifications;
@@ -46,27 +46,23 @@
 }
 
 + (instancetype)exploringObject:(id)target customSection:(FLEXTableViewSection *)section {
-    return [self exploringObject:target customSections:@[section]];
-}
-
-+ (instancetype)exploringObject:(id)target customSections:(NSArray *)customSections {
     return [[self alloc]
         initWithObject:target
         explorer:[FLEXObjectExplorer forObject:target]
-        customSections:customSections
+        customSection:section
     ];
 }
 
 - (id)initWithObject:(id)target
             explorer:(__kindof FLEXObjectExplorer *)explorer
-       customSections:(NSArray<FLEXTableViewSection *> *)customSections {
+       customSection:(FLEXTableViewSection *)customSection {
     NSParameterAssert(target);
     
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         _object = target;
         _explorer = explorer;
-        _customSections = customSections;
+        _customSection = customSection;
     }
 
     return self;
@@ -76,8 +72,7 @@
     return @[
         kFLEXDefaultsHidePropertyIvarsKey,
         kFLEXDefaultsHidePropertyMethodsKey,
-        kFLEXDefaultsHidePrivateMethodsKey,
-        kFLEXDefaultsShowMethodOverridesKey,
+        kFLEXDefaultsHideMethodOverridesKey,
         kFLEXDefaultsHideVariablePreviewsKey,
     ];
 }
@@ -92,7 +87,7 @@
 
     // Use [object class] here rather than object_getClass
     // to avoid the KVO prefix for observed objects
-    self.title = [FLEXRuntimeUtility safeClassNameForObject:self.object];
+    self.title = [[self.object class] description];
 
     // Search
     self.showsSearchBar = YES;
@@ -183,7 +178,6 @@
     referencesSection.selectionAction = ^(UIViewController *host) {
         UIViewController *references = [FLEXObjectListViewController
             objectsWithReferencesToObject:explorer.object
-            retained:NO
         ];
         [host.navigationController pushViewController:references animated:YES];
     };
@@ -200,10 +194,8 @@
         referencesSection
     ]];
 
-    if (self.customSections) {
-        [sections insertObjects:self.customSections atIndexes:[NSIndexSet
-            indexSetWithIndexesInRange:NSMakeRange(0, self.customSections.count)
-        ]];
+    if (self.customSection) {
+        [sections insertObject:self.customSection atIndex:0];
     }
     if (self.descriptionSection) {
         [sections insertObject:self.descriptionSection atIndex:0];
@@ -273,11 +265,9 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)g1 shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)g2 {
     // Prioritize important pan gestures over our swipe gesture
     if ([g2 isKindOfClass:[UIPanGestureRecognizer class]]) {
-        if (g2 == self.navigationController.interactivePopGestureRecognizer) {
-            return NO;
-        }
-        
-        if (g2 == self.tableView.panGestureRecognizer) {
+        if (g2 == self.navigationController.interactivePopGestureRecognizer ||
+            g2 == self.navigationController.barHideOnSwipeGestureRecognizer ||
+            g2 == self.tableView.panGestureRecognizer) {
             return NO;
         }
     }
@@ -301,8 +291,7 @@
     NSDictionary<NSString *, NSString *> *explorerToggles = @{
         kFLEXDefaultsHidePropertyIvarsKey:    @"Property-Backing Ivars",
         kFLEXDefaultsHidePropertyMethodsKey:  @"Property-Backing Methods",
-        kFLEXDefaultsHidePrivateMethodsKey:   @"Likely Private Methods",
-        kFLEXDefaultsShowMethodOverridesKey:  @"Method Overrides",
+        kFLEXDefaultsHideMethodOverridesKey:  @"Method Overrides",
         kFLEXDefaultsHideVariablePreviewsKey: @"Variable Previews"
     };
     
@@ -313,8 +302,7 @@
     NSDictionary<NSString *, NSDictionary *> *nextStateDescriptions = @{
         kFLEXDefaultsHidePropertyIvarsKey:    @{ @NO: @"Hide ", @YES: @"Show " },
         kFLEXDefaultsHidePropertyMethodsKey:  @{ @NO: @"Hide ", @YES: @"Show " },
-        kFLEXDefaultsHidePrivateMethodsKey:   @{ @NO: @"Hide ", @YES: @"Show " },
-        kFLEXDefaultsShowMethodOverridesKey:  @{ @NO: @"Show ", @YES: @"Hide " },
+        kFLEXDefaultsHideMethodOverridesKey:  @{ @NO: @"Show ", @YES: @"Hide " },
         kFLEXDefaultsHideVariablePreviewsKey: @{ @NO: @"Hide ", @YES: @"Show " },
     };
     

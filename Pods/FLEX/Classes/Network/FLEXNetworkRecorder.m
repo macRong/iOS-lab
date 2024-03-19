@@ -12,7 +12,6 @@
 #import "FLEXUtility.h"
 #import "FLEXResources.h"
 #import "NSUserDefaults+FLEX.h"
-#import "OSCache.h"
 
 NSString *const kFLEXNetworkRecorderNewTransactionNotification = @"kFLEXNetworkRecorderNewTransactionNotification";
 NSString *const kFLEXNetworkRecorderTransactionUpdatedNotification = @"kFLEXNetworkRecorderTransactionUpdatedNotification";
@@ -23,10 +22,9 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 
 @interface FLEXNetworkRecorder ()
 
-@property (nonatomic) OSCache *restCache;
-@property (nonatomic) NSMutableArray<FLEXHTTPTransaction *> *orderedHTTPTransactions;
-@property (nonatomic) NSMutableArray<FLEXWebsocketTransaction *> *orderedWSTransactions;
-@property (nonatomic) NSMutableDictionary<NSString *, FLEXHTTPTransaction *> *requestIDsToHTTPTransactions;
+@property (nonatomic) NSCache *responseCache;
+@property (nonatomic) NSMutableArray<FLEXNetworkTransaction *> *orderedTransactions;
+@property (nonatomic) NSMutableDictionary<NSString *, FLEXNetworkTransaction *> *requestIDsToTransactions;
 @property (nonatomic) dispatch_queue_t queue;
 
 @end
@@ -36,19 +34,18 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.restCache = [OSCache new];
+        self.responseCache = [NSCache new];
         NSUInteger responseCacheLimit = [[NSUserDefaults.standardUserDefaults
             objectForKey:kFLEXNetworkRecorderResponseCacheLimitDefaultsKey] unsignedIntegerValue
         ];
         
         // Default to 25 MB max. The cache will purge earlier if there is memory pressure.
-        self.restCache.totalCostLimit = responseCacheLimit ?: 25 * 1024 * 1024;
-        [self.restCache setTotalCostLimit:responseCacheLimit];
+        self.responseCache.totalCostLimit = responseCacheLimit ?: 25 * 1024 * 1024;
+        [self.responseCache setTotalCostLimit:responseCacheLimit];
         
-        self.orderedWSTransactions = [NSMutableArray new];
-        self.orderedHTTPTransactions = [NSMutableArray new];
-        self.requestIDsToHTTPTransactions = [NSMutableDictionary new];
-        self.hostDenylist = NSUserDefaults.standardUserDefaults.flex_networkHostDenylist.mutableCopy;
+        self.orderedTransactions = [NSMutableArray new];
+        self.requestIDsToTransactions = [NSMutableDictionary new];
+        self.hostBlacklist = NSUserDefaults.standardUserDefaults.flex_networkHostBlacklist.mutableCopy;
 
         // Serial queue used because we use mutable objects that are not thread safe
         self.queue = dispatch_queue_create("com.flex.FLEXNetworkRecorder", DISPATCH_QUEUE_SERIAL);
@@ -70,47 +67,46 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 #pragma mark - Public Data Access
 
 - (NSUInteger)responseCacheByteLimit {
-    return self.restCache.totalCostLimit;
+    return self.responseCache.totalCostLimit;
 }
 
 - (void)setResponseCacheByteLimit:(NSUInteger)responseCacheByteLimit {
-    self.restCache.totalCostLimit = responseCacheByteLimit;
+    self.responseCache.totalCostLimit = responseCacheByteLimit;
     [NSUserDefaults.standardUserDefaults
         setObject:@(responseCacheByteLimit)
         forKey:kFLEXNetworkRecorderResponseCacheLimitDefaultsKey
     ];
 }
 
-- (NSArray<FLEXHTTPTransaction *> *)HTTPTransactions {
-    return self.orderedHTTPTransactions.copy;
+- (NSArray<FLEXNetworkTransaction *> *)networkTransactions {
+    __block NSArray<FLEXNetworkTransaction *> *transactions = nil;
+    dispatch_sync(self.queue, ^{
+        transactions = self.orderedTransactions.copy;
+    });
+    return transactions;
 }
 
-- (NSArray<FLEXWebsocketTransaction *> *)websocketTransactions {
-    return self.orderedWSTransactions.copy;
-}
-
-- (NSData *)cachedResponseBodyForTransaction:(FLEXHTTPTransaction *)transaction {
-    return [self.restCache objectForKey:transaction.requestID];
+- (NSData *)cachedResponseBodyForTransaction:(FLEXNetworkTransaction *)transaction {
+    return [self.responseCache objectForKey:transaction.requestID];
 }
 
 - (void)clearRecordedActivity {
     dispatch_async(self.queue, ^{
-        [self.restCache removeAllObjects];
-        [self.orderedWSTransactions removeAllObjects];
-        [self.orderedHTTPTransactions removeAllObjects];
-        [self.requestIDsToHTTPTransactions removeAllObjects];
+        [self.responseCache removeAllObjects];
+        [self.orderedTransactions removeAllObjects];
+        [self.requestIDsToTransactions removeAllObjects];
         
         [self notify:kFLEXNetworkRecorderTransactionsClearedNotification transaction:nil];
     });
 }
 
-- (void)clearExcludedTransactions {
+- (void)clearBlacklistedTransactions {
     dispatch_sync(self.queue, ^{
-        self.orderedHTTPTransactions = ({
-            [self.orderedHTTPTransactions flex_filtered:^BOOL(FLEXHTTPTransaction *ta, NSUInteger idx) {
+        self.orderedTransactions = ({
+            [self.orderedTransactions flex_filtered:^BOOL(FLEXNetworkTransaction *ta, NSUInteger idx) {
                 NSString *host = ta.request.URL.host;
-                for (NSString *excluded in self.hostDenylist) {
-                    if ([host hasSuffix:excluded]) {
+                for (NSString *blacklisted in self.hostBlacklist) {
+                    if ([host hasSuffix:blacklisted]) {
                         return NO;
                     }
                 }
@@ -121,8 +117,8 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
     });
 }
 
-- (void)synchronizeDenylist {
-    NSUserDefaults.standardUserDefaults.flex_networkHostDenylist = self.hostDenylist;
+- (void)synchronizeBlacklist {
+    NSUserDefaults.standardUserDefaults.flex_networkHostBlacklist = self.hostBlacklist;
 }
 
 #pragma mark - Network Events
@@ -130,23 +126,28 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 - (void)recordRequestWillBeSentWithRequestID:(NSString *)requestID
                                      request:(NSURLRequest *)request
                             redirectResponse:(NSURLResponse *)redirectResponse {
-    for (NSString *host in self.hostDenylist) {
+    for (NSString *host in self.hostBlacklist) {
         if ([request.URL.host hasSuffix:host]) {
             return;
         }
     }
     
-    FLEXHTTPTransaction *transaction = [FLEXHTTPTransaction request:request identifier:requestID];
+    // Before async block to stay accurate
+    NSDate *startDate = [NSDate date];
 
-    // Before async block to keep times accurate
     if (redirectResponse) {
         [self recordResponseReceivedWithRequestID:requestID response:redirectResponse];
         [self recordLoadingFinishedWithRequestID:requestID responseBody:nil];
     }
 
     dispatch_async(self.queue, ^{
-        [self.orderedHTTPTransactions insertObject:transaction atIndex:0];
-        [self.requestIDsToHTTPTransactions setObject:transaction forKey:requestID];
+        FLEXNetworkTransaction *transaction = [FLEXNetworkTransaction new];
+        transaction.requestID = requestID;
+        transaction.request = request;
+        transaction.startTime = startDate;
+
+        [self.orderedTransactions insertObject:transaction atIndex:0];
+        [self.requestIDsToTransactions setObject:transaction forKey:requestID];
         transaction.transactionState = FLEXNetworkTransactionStateAwaitingResponse;
 
         [self postNewTransactionNotificationWithTransaction:transaction];
@@ -158,7 +159,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
     NSDate *responseDate = [NSDate date];
 
     dispatch_async(self.queue, ^{
-        FLEXHTTPTransaction *transaction = self.requestIDsToHTTPTransactions[requestID];
+        FLEXNetworkTransaction *transaction = self.requestIDsToTransactions[requestID];
         if (!transaction) {
             return;
         }
@@ -173,7 +174,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 
 - (void)recordDataReceivedWithRequestID:(NSString *)requestID dataLength:(int64_t)dataLength {
     dispatch_async(self.queue, ^{
-        FLEXHTTPTransaction *transaction = self.requestIDsToHTTPTransactions[requestID];
+        FLEXNetworkTransaction *transaction = self.requestIDsToTransactions[requestID];
         if (!transaction) {
             return;
         }
@@ -187,7 +188,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
     NSDate *finishedDate = [NSDate date];
 
     dispatch_async(self.queue, ^{
-        FLEXHTTPTransaction *transaction = self.requestIDsToHTTPTransactions[requestID];
+        FLEXNetworkTransaction *transaction = self.requestIDsToTransactions[requestID];
         if (!transaction) {
             return;
         }
@@ -204,7 +205,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
         }
         
         if (shouldCache) {
-            [self.restCache setObject:responseBody forKey:requestID cost:responseBody.length];
+            [self.responseCache setObject:responseBody forKey:requestID cost:responseBody.length];
         }
 
         NSString *mimeType = transaction.response.MIMEType;
@@ -212,32 +213,32 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
             // Thumbnail image previews on a separate background queue
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSInteger maxPixelDimension = UIScreen.mainScreen.scale * 32.0;
-                transaction.thumbnail = [FLEXUtility
+                transaction.responseThumbnail = [FLEXUtility
                     thumbnailedImageWithMaxPixelDimension:maxPixelDimension
                     fromImageData:responseBody
                 ];
                 [self postUpdateNotificationForTransaction:transaction];
             });
         } else if ([mimeType isEqual:@"application/json"]) {
-            transaction.thumbnail = FLEXResources.jsonIcon;
+            transaction.responseThumbnail = FLEXResources.jsonIcon;
         } else if ([mimeType isEqual:@"text/plain"]){
-            transaction.thumbnail = FLEXResources.textPlainIcon;
+            transaction.responseThumbnail = FLEXResources.textPlainIcon;
         } else if ([mimeType isEqual:@"text/html"]) {
-            transaction.thumbnail = FLEXResources.htmlIcon;
+            transaction.responseThumbnail = FLEXResources.htmlIcon;
         } else if ([mimeType isEqual:@"application/x-plist"]) {
-            transaction.thumbnail = FLEXResources.plistIcon;
+            transaction.responseThumbnail = FLEXResources.plistIcon;
         } else if ([mimeType isEqual:@"application/octet-stream"] || [mimeType isEqual:@"application/binary"]) {
-            transaction.thumbnail = FLEXResources.binaryIcon;
+            transaction.responseThumbnail = FLEXResources.binaryIcon;
         } else if ([mimeType containsString:@"javascript"]) {
-            transaction.thumbnail = FLEXResources.jsIcon;
+            transaction.responseThumbnail = FLEXResources.jsIcon;
         } else if ([mimeType containsString:@"xml"]) {
-            transaction.thumbnail = FLEXResources.xmlIcon;
+            transaction.responseThumbnail = FLEXResources.xmlIcon;
         } else if ([mimeType hasPrefix:@"audio"]) {
-            transaction.thumbnail = FLEXResources.audioIcon;
+            transaction.responseThumbnail = FLEXResources.audioIcon;
         } else if ([mimeType hasPrefix:@"video"]) {
-            transaction.thumbnail = FLEXResources.videoIcon;
+            transaction.responseThumbnail = FLEXResources.videoIcon;
         } else if ([mimeType hasPrefix:@"text"]) {
-            transaction.thumbnail = FLEXResources.textIcon;
+            transaction.responseThumbnail = FLEXResources.textIcon;
         }
         
         [self postUpdateNotificationForTransaction:transaction];
@@ -246,7 +247,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 
 - (void)recordLoadingFailedWithRequestID:(NSString *)requestID error:(NSError *)error {
     dispatch_async(self.queue, ^{
-        FLEXHTTPTransaction *transaction = self.requestIDsToHTTPTransactions[requestID];
+        FLEXNetworkTransaction *transaction = self.requestIDsToTransactions[requestID];
         if (!transaction) {
             return;
         }
@@ -261,49 +262,13 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 
 - (void)recordMechanism:(NSString *)mechanism forRequestID:(NSString *)requestID {
     dispatch_async(self.queue, ^{
-        FLEXHTTPTransaction *transaction = self.requestIDsToHTTPTransactions[requestID];
+        FLEXNetworkTransaction *transaction = self.requestIDsToTransactions[requestID];
         if (!transaction) {
             return;
         }
         
         transaction.requestMechanism = mechanism;
         [self postUpdateNotificationForTransaction:transaction];
-    });
-}
-
-#pragma mark - Websocket Events
-
-- (void)recordWebsocketMessageSend:(NSURLSessionWebSocketMessage *)message task:(NSURLSessionWebSocketTask *)task {
-    dispatch_async(self.queue, ^{
-        FLEXWebsocketTransaction *send = [FLEXWebsocketTransaction
-            withMessage:message task:task direction:FLEXWebsocketOutgoing
-        ];
-        
-        [self.orderedWSTransactions addObject:send];
-        [self postNewTransactionNotificationWithTransaction:send];
-    });
-}
-
-- (void)recordWebsocketMessageSendCompletion:(NSURLSessionWebSocketMessage *)message error:(NSError *)error {
-    dispatch_async(self.queue, ^{
-        FLEXWebsocketTransaction *send = [self.orderedWSTransactions flex_firstWhere:^BOOL(FLEXWebsocketTransaction *t) {
-            return t.message == message;
-        }];
-        send.error = error;
-        send.transactionState = error ? FLEXNetworkTransactionStateFailed : FLEXNetworkTransactionStateFinished;
-        
-        [self postUpdateNotificationForTransaction:send];
-    });
-}
-
-- (void)recordWebsocketMessageReceived:(NSURLSessionWebSocketMessage *)message task:(NSURLSessionWebSocketTask *)task {
-    dispatch_async(self.queue, ^{
-        FLEXWebsocketTransaction *receive = [FLEXWebsocketTransaction
-            withMessage:message task:task direction:FLEXWebsocketIncoming
-        ];
-        
-        [self.orderedWSTransactions addObject:receive];
-        [self postNewTransactionNotificationWithTransaction:receive];
     });
 }
 

@@ -30,7 +30,7 @@ static NSString * const QUERY_TABLENAMES = @"SELECT name FROM sqlite_master WHER
 - (instancetype)initWithPath:(NSString *)path {
     self = [super init];
     if (self) {
-        self.path = path;
+        self.path = path;;
     }
     
     return self;
@@ -114,17 +114,9 @@ static NSString * const QUERY_TABLENAMES = @"SELECT name FROM sqlite_master WHER
 }
 
 - (NSArray<NSArray *> *)queryAllDataInTable:(NSString *)tableName {
-    NSString *command = [NSString stringWithFormat:@"SELECT * FROM \"%@\"", tableName];
-    return [self executeStatement:command].rows ?: @[];
-}
-
-- (NSArray<NSString *> *)queryRowIDsInTable:(NSString *)tableName {
-    NSString *command = [NSString stringWithFormat:@"SELECT rowid FROM \"%@\"", tableName];
-    NSArray<NSArray<NSString *> *> *data = [self executeStatement:command].rows ?: @[];
-    
-    return [data flex_mapped:^id(NSArray<NSString *> *obj, NSUInteger idx) {
-        return obj.firstObject;
-    }];
+    return [self executeStatement:[@"SELECT * FROM "
+        stringByAppendingString:tableName
+    ]].rows ?: @[];
 }
 
 - (FLEXSQLResult *)executeStatement:(NSString *)sql {
@@ -265,7 +257,7 @@ static NSString * const QUERY_TABLENAMES = @"SELECT name FROM sqlite_master WHER
 - (FLEXSQLResult *)errorResult:(NSString *)description {
     const char *error = sqlite3_errmsg(_db);
     NSString *message = error ? @(error) : [NSString
-        stringWithFormat:@"(%@: empty error)", description
+        stringWithFormat:@"(%@: empty error", description
     ];
     
     return [FLEXSQLResult error:message];

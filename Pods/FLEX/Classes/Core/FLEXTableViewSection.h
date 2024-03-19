@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLEXMacros.h"
 #import "NSArray+FLEX.h"
 @class FLEXTableView;
 
@@ -100,6 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable void(^)(__kindof UIViewController *host))didPressInfoButtonAction:(NSInteger)row;
 
 #pragma mark - Context Menus
+#if FLEX_AT_LEAST_IOS13_SDK
 
 /// By default, this is the title of the row.
 /// @return The title of the context menu, if any.
@@ -119,6 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// should be a description of what will be copied, and the values should be
 /// the strings to copy. Return an empty string as a value to show a disabled action.
 - (nullable NSArray<NSString *> *)copyMenuItemsForRow:(NSInteger)row API_AVAILABLE(ios(13.0));
+#endif
 
 #pragma mark - Cell Configuration
 

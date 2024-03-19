@@ -13,7 +13,7 @@
 @interface FLEXDefaultsContentSection ()
 @property (nonatomic) NSUserDefaults *defaults;
 @property (nonatomic) NSArray *keys;
-@property (nonatomic, readonly) NSDictionary *unexcludedDefaults;
+@property (nonatomic, readonly) NSDictionary *whitelistedDefaults;
 @end
 
 @implementation FLEXDefaultsContentSection
@@ -33,7 +33,7 @@
     FLEXDefaultsContentSection *section = [self forReusableFuture:^id(FLEXDefaultsContentSection *section) {
         section.defaults = userDefaults;
         section.onlyShowKeysForAppPrefs = YES;
-        return section.unexcludedDefaults;
+        return section.whitelistedDefaults;
     }];
     return section;
 }
@@ -87,16 +87,16 @@
     _keys = [keys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
-- (NSDictionary *)unexcludedDefaults {
-    // Case: no excluding
+- (NSDictionary *)whitelistedDefaults {
+    // Case: no whitelisting
     if (!self.onlyShowKeysForAppPrefs) {
         return self.defaults.dictionaryRepresentation;
     }
 
-    // Always regenerate key allowlist when this method is called
+    // Always regenerate key whitelist when this method is called
     _keys = nil;
 
-    // Generate new dictionary from unexcluded keys
+    // Generate new dictionary from whitelisted keys
     NSArray *values = [self.defaults.dictionaryRepresentation
         objectsForKeys:self.keys notFoundMarker:NSNull.null
     ];

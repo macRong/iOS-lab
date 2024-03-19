@@ -50,12 +50,15 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
 #pragma mark - Initialization
 
 - (id)init {
+#if FLEX_AT_LEAST_IOS13_SDK
     if (@available(iOS 13.0, *)) {
         self = [self initWithStyle:UITableViewStyleInsetGrouped];
     } else {
         self = [self initWithStyle:UITableViewStyleGrouped];
     }
-    
+#else
+    self = [self initWithStyle:UITableViewStyleGrouped];
+#endif
     return self;
 }
 
@@ -103,9 +106,11 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
 
         self.automaticallyShowsSearchBarCancelButton = YES;
 
+        #if FLEX_AT_LEAST_IOS13_SDK
         if (@available(iOS 13, *)) {
             self.searchController.automaticallyShowsScopeBar = NO;
         }
+        #endif
         
         [self addSearchController:self.searchController];
     } else {
@@ -119,15 +124,18 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
     _showsCarousel = showsCarousel;
     
     if (showsCarousel) {
-        _carousel = ({ weakify(self)
-            
+        _carousel = ({
+            __weak __typeof(self) weakSelf = self;
+
             FLEXScopeCarousel *carousel = [FLEXScopeCarousel new];
-            carousel.selectedIndexChangedAction = ^(NSInteger idx) { strongify(self);
+            carousel.selectedIndexChangedAction = ^(NSInteger idx) {
+                __typeof(self) self = weakSelf;
                 [self.searchDelegate updateSearchResults:self.searchText];
             };
 
             // UITableView won't update the header size unless you reset the header view
-            [carousel registerBlockForDynamicTypeChanges:^(FLEXScopeCarousel *_) { strongify(self);
+            [carousel registerBlockForDynamicTypeChanges:^(FLEXScopeCarousel *carousel) {
+                __typeof(self) self = weakSelf;
                 [self layoutTableHeaderIfNeeded];
             }];
 
@@ -165,17 +173,21 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
 }
 
 - (BOOL)automaticallyShowsSearchBarCancelButton {
+#if FLEX_AT_LEAST_IOS13_SDK
     if (@available(iOS 13, *)) {
         return self.searchController.automaticallyShowsCancelButton;
     }
+#endif
 
     return _automaticallyShowsSearchBarCancelButton;
 }
 
 - (void)setAutomaticallyShowsSearchBarCancelButton:(BOOL)value {
+#if FLEX_AT_LEAST_IOS13_SDK
     if (@available(iOS 13, *)) {
         self.searchController.automaticallyShowsCancelButton = value;
     }
+#endif
 
     _automaticallyShowsSearchBarCancelButton = value;
 }
@@ -229,7 +241,7 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     // Toolbar
-    self.navigationController.toolbarHidden = self.toolbarItems.count > 0;
+    self.navigationController.toolbarHidden = NO;
     self.navigationController.hidesBarsOnSwipe = YES;
 
     // On iOS 13, the root view controller shows it's search bar no matter what.
@@ -247,16 +259,11 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // When going back, make the search bar reappear instead of hiding
     if (@available(iOS 11.0, *)) {
-        // When going back, make the search bar reappear instead of hiding
         if ((self.pinSearchBar || self.showSearchBarInitially) && !self.didInitiallyRevealSearchBar) {
             self.navigationItem.hidesSearchBarWhenScrolling = NO;
         }
-    }
-    
-    // Make the keyboard seem to appear faster
-    if (self.activatesSearchBarAutomatically) {
-        [self makeKeyboardAppearNow];
     }
 
     [self setupToolbarItems];
@@ -278,17 +285,6 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
                 [self.navigationController.view layoutIfNeeded];
             }];
         }
-    }
-    
-    if (self.activatesSearchBarAutomatically) {
-        // Keyboard has appeared, now we call this as we soon present our search bar
-        [self removeDummyTextField];
-        
-        // Activate the search bar
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // This doesn't work unless it's wrapped in this dispatch_async call
-            [self.searchController.searchBar becomeFirstResponder];
-        });
     }
 
     // We only want to reveal the search bar when the view controller first appears.
@@ -529,37 +525,13 @@ CGFloat const kFLEXDebounceForExpensiveIO = 0.5;
 
 #pragma mark - Search Bar
 
-#pragma mark Faster keyboard
-
-static UITextField *kDummyTextField = nil;
-
-/// Make the keyboard appear instantly. We use this to make the
-/// keyboard appear faster when the search bar is set to appear initially.
-/// You must call \c -removeDummyTextField before your search bar is to appear.
-- (void)makeKeyboardAppearNow {
-    if (!kDummyTextField) {
-        kDummyTextField = [UITextField new];
-        kDummyTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    }
-    
-    kDummyTextField.inputAccessoryView = self.searchController.searchBar.inputAccessoryView;
-    [UIApplication.sharedApplication.keyWindow addSubview:kDummyTextField];
-    [kDummyTextField becomeFirstResponder];
-}
-
-- (void)removeDummyTextField {
-    if (kDummyTextField.superview) {
-        [kDummyTextField removeFromSuperview];
-    }
-}
-
 #pragma mark UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     [self.debounceTimer invalidate];
     NSString *text = searchController.searchBar.text;
     
-    void (^updateSearchResults)(void) = ^{
+    void (^updateSearchResults)() = ^{
         if (self.searchResultsUpdater) {
             [self.searchResultsUpdater updateSearchResults:text];
         } else {

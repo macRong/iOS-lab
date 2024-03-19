@@ -8,7 +8,6 @@
 
 #import "FLEXColor.h"
 #import "FLEXHierarchyTableViewController.h"
-#import "NSMapTable+FLEX_Subscripting.h"
 #import "FLEXUtility.h"
 #import "FLEXHierarchyTableViewCell.h"
 #import "FLEXObjectExplorerViewController.h"

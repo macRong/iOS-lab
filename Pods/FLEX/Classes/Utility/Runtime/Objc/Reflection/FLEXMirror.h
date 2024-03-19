@@ -8,37 +8,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <objc/runtime.h>
 @class FLEXMethod, FLEXProperty, FLEXIvar, FLEXProtocol;
+#import <objc/runtime.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark FLEXMirror Protocol
-NS_SWIFT_NAME(FLEXMirrorProtocol)
-@protocol FLEXMirror <NSObject>
-
-/// Swift initializer
-- (instancetype)initWithSubject:(id)objectOrClass NS_SWIFT_NAME(init(reflecting:));
-
-/// The underlying object or \c Class used to create this \c FLEXMirror instance.
-@property (nonatomic, readonly) id   value;
-/// Whether the reflected thing was a class or a class instance.
-@property (nonatomic, readonly) BOOL isClass;
-/// The name of the \c Class of the \c value property.
-@property (nonatomic, readonly) NSString *className;
-
-@property (nonatomic, readonly) NSArray<FLEXProperty *> *properties;
-@property (nonatomic, readonly) NSArray<FLEXIvar *>     *ivars;
-@property (nonatomic, readonly) NSArray<FLEXMethod *>   *methods;
-@property (nonatomic, readonly) NSArray<FLEXProtocol *> *protocols;
-
-/// @return A reflection of \c value.superClass.
-@property (nonatomic, readonly, nullable) id<FLEXMirror> superMirror NS_SWIFT_NAME(superMirror);
-
-@end
-
-#pragma mark FLEXMirror Class
-@interface FLEXMirror : NSObject <FLEXMirror>
+#pragma mark FLEXMirror
+@interface FLEXMirror : NSObject
 
 /// Reflects an instance of an object or \c Class.
 /// @discussion \c FLEXMirror will immediately gather all useful information. Consider using the
@@ -53,8 +28,11 @@ NS_SWIFT_NAME(FLEXMirrorProtocol)
 /// @return An instance of \c FLEXMirror.
 + (instancetype)reflect:(id)objectOrClass;
 
+/// The underlying object or \c Class used to create this \c FLEXMirror instance.
 @property (nonatomic, readonly) id   value;
+/// Whether the reflected thing was a class or a class instance.
 @property (nonatomic, readonly) BOOL isClass;
+/// The name of the \c Class of the \c value property.
 @property (nonatomic, readonly) NSString *className;
 
 @property (nonatomic, readonly) NSArray<FLEXProperty *> *properties;
@@ -62,7 +40,8 @@ NS_SWIFT_NAME(FLEXMirrorProtocol)
 @property (nonatomic, readonly) NSArray<FLEXMethod *>   *methods;
 @property (nonatomic, readonly) NSArray<FLEXProtocol *> *protocols;
 
-@property (nonatomic, readonly, nullable) FLEXMirror *superMirror NS_SWIFT_NAME(superMirror);
+/// @return A reflection of \c value.superClass.
+@property (nonatomic, readonly) FLEXMirror *superMirror;
 
 @end
 
@@ -70,14 +49,12 @@ NS_SWIFT_NAME(FLEXMirrorProtocol)
 @interface FLEXMirror (ExtendedMirror)
 
 /// @return The method with the given name, or \c nil if one does not exist.
-- (nullable FLEXMethod *)methodNamed:(nullable NSString *)name;
+- (FLEXMethod *)methodNamed:(NSString *)name;
 /// @return The property with the given name, or \c nil if one does not exist.
-- (nullable FLEXProperty *)propertyNamed:(nullable NSString *)name;
+- (FLEXProperty *)propertyNamed:(NSString *)name;
 /// @return The instance variable with the given name, or \c nil if one does not exist.
-- (nullable FLEXIvar *)ivarNamed:(nullable NSString *)name;
+- (FLEXIvar *)ivarNamed:(NSString *)name;
 /// @return The protocol with the given name, or \c nil if one does not exist.
-- (nullable FLEXProtocol *)protocolNamed:(nullable NSString *)name;
+- (FLEXProtocol *)protocolNamed:(NSString *)name;
 
 @end
-
-NS_ASSUME_NONNULL_END

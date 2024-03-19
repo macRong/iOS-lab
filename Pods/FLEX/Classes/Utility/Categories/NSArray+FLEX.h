@@ -27,14 +27,6 @@
 + (instancetype)flex_forEachUpTo:(NSUInteger)bound map:(T(^)(NSUInteger i))block;
 + (instancetype)flex_mapped:(id<NSFastEnumeration>)collection block:(id(^)(T obj, NSUInteger idx))mapFunc;
 
-- (instancetype)flex_sortedUsingSelector:(SEL)selector;
-
-- (T)flex_firstWhere:(BOOL(^)(T obj))meetingCriteria;
-
-@end
-
-@interface NSMutableArray<T> (Functional)
-
-- (void)flex_filter:(BOOL(^)(T obj, NSUInteger idx))filterFunc;
+- (instancetype)sortedUsingSelector:(SEL)selector;
 
 @end

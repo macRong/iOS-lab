@@ -9,12 +9,10 @@
 #import "FLEXMultiColumnTableView.h"
 #import "FLEXDBQueryRowCell.h"
 #import "FLEXTableLeftCell.h"
-#import "NSArray+FLEX.h"
 #import "FLEXColor.h"
 
 @interface FLEXMultiColumnTableView () <
-    UITableViewDataSource, UITableViewDelegate,
-    UIScrollViewDelegate, FLEXDBQueryRowCellLayoutSource
+    UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 >
 
 @property (nonatomic) UIScrollView *contentScrollView;
@@ -23,11 +21,11 @@
 @property (nonatomic) UITableView  *contentTableView;
 @property (nonatomic) UIView       *leftHeader;
 
-@property (nonatomic) NSArray<UIView *> *headerViews;
-
 /// \c NSNotFound if no column selected
 @property (nonatomic) NSInteger sortColumn;
 @property (nonatomic) FLEXTableColumnHeaderSortType sortType;
+
+@property (nonatomic) NSArray *rowData;
 
 @property (nonatomic, readonly) NSInteger numberOfColumns;
 @property (nonatomic, readonly) NSInteger numberOfRows;
@@ -73,9 +71,9 @@ static const CGFloat kColumnMargin = 1;
     }
     
     CGFloat contentWidth = 0.0;
-    NSInteger columnsCount = self.numberOfColumns;
-    for (int i = 0; i < columnsCount; i++) {
-        contentWidth += CGRectGetWidth(self.headerViews[i].bounds);
+    NSInteger rowsCount = self.numberOfColumns;
+    for (int i = 0; i < rowsCount; i++) {
+        contentWidth += [self contentWidthForColumn:i];
     }
     
     CGFloat contentHeight = height - topheaderHeight - topInsets;
@@ -149,30 +147,26 @@ static const CGFloat kColumnMargin = 1;
 #pragma mark - Data
 
 - (void)reloadData {
-    [self loadHeaderData];
     [self loadLeftViewData];
     [self loadContentData];
+    [self loadHeaderData];
 }
 
 - (void)loadHeaderData {
     // Remove existing headers, if any
-    for (UIView *subview in self.headerViews) {
+    for (UIView *subview in self.headerScrollView.subviews) {
         [subview removeFromSuperview];
     }
     
-    __block CGFloat xOffset = 0;
-    
-    self.headerViews = [NSArray flex_forEachUpTo:self.numberOfColumns map:^id(NSUInteger column) {
-        FLEXTableColumnHeader *header = [FLEXTableColumnHeader new];
+    CGFloat xOffset = 0.0;
+    for (NSInteger column = 0; column < self.numberOfColumns; column++) {
+        CGFloat width = [self contentWidthForColumn:column] + self.columnMargin;
+        
+        FLEXTableColumnHeader *header = [[FLEXTableColumnHeader alloc]
+            initWithFrame:CGRectMake(xOffset, 0, width, self.topHeaderHeight - 1)
+        ];
         header.titleLabel.text = [self columnTitle:column];
         
-        CGSize fittingSize = CGSizeMake(CGFLOAT_MAX, self.topHeaderHeight - 1);
-        CGFloat width = self.columnMargin + MAX(
-            [self minContentWidthForColumn:column],
-            [header sizeThatFits:fittingSize].width
-        );
-        header.frame = CGRectMake(xOffset, 0, width, self.topHeaderHeight - 1);
-
         if (column == self.sortColumn) {
             header.sortType = self.sortType;
         }
@@ -184,22 +178,21 @@ static const CGFloat kColumnMargin = 1;
         [header addGestureRecognizer:gesture];
         header.userInteractionEnabled = YES;
         
-        xOffset += width;
         [self.headerScrollView addSubview:header];
-        return header;
-    }];
+        xOffset += width;
+    }
 }
 
 - (void)contentHeaderTap:(UIGestureRecognizer *)gesture {
-    NSInteger newSortColumn = [self.headerViews indexOfObject:gesture.view];
+    NSInteger newSortColumn = [self.headerScrollView.subviews indexOfObject:gesture.view];
     FLEXTableColumnHeaderSortType newType = FLEXNextTableColumnHeaderSortType(self.sortType);
     
     // Reset old header
-    FLEXTableColumnHeader *oldHeader = (id)self.headerViews[self.sortColumn];
+    FLEXTableColumnHeader *oldHeader = (id)self.headerScrollView.subviews[self.sortColumn];
     oldHeader.sortType = FLEXTableColumnHeaderSortTypeNone;
     
     // Update new header
-    FLEXTableColumnHeader *newHeader = (id)self.headerViews[newSortColumn];
+    FLEXTableColumnHeader *newHeader = (id)self.headerScrollView.subviews[newSortColumn];
     newHeader.sortType = newType;
     
     // Update self
@@ -234,13 +227,13 @@ static const CGFloat kColumnMargin = 1;
     }
     // Right side table view for data
     else {
+        self.rowData = [self.dataSource contentForRow:indexPath.row];
         FLEXDBQueryRowCell *cell = [tableView
             dequeueReusableCellWithIdentifier:kFLEXDBQueryRowCellReuse forIndexPath:indexPath
         ];
         
         cell.contentView.backgroundColor = backgroundColor;
         cell.data = [self.dataSource contentForRow:indexPath.row];
-        cell.layoutSource = self;
         NSAssert(cell.data.count == self.numberOfColumns, @"Count of data provided was incorrect");
         return cell;
     }
@@ -287,17 +280,6 @@ static const CGFloat kColumnMargin = 1;
 }
 
 
-#pragma mark FLEXDBQueryRowCellLayoutSource
-
-- (CGFloat)dbQueryRowCell:(FLEXDBQueryRowCell *)dbQueryRowCell minXForColumn:(NSUInteger)column {
-    return CGRectGetMinX(self.headerViews[column].frame);
-}
-
-- (CGFloat)dbQueryRowCell:(FLEXDBQueryRowCell *)dbQueryRowCell widthForColumn:(NSUInteger)column {
-    return CGRectGetWidth(self.headerViews[column].bounds);
-}
-
-
 #pragma mark DataSource Accessor
 
 - (NSInteger)numberOfRows {
@@ -316,8 +298,8 @@ static const CGFloat kColumnMargin = 1;
     return [self.dataSource rowTitle:row];
 }
 
-- (CGFloat)minContentWidthForColumn:(NSInteger)column {
-    return [self.dataSource multiColumnTableView:self minWidthForContentCellInColumn:column];
+- (CGFloat)contentWidthForColumn:(NSInteger)column {
+    return [self.dataSource multiColumnTableView:self widthForContentCellInColumn:column];
 }
 
 - (CGFloat)contentHeightForRow:(NSInteger)row {

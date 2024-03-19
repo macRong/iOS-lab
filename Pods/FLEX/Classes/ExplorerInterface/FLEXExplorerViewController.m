@@ -460,12 +460,17 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
         initWithTarget:self action:@selector(handleToolbarDetailsTapGesture:)
     ];
     [toolbar.selectedViewDescriptionContainer addGestureRecognizer:self.detailsTapGR];
-    
     // Swipe gestures for selecting deeper / higher views at a point
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]
+    UIPanGestureRecognizer *leftSwipe = [[UIPanGestureRecognizer alloc]
         initWithTarget:self action:@selector(handleChangeViewAtPointGesture:)
     ];
-    [toolbar.selectedViewDescriptionContainer addGestureRecognizer:panGesture];
+//    UIPanGestureRecognizer *rightSwipe = [[UIPanGestureRecognizer alloc]
+//        initWithTarget:self action:@selector(handleChangeViewAtPointGesture:)
+//    ];
+//    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+//    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [toolbar.selectedViewDescriptionContainer addGestureRecognizer:leftSwipe];
+//    [toolbar.selectedViewDescriptionContainer addGestureRecognizer:rightSwipe];
     
     // Long press gesture to present tabs manager
     [toolbar.globalsItem addGestureRecognizer:[[UILongPressGestureRecognizer alloc]
@@ -913,28 +918,15 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
     [super dismissViewControllerAnimated:animated completion:completion];
 }
 
-- (BOOL)wantsWindowToBecomeKey {
+- (BOOL)wantsWindowToBecomeKey
+{
     return self.window.previousKeyWindow != nil;
 }
 
 - (void)toggleToolWithViewControllerProvider:(UINavigationController *(^)(void))future
-                                  completion:(void (^)(void))completion {
+                                  completion:(void(^)(void))completion {
     if (self.presentedViewController) {
-        // We do NOT want to present the future; this is
-        // a convenience method for toggling the SAME TOOL
         [self dismissViewControllerAnimated:YES completion:completion];
-    } else if (future) {
-        [self presentViewController:future() animated:YES completion:completion];
-    }
-}
-
-- (void)presentTool:(UINavigationController *(^)(void))future
-         completion:(void (^)(void))completion {
-    if (self.presentedViewController) {
-        // If a tool is already presented, dismiss it first
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self presentViewController:future() animated:YES completion:completion];
-        }];
     } else if (future) {
         [self presentViewController:future() animated:YES completion:completion];
     }
@@ -978,7 +970,11 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
         } else {
             return [FLEXHierarchyViewController delegate:self];
         }
-    } completion:completion];
+    } completion:^{
+        if (completion) {
+            completion();
+        }
+    }];
 }
 
 - (void)toggleMenuTool {

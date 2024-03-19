@@ -46,7 +46,7 @@
             id service = item[kFLEXKeychainWhereKey];
             if ([service isKindOfClass:[NSString class]]) {
                 cell.textLabel.text = service;
-                cell.detailTextLabel.text = [item[kFLEXKeychainAccountKey] description];
+                cell.detailTextLabel.text = item[kFLEXKeychainAccountKey];
             } else {
                 cell.textLabel.text = [NSString stringWithFormat:
                     @"[%@]\n\n%@",
@@ -99,9 +99,8 @@
     NSDictionary *item = self.section.filteredList[idx];
 
     FLEXKeychainQuery *query = [FLEXKeychainQuery new];
-    query.service = [item[kFLEXKeychainWhereKey] description];
-    query.account = [item[kFLEXKeychainAccountKey] description];
-    query.accessGroup = [item[kFLEXKeychainGroupKey] description];
+    query.service = item[kFLEXKeychainWhereKey];
+    query.account = item[kFLEXKeychainAccountKey];
     [query fetch:nil];
 
     return query;
@@ -233,7 +232,6 @@
         make.message(@"Service: ").message(query.service);
         make.message(@"\nAccount: ").message(query.account);
         make.message(@"\nPassword: ").message(query.password);
-        make.message(@"\nGroup: ").message(query.accessGroup);
 
         make.button(@"Copy Service").handler(^(NSArray<NSString *> *strings) {
             [UIPasteboard.generalPasteboard flex_copy:query.service];

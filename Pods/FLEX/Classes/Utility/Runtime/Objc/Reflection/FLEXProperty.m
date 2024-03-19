@@ -96,7 +96,7 @@
 
     // Return the given selector if the class responds to it
     Class cls = _cls;
-    SEL (^selectorIfValid)(SEL) = ^SEL(SEL sel) {
+    SEL (^selectorIfValid)() = ^SEL(SEL sel) {
         if (!sel || !cls) return nil;
         return [cls instancesRespondToSelector:sel] ? sel : nil;
     };
@@ -124,10 +124,6 @@
     _likelySetterString = NSStringFromSelector(_likelySetter);
 
     _isClassProperty = _cls ? class_isMetaClass(_cls) : NO;
-    
-    _likelyIvarName = _isClassProperty ? nil : (
-        self.attributes.backingIvar ?: [@"_" stringByAppendingString:_name]
-    );
 }
 
 #pragma mark Overrides
@@ -189,14 +185,6 @@
 - (NSString *)imageName {
     [self computeSymbolInfo:YES];
     return _imageName;
-}
-
-- (BOOL)likelyIvarExists {
-    if (_likelyIvarName && _cls) {
-        return class_getInstanceVariable(_cls, _likelyIvarName.UTF8String) != nil;
-    }
-    
-    return NO;
 }
 
 - (NSString *)fullDescription {

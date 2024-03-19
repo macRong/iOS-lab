@@ -10,9 +10,13 @@
 #import "FLEXRuntimeUtility.h"
 #import "FLEXObjcInternal.h"
 #import "FLEXTypeEncodingParser.h"
-#import "FLEXMethod.h"
 
-NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain";
+static NSString *const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain";
+typedef NS_ENUM(NSInteger, FLEXRuntimeUtilityErrorCode) {
+    FLEXRuntimeUtilityErrorCodeDoesNotRecognizeSelector = 0,
+    FLEXRuntimeUtilityErrorCodeInvocationFailed = 1,
+    FLEXRuntimeUtilityErrorCodeArgumentTypeMismatch = 2
+};
 
 @implementation FLEXRuntimeUtility
 
@@ -92,24 +96,12 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
     return superClasses;
 }
 
-+ (NSString *)safeClassNameForObject:(id)object {
-    // Don't assume that we have an NSObject subclass
-    if ([self safeObject:object respondsToSelector:@selector(class)]) {
-        return NSStringFromClass([object class]);
-    }
-
-    return NSStringFromClass(object_getClass(object));
-}
-
 /// Could be nil
 + (NSString *)safeDescriptionForObject:(id)object {
-    // Don't assume that we have an NSObject subclass; not all objects respond to -description
+    // Don't assume that we have an NSObject subclass.
+    // Check to make sure the object responds to the description method
     if ([self safeObject:object respondsToSelector:@selector(description)]) {
-        @try {
-            return [object description];
-        } @catch (NSException *exception) {
-            return nil;
-        }
+        return [object description];
     }
 
     return nil;
@@ -119,10 +111,10 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
 + (NSString *)safeDebugDescriptionForObject:(id)object {
     NSString *description = nil;
 
+    // Don't assume that we have an NSObject subclass.
+    // Check to make sure the object responds to the description method
     if ([self safeObject:object respondsToSelector:@selector(debugDescription)]) {
-        @try {
-            description = [object debugDescription];
-        } @catch (NSException *exception) { }
+        description = [object debugDescription];
     } else {
         description = [self safeDescriptionForObject:object];
     }
@@ -185,18 +177,18 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
 }
 
 + (BOOL)safeObject:(id)object respondsToSelector:(SEL)sel {
-    // If we're given a class, we want to know if classes respond to this selector.
-    // Similarly, if we're given an instance, we want to know if instances respond. 
-    BOOL isClass = object_isClass(object);
-    Class cls = isClass ? object : object_getClass(object);
-    // BOOL isMetaclass = class_isMetaClass(cls);
+    static BOOL (*respondsToSelector)(id, SEL, SEL) = nil;
+    static BOOL (*respondsToSelector_meta)(id, SEL, SEL) = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        respondsToSelector = (BOOL(*)(id, SEL, SEL))[NSObject instanceMethodForSelector:@selector(respondsToSelector:)];
+        respondsToSelector_meta = (BOOL(*)(id, SEL, SEL))[NSObject methodForSelector:@selector(respondsToSelector:)];
+    });
     
-    if (isClass) {
-        // In theory, this should also work for metaclasses...
-        return class_getClassMethod(cls, sel) != nil;
-    } else {
-        return class_getInstanceMethod(cls, sel) != nil;
-    }
+    BOOL isClass = object_isClass(object);
+    return (isClass ? respondsToSelector_meta : respondsToSelector)(
+        object, @selector(respondsToSelector:), sel
+    );
 }
 
 
@@ -296,31 +288,18 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
              onObject:(id)object
         withArguments:(NSArray *)arguments
                 error:(NSError * __autoreleasing *)error {
-    return [self performSelector:selector
-        onObject:object
-        withArguments:arguments
-        allowForwarding:NO
-        error:error
-    ];
-}
-
-+ (id)performSelector:(SEL)selector
-             onObject:(id)object
-        withArguments:(NSArray *)arguments
-      allowForwarding:(BOOL)mightForwardMsgSend
-                error:(NSError * __autoreleasing *)error {
     static dispatch_once_t onceToken;
     static SEL stdStringExclusion = nil;
     dispatch_once(&onceToken, ^{
         stdStringExclusion = NSSelectorFromString(@"stdString");
     });
 
-    // Bail if the object won't respond to this selector
-    if (mightForwardMsgSend || ![self safeObject:object respondsToSelector:selector]) {
+    // Bail if the object won't respond to this selector.
+    if (![self safeObject:object respondsToSelector:selector]) {
         if (error) {
             NSString *msg = [NSString
-                stringWithFormat:@"This object does not respond to the selector %@",
-                NSStringFromSelector(selector)
+                stringWithFormat:@"%@ does not respond to the selector %@",
+                object, NSStringFromSelector(selector)
             ];
             NSDictionary<NSString *, id> *userInfo = @{ NSLocalizedDescriptionKey : msg };
             *error = [NSError
@@ -333,14 +312,15 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
         return nil;
     }
 
-    // It is important to use object_getClass and not -class here, as
-    // object_getClass will return a different result for class objects
-    Class cls = object_getClass(object);
-    NSMethodSignature *methodSignature = [FLEXMethod selector:selector class:cls].signature;
-    if (!methodSignature) {
-        // Unsupported type encoding
-        return nil;
-    }
+    NSMethodSignature *methodSignature = [NSMethodSignature signatureWithObjCTypes:({
+        Method method;
+        if (object_isClass(object)) {
+            method = class_getClassMethod(object, selector);
+        } else {
+            method = class_getInstanceMethod(object_getClass(object), selector);
+        }
+        method_getTypeEncoding(method);
+    })];
     
     // Probably an unsupported type encoding, like bitfields.
     // In the future, we could calculate the return length
@@ -362,7 +342,7 @@ NSString * const FLEXRuntimeUtilityErrorDomain = @"FLEXRuntimeUtilityErrorDomain
     [invocation retainArguments];
 
     // Always self and _cmd
-    NSUInteger numberOfArguments = methodSignature.numberOfArguments;
+    NSUInteger numberOfArguments = [methodSignature numberOfArguments];
     for (NSUInteger argumentIndex = kFLEXNumberOfImplicitArgs; argumentIndex < numberOfArguments; argumentIndex++) {
         NSUInteger argumentsArrayIndex = argumentIndex - kFLEXNumberOfImplicitArgs;
         id argumentObject = arguments.count > argumentsArrayIndex ? arguments[argumentsArrayIndex] : nil;

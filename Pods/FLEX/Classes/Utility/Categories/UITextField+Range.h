@@ -9,6 +9,6 @@
 
 @interface UITextField (Range)
 
-@property (nonatomic, readonly) NSRange flex_selectedRange;
+@property (nonatomic, readonly) NSRange selectedRange;
 
 @end

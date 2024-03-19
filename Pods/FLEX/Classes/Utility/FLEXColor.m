@@ -9,6 +9,7 @@
 #import "FLEXColor.h"
 #import "FLEXUtility.h"
 
+#if FLEX_AT_LEAST_IOS13_SDK
 #define FLEXDynamicColor(dynamic, static) ({ \
     UIColor *c; \
     if (@available(iOS 13.0, *)) { \
@@ -18,6 +19,9 @@
     } \
     c; \
 });
+#else
+#define FLEXDynamicColor(dynamic, static) [UIColor static]
+#endif
 
 @implementation FLEXColor
 

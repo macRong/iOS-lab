@@ -17,8 +17,6 @@
 #import "FLEXColorPreviewSection.h"
 #import "FLEXDefaultsContentSection.h"
 #import "FLEXBundleShortcuts.h"
-#import "FLEXNSStringShortcuts.h"
-#import "FLEXNSDataShortcuts.h"
 #import "FLEXBlockShortcuts.h"
 #import "FLEXUtility.h"
 
@@ -52,8 +50,6 @@ static NSMutableDictionary<id<NSCopying>, Class> *classesToRegisteredSections = 
             ClassKey(CALayer)          : [FLEXLayerShortcuts class],
             ClassKey(UIColor)          : [FLEXColorPreviewSection class],
             ClassKey(NSBundle)         : [FLEXBundleShortcuts class],
-            ClassKey(NSString)         : [FLEXNSStringShortcuts class],
-            ClassKey(NSData)           : [FLEXNSDataShortcuts class],
             ClassKeyByName(NSBlock)    : [FLEXBlockShortcuts class],
         }];
         #undef ClassKey
@@ -76,33 +72,19 @@ static NSMutableDictionary<id<NSCopying>, Class> *classesToRegisteredSections = 
     // shortcut section for NSObject.
     //
     // TODO: rename it to FLEXNSObjectShortcuts or something?
-    FLEXShortcutsSection *shortcutsSection = [FLEXShortcutsSection forObject:object];
-    NSArray *sections = @[shortcutsSection];
-    
-    Class customSectionClass = nil;
+    Class sectionClass = nil;
     Class cls = object_getClass(object);
     do {
-        customSectionClass = classesToRegisteredSections[(id<NSCopying>)cls];
-    } while (!customSectionClass && (cls = [cls superclass]));
+        sectionClass = classesToRegisteredSections[(id<NSCopying>)cls];
+    } while (!sectionClass && (cls = [cls superclass]));
 
-    if (customSectionClass) {
-        id customSection = [customSectionClass forObject:object];
-        BOOL isFLEXShortcutSection = [customSection respondsToSelector:@selector(isNewSection)];
-        
-        // If the section "replaces" the default shortcuts section,
-        // only return that section. Otherwise, return both this
-        // section and the default shortcuts section.
-        if (isFLEXShortcutSection && ![customSection isNewSection]) {
-            sections = @[customSection];
-        } else {
-            // Custom section will go before shortcuts
-            sections = @[customSection, shortcutsSection];            
-        }
+    if (!sectionClass) {
+        sectionClass = [FLEXShortcutsSection class];
     }
 
     return [FLEXObjectExplorerViewController
         exploringObject:object
-        customSections:sections
+        customSection:[sectionClass forObject:object]
     ];
 }
 

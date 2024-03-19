@@ -9,8 +9,6 @@
 
 #import "FLEXRuntimeConstants.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface FLEXIvar : NSObject
 
 + (instancetype)ivar:(Ivar)ivar;
@@ -33,19 +31,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString        *details;
 /// The full path of the image that contains this ivar definition,
 /// or \c nil if this ivar was probably defined at runtime.
-@property (nonatomic, readonly, nullable) NSString *imagePath;
+@property (nonatomic, readonly) NSString        *imagePath;
 
 /// For internal use
 @property (nonatomic) id tag;
 
-- (nullable id)getValue:(id)target;
-- (void)setValue:(nullable id)value onObject:(id)target;
+- (id)getValue:(id)target;
+- (void)setValue:(id)value onObject:(id)target;
 
 /// Calls into -getValue: and passes that value into
 /// -[FLEXRuntimeUtility potentiallyUnwrapBoxedPointer:type:]
 /// and returns the result
-- (nullable id)getPotentiallyUnboxedValue:(id)target;
+- (id)getPotentiallyUnboxedValue:(id)target;
 
 @end
-
-NS_ASSUME_NONNULL_END

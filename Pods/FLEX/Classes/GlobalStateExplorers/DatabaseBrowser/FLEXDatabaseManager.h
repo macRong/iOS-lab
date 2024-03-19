@@ -29,7 +29,6 @@
 
 @optional
 
-- (NSArray<NSString *> *)queryRowIDsInTable:(NSString *)tableName;
 - (FLEXSQLResult *)executeStatement:(NSString *)SQLStatement;
 
 @end

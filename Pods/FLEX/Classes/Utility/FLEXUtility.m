@@ -63,6 +63,7 @@ BOOL FLEXConstructorsShouldRun() {
     return nil;
 }
 
+#if FLEX_AT_LEAST_IOS13_SDK
 + (UIWindowScene *)activeScene {
     for (UIScene *scene in UIApplication.sharedApplication.connectedScenes) {
         // Look for an active UIWindowScene
@@ -74,6 +75,7 @@ BOOL FLEXConstructorsShouldRun() {
     
     return nil;
 }
+#endif
 
 + (UIViewController *)topViewControllerInWindow:(UIWindow *)window {
     UIViewController *topViewController = window.rootViewController;
@@ -178,6 +180,8 @@ BOOL FLEXConstructorsShouldRun() {
     dispatch_once(&onceToken, ^{
         UIImage *indentationPatternImage = FLEXResources.hierarchyIndentPattern;
         patternColor = [UIColor colorWithPatternImage:indentationPatternImage];
+
+#if FLEX_AT_LEAST_IOS13_SDK
         if (@available(iOS 13.0, *)) {
             // Create a dark mode version
             UIGraphicsBeginImageContextWithOptions(
@@ -197,6 +201,7 @@ BOOL FLEXConstructorsShouldRun() {
                         : [UIColor colorWithPatternImage:darkModePatternImage]);
             }];
         }
+#endif
     });
 
     return patternColor;

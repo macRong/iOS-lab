@@ -15,6 +15,14 @@
 
 @implementation FLEXProtocol
 
+- (id)init {
+    [NSException
+        raise:NSInternalInconsistencyException
+        format:@"Class instance should not be created with -init"
+    ];
+    return nil;
+}
+
 #pragma mark Initializers
 
 + (NSArray *)allProtocols {
@@ -151,9 +159,6 @@
         _properties = [NSArray flex_forEachUpTo:prcount map:^id(NSUInteger i) {
             return [FLEXProperty property:objcproperties[i]];
         }];
-        
-        _requiredProperties = @[];
-        _optionalProperties = @[];
         
         free(objcproperties);
     }

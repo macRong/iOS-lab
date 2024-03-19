@@ -15,7 +15,6 @@ NSString * const kFLEXKeychainAccountKey = @"acct";
 NSString * const kFLEXKeychainCreatedAtKey = @"cdat";
 NSString * const kFLEXKeychainClassKey = @"labl";
 NSString * const kFLEXKeychainDescriptionKey = @"desc";
-NSString * const kFLEXKeychainGroupKey = @"agrp";
 NSString * const kFLEXKeychainLabelKey = @"labl";
 NSString * const kFLEXKeychainLastModifiedKey = @"mdat";
 NSString * const kFLEXKeychainWhereKey = @"svce";

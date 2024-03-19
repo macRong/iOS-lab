@@ -34,15 +34,6 @@
 #define FLEXRuntimeUtilityTryAddObjectProperty(iOS_atLeast, name, cls, type, ...) \
     FLEXRuntimeUtilityTryAddProperty(iOS_atLeast, name, cls, FLEXEncodeClass(type), PropertyKey(NonAtomic), __VA_ARGS__);
 
-extern NSString * const FLEXRuntimeUtilityErrorDomain;
-
-typedef NS_ENUM(NSInteger, FLEXRuntimeUtilityErrorCode) {
-    // Start at a random value instead of 0 to avoid confusion with an absent code
-    FLEXRuntimeUtilityErrorCodeDoesNotRecognizeSelector = 0xbabe,
-    FLEXRuntimeUtilityErrorCodeInvocationFailed,
-    FLEXRuntimeUtilityErrorCodeArgumentTypeMismatch
-};
-
 @interface FLEXRuntimeUtility : NSObject
 
 // General Helpers
@@ -62,7 +53,6 @@ typedef NS_ENUM(NSInteger, FLEXRuntimeUtilityErrorCode) {
 
 /// Used to describe an object in brief within an explorer row
 + (NSString *)summaryForObject:(id)value;
-+ (NSString *)safeClassNameForObject:(id)object;
 + (NSString *)safeDescriptionForObject:(id)object;
 + (NSString *)safeDebugDescriptionForObject:(id)object;
 
@@ -84,12 +74,6 @@ typedef NS_ENUM(NSInteger, FLEXRuntimeUtilityErrorCode) {
              onObject:(id)object
         withArguments:(NSArray *)arguments
                 error:(NSError * __autoreleasing *)error;
-+ (id)performSelector:(SEL)selector
-             onObject:(id)object
-        withArguments:(NSArray *)arguments
-      allowForwarding:(BOOL)mightForwardMsgSend
-                error:(NSError * __autoreleasing *)error;
-
 + (NSString *)editableJSONStringForObject:(id)object;
 + (id)objectValueFromEditableJSONString:(NSString *)string;
 + (NSValue *)valueForNumberWithObjCType:(const char *)typeEncoding fromInputString:(NSString *)inputString;

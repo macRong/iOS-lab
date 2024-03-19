@@ -34,9 +34,6 @@ extern NSString *const kFLEXKeychainClassKey;
 /// Item description.
 extern NSString *const kFLEXKeychainDescriptionKey;
 
-/// Item group.
-extern NSString *const kFLEXKeychainGroupKey;
-
 /// Item label.
 extern NSString *const kFLEXKeychainLabelKey;
 

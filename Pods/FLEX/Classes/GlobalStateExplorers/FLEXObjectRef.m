@@ -10,70 +10,44 @@
 #import "FLEXRuntimeUtility.h"
 #import "NSArray+FLEX.h"
 
-@interface FLEXObjectRef () {
-    /// Used to retain the object if desired
-    id _retainer;
-}
+@interface FLEXObjectRef ()
 @property (nonatomic, readonly) BOOL wantsSummary;
 @end
 
 @implementation FLEXObjectRef
 @synthesize summary = _summary;
 
-+ (instancetype)unretained:(__unsafe_unretained id)object {
-    return [self referencing:object showSummary:YES retained:NO];
++ (instancetype)referencing:(id)object {
+    return [self referencing:object showSummary:YES];
 }
 
-+ (instancetype)unretained:(__unsafe_unretained id)object ivar:(NSString *)ivarName {
-    return [[self alloc] initWithObject:object ivarName:ivarName showSummary:YES retained:NO];
++ (instancetype)referencing:(id)object showSummary:(BOOL)showSummary {
+    return [[self alloc] initWithObject:object ivarName:nil showSummary:showSummary];
 }
 
-+ (instancetype)retained:(id)object {
-    return [self referencing:object showSummary:YES retained:YES];
++ (instancetype)referencing:(id)object ivar:(NSString *)ivarName {
+    return [[self alloc] initWithObject:object ivarName:ivarName showSummary:YES];
 }
 
-+ (instancetype)retained:(id)object ivar:(NSString *)ivarName {
-    return [[self alloc] initWithObject:object ivarName:ivarName showSummary:YES retained:YES];
-}
-
-+ (instancetype)referencing:(__unsafe_unretained id)object retained:(BOOL)retain {
-    return retain ? [self retained:object] : [self unretained:object];
-}
-
-+ (instancetype)referencing:(__unsafe_unretained id)object ivar:(NSString *)ivarName retained:(BOOL)retain {
-    return retain ? [self retained:object ivar:ivarName] : [self unretained:object ivar:ivarName];
-}
-
-+ (instancetype)referencing:(__unsafe_unretained id)object showSummary:(BOOL)showSummary retained:(BOOL)retain {
-    return [[self alloc] initWithObject:object ivarName:nil showSummary:showSummary retained:retain];
-}
-
-+ (NSArray<FLEXObjectRef *> *)referencingAll:(NSArray *)objects retained:(BOOL)retain {
++ (NSArray<FLEXObjectRef *> *)referencingAll:(NSArray *)objects {
     return [objects flex_mapped:^id(id obj, NSUInteger idx) {
-        return [self referencing:obj showSummary:YES retained:retain];
+        return [self referencing:obj showSummary:YES];
     }];
 }
 
 + (NSArray<FLEXObjectRef *> *)referencingClasses:(NSArray<Class> *)classes {
     return [classes flex_mapped:^id(id obj, NSUInteger idx) {
-        return [self referencing:obj showSummary:NO retained:NO];
+        return [self referencing:obj showSummary:NO];
     }];
 }
 
-- (id)initWithObject:(__unsafe_unretained id)object
-            ivarName:(NSString *)ivar
-         showSummary:(BOOL)showSummary
-            retained:(BOOL)retain {
+- (id)initWithObject:(id)object ivarName:(NSString *)ivar showSummary:(BOOL)showSummary {
     self = [super init];
     if (self) {
         _object = object;
         _wantsSummary = showSummary;
-        
-        if (retain) {
-            _retainer = object;
-        }
 
-        NSString *class = [FLEXRuntimeUtility safeClassNameForObject:object];
+        NSString *class = NSStringFromClass(object_getClass(object));
         if (ivar) {
             _reference = [NSString stringWithFormat:@"%@ %@", class, ivar];
         } else if (showSummary) {
@@ -97,16 +71,6 @@
     else {
         return nil;
     }
-}
-
-- (void)retainObject {
-    if (!_retainer) {
-        _retainer = _object;
-    }
-}
-
-- (void)releaseObject {
-    _retainer = nil;
 }
 
 @end
